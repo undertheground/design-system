@@ -4,7 +4,7 @@ jobs:
     build:
       name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
       runs-on: ${{ matrix.os }}
-      defaults:
+      default:
         run:
           working-directory: packages/react
       strategy:
@@ -14,15 +14,15 @@ jobs:
 
       steps:
         - name: Checkout repo
-        - uses: actions/checkout@v2
+          uses: actions/checkout@v2
 
         - name: Use Node ${{ matrix.node }}
-        - uses: actions/setup-node@v1
+          uses: actions/setup-node@v1
           with:
             node-version: ${{ matrix.node }}
 
         - name: Install deps and build (with cache)
-        - uses: bahmutov/npm-install@v1
+          uses: bahmutov/npm-install@v1
 
         - name: Lint
           run: yarn lint
