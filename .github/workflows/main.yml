@@ -22,10 +22,10 @@ jobs:
           uses: bahmutov/npm-install@v1
 
         - name: Lint
-          run: cd react && yarn lint
+          run: cd packages/react && yarn lint
 
         - name: Test
-          run: cd react &&yarn test --ci --coverage --maxWorkers=2
+          run: cd packages/react &&yarn test --ci --coverage --maxWorkers=2
 
         - name: Build
-          run: cd react && yarn build
+          run: cd packages/react && yarn build

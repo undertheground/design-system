@@ -1,7 +1,6 @@
 name: size
-run: 
-  when: "change_in('/react/')"
-  jobs:
+on: push
+jobs:
     size:
       runs-on: ubuntu-latest
       env:
