@@ -4,6 +4,8 @@ jobs:
     build:
       name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
       runs-on: ${{ matrix.os }}
+      run:
+        working-directory: packages/react
       strategy:
         matrix:
           node: ['10.x', '12.x', '14.x']
@@ -22,10 +24,10 @@ jobs:
           uses: bahmutov/npm-install@v1
 
         - name: Lint
-          run: cd packages/react && yarn lint
+          run: yarn lint
 
         - name: Test
-          run: cd packages/react &&yarn test --ci --coverage --maxWorkers=2
+          run: yarn test --ci --coverage --maxWorkers=2
 
         - name: Build
-          run: cd packages/react && yarn build
+          run: yarn build
