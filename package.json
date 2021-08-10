@@ -1,0 +1,7 @@
+{
+  "name": "underground",
+  "private": false,
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
