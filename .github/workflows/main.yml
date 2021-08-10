@@ -1,5 +1,5 @@
 on: push
-name: react-storybook
+name: react - storybook
 jobs:
     build:
       name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
