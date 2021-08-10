@@ -22,7 +22,7 @@ jobs:
             node-version: ${{ matrix.node }}
 
         - name: Install deps and build (with cache)
-          run: npm-install
+          run: npm install
 
         - name: Lint
           run: yarn lint
