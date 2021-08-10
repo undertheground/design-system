@@ -25,13 +25,10 @@ jobs:
         - uses: bahmutov/npm-install@v1
 
         - name: Lint
-          working-directory: packages/react
           run: yarn lint
 
         - name: Test
-          working-directory: packages/react
           run: yarn test --ci --coverage --maxWorkers=2
 
         - name: Build
-          working-directory: packages/react
           run: yarn build
