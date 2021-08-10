@@ -14,21 +14,27 @@ jobs:
 
       steps:
         - name: Checkout repo
+          working-directory: packages/react
           uses: actions/checkout@v2
 
         - name: Use Node ${{ matrix.node }}
+          working-directory: packages/react
           uses: actions/setup-node@v1
           with:
             node-version: ${{ matrix.node }}
 
         - name: Install deps and build (with cache)
+          working-directory: packages/react
           uses: bahmutov/npm-install@v1
 
         - name: Lint
+          working-directory: packages/react
           run: yarn lint
 
         - name: Test
+          working-directory: packages/react
           run: yarn test --ci --coverage --maxWorkers=2
 
         - name: Build
+          working-directory: packages/react
           run: yarn build
