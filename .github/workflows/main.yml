@@ -15,17 +15,14 @@ jobs:
       steps:
         - name: Checkout repo
         - uses: actions/checkout@v2
-          working-directory: packages/react
 
         - name: Use Node ${{ matrix.node }}
-        - uses: actions/setup-node@v1
           working-directory: packages/react
           with:
             node-version: ${{ matrix.node }}
 
         - name: Install deps and build (with cache)
         - uses: bahmutov/npm-install@v1
-          working-directory: packages/react
 
         - name: Lint
           working-directory: packages/react
