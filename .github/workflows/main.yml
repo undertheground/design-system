@@ -17,7 +17,6 @@ jobs:
         - uses: actions/checkout@v2
 
         - name: Use Node ${{ matrix.node }}
-          working-directory: packages/react
           with:
             node-version: ${{ matrix.node }}
 
