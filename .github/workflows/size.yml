@@ -1,10 +1,7 @@
 name: size
 run: 
   when: "change_in('/react/')"
-task:  
   jobs:
-    - commands: 
-      - cd react
     size:
       runs-on: ubuntu-latest
       env:
