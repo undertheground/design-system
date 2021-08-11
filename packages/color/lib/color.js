@@ -1,7 +1,11 @@
-'use strict';
+export const black = "#000000";
+export const pink = "#d1036f";
+export const white = "#ffffff";
+export const blue = "#007aff";
 
-module.exports = color;
-
-function color() {
-    // TODO
+export const colors = {
+    blue,
+    white,
+    black,
+    pink
 }
