@@ -3,7 +3,7 @@
   "version": "0.1.2",
   "description": "> TODO: description",
   "author": "Amirhosein Shirani <amirhhh.shirani@yahoo.com>",
-  "homepage": "https://github.com/wish-team/underground#readme",
+  "homepage": "https://github.com/undertheground/design-system/vue#readme",
   "license": "ISC",
   "main": "lib/vue.js",
   "directories": {
@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wish-team/underground.git"
+    "url": "git+https://github.com/undertheground/design-system.git"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
@@ -23,5 +23,5 @@
   "bugs": {
     "url": "https://github.com/wish-team/underground/issues"
   },
-  "gitHead": "d478b34fd2b71bfa27c2fc83c2becd736a2e2738"
+  "gitHead": "829d141cf6baf8deeee14f0aadaadc34872340e6"
 }
