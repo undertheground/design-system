@@ -1,10 +1,7 @@
-import React, { FC, HTMLAttributes, ReactChild } from 'react';
+import React from 'react';
 import styled from 'styled-components'
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {
-  /** custom content, defaults to 'the snozzberries taste like snozzberries' */
-  children?: ReactChild;
-}
+
 const Button = styled.button`
   /* Adapt the colors based on primary prop */
   background: "white";
@@ -21,6 +18,6 @@ const Button = styled.button`
 /**
  * A custom Thing component. Neat!
  */
-export const Thing: FC<Props> = ({ children }) => {
-  return <div><Button></Button></div>;
+export const Thing = () => {
+  return <div><Button>Hello</Button></div>;
 };
