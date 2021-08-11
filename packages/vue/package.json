@@ -1,5 +1,5 @@
 {
-  "name": "@underground/vue",
+  "name": "@undertheground/vue",
   "version": "0.1.0",
   "description": "> TODO: description",
   "author": "Amirhosein Shirani <amirhhh.shirani@yahoo.com>",
@@ -22,5 +22,6 @@
   },
   "bugs": {
     "url": "https://github.com/wish-team/underground/issues"
-  }
+  },
+  "gitHead": "d478b34fd2b71bfa27c2fc83c2becd736a2e2738"
 }
