@@ -1,0 +1,26 @@
+{
+  "name": "@undertheground/color",
+  "version": "0.1.6",
+  "description": "> TODO: description",
+  "author": "Amirhosein Shirani <amirhhh.shirani@yahoo.com>",
+  "homepage": "https://github.com/undertheground/design-system#readme",
+  "license": "ISC",
+  "main": "lib/color.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/undertheground/design-system.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/undertheground/design-system/issues"
+  }
+}
