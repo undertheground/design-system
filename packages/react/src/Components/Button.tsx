@@ -71,8 +71,9 @@ padding: ${(props) =>
 
 
 ${(props) => {
-  switch (props.kind) {
+  if (props.disabled) return ``
 
+  switch (props.kind) {
     case KIND.SECONDARY:
     
       return(`
@@ -100,11 +101,11 @@ ${(props) => {
         
         &:hover{
           background:${COLOR.$GRAY15};
-          border:0.1rem solid ${COLOR.$GRAY15} 
+          border:0.1rem solid ${COLOR.$GRAY15};
         }
-        &:active:{
+        &:active{
           
-          border:0.1rem solid ${COLOR.$SEXY_PINK} 
+          border:0.1rem solid ${COLOR.$SEXY_PINK};
         }`)
 
     default: // props.kind === KIND.PRIMARY (default kind)
@@ -116,11 +117,11 @@ ${(props) => {
         
         &:hover{
           background: ${COLOR.$MAROON};
-          border:0.1rem solid ${COLOR.$MAROON} 
+          border:0.1rem solid ${COLOR.$MAROON};
         }
         &:active:{
           background: ${COLOR.$JAZZ_BERRY};
-          border:0.1rem solid ${COLOR.$JAZZ_BERRY} 
+          border:0.1rem solid ${COLOR.$JAZZ_BERRY};
         }`)
     
       }   
@@ -130,15 +131,14 @@ ${(props) => {
 
 
 ${(props) =>{ 
-  if (!props.disabled) {
-    return ``
-  }
+  if (!props.disabled) return ``
+
   const commonStyleForDisabled = (`
         color:${COLOR.$GRAY20};
         cursor: not-allowed !important;
         &:hover{
-          transform: none !important;
-        }
+          transform: none;
+        };
         `)
   switch (props.kind) {
     
@@ -152,6 +152,7 @@ ${(props) =>{
     case KIND.GHOST:
       return ( commonStyleForDisabled + `
         border:0;
+        background:${COLOR.$WHITE}
       `
       )
     default:
@@ -159,8 +160,6 @@ ${(props) =>{
         background:${COLOR.$GRAY15};
         border:0.1rem solid ${COLOR.$GRAY20};  
       `)
-
-      
   }
   
 }
