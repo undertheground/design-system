@@ -1,5 +1,5 @@
 {
-  "version": "0.1.7",
+  "version": "0.1.8",
   "license": "MIT",
   "private": false,
   "main": "dist/index.js",
@@ -76,7 +76,7 @@
   },
   "gitHead": "133d8a2c8d7eb5152f7fa97b26ad744f679b7651",
   "dependencies": {
-    "@undertheground/color": "^0.1.7",
+    "@undertheground/color": "^0.1.8",
     "styled-components": "^5.3.0"
   }
 }
