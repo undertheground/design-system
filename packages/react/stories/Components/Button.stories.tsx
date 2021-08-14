@@ -30,8 +30,14 @@ const Template: Story <Props> = args => <Button {...args} />;
 export const primary = Template.bind({});
 primary.args = {
     kind: 'primary',
-    size: 'small',
-    children: 'salam'
+    size: 'large',
+    children: 'Button'
 } as ButtonProps;
 
+export const secondary = Template.bind({});
+primary.args = {
+    kind: 'secondary',
+    size: 'large',
+    children: 'Button'
+} as ButtonProps;
 
