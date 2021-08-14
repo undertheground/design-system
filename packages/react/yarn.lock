@@ -2964,10 +2964,10 @@
     "semver" "^7.3.2"
     "tsutils" "^3.17.1"
 
-"@undertheground/color@^0.1.7":
-  "integrity" "sha512-J7g/0qQT0iy1EBevPSPQfwPaIVdAw5/UEWkUGeKvA8osELamz+8wxn1cfVaELoZ2rKuXdbu7/FZoq3rDMRNxkA=="
-  "resolved" "https://registry.npmjs.org/@undertheground/color/-/color-0.1.7.tgz"
-  "version" "0.1.7"
+"@undertheground/color@^0.1.8":
+  "integrity" "sha512-63h/Tna4y6fwmSux95tZEuJc45LPFnll5ngRkWvCl9c8iHwvwgo0et50ebAdlT1MFR5akqFrhULARqPsIdi8Pg=="
+  "resolved" "https://registry.npmjs.org/@undertheground/color/-/color-0.1.8.tgz"
+  "version" "0.1.8"
 
 "@webassemblyjs/ast@1.9.0":
   "integrity" "sha512-C6wW5L+b7ogSDVqymbkkvuW9kruN//YisMED04xzeBBqjHa2FYnmvOlS6Xj68xWQRgWvI9cIglsjFowH/RJyEA=="

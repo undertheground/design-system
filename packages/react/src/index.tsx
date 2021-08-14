@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+// @ts-ignore
 import * as color from '@undertheground/color';
 
 const Button = styled.button`

@@ -1,6 +1,6 @@
 'use strict';
 
-const color = require('..');
+import color from '../lib/color';
 
 describe('color', () => {
     it('needs tests');
