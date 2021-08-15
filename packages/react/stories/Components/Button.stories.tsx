@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button, ButtonProps, ButtonPropsWithoutChildren } from '../../src/Components/Button';
-import { Story } from '@storybook/react'
-import {MouseEvent, PropsWithChildren} from 'react'
-
+import { Story } from '@storybook/react';
+import {MouseEvent, PropsWithChildren} from 'react';
+import Vector from '../public/Vector.svg';
 
 
 // type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
@@ -77,5 +77,56 @@ Ghost_Disabled.args = {
     className:'abas'
 } as ButtonProps;
 
+export const Primary_Loading = Template.bind({});
+Primary_Loading.args = {
+    kind: 'primary',
+    size: 'medium',
+    children: 'Button',
+    isLoading: true,
+} as ButtonProps;
 
-<Button kind={'primary'} children={'abas'} disabled={true} className={'abas'} style={{backgroundColor: 'black'}} /> 
+export const Secondary_Loading = Template.bind({});
+Secondary_Loading.args = {
+    isLoading: true,
+    kind: 'secondary',
+    size: 'medium',
+    children: 'Button',
+    
+} as ButtonProps;
+
+
+export const Ghost_Loading = Template.bind({});
+Ghost_Loading.args = {
+    kind: 'ghost',
+    size: 'medium',
+    children: 'Button',
+    isLoading: true,
+} as ButtonProps;
+
+export const Primary_With_Icon = Template.bind({});
+Primary_With_Icon.args = {
+    kind: 'primary',
+    size: 'medium',
+    children: 'Button',
+    iconMode: 'with-icon',
+    iconSrc: Vector
+} as ButtonProps;
+
+export const Secondary_With_Icon = Template.bind({});
+Secondary_With_Icon.args = {
+    kind: 'secondary',
+    size: 'medium',
+    children: 'Button',
+    iconMode: 'with-icon',
+    iconSrc: Vector
+} as ButtonProps;
+
+export const Ghost_With_Icon = Template.bind({});
+Ghost_With_Icon.args = {
+    kind: 'ghost',
+    size: 'medium',
+    children: 'Button',
+    iconMode: 'with-icon',
+    iconSrc: Vector
+} as ButtonProps;
+

@@ -2,6 +2,20 @@ import React from 'react'
 import {MouseEvent, PropsWithChildren} from 'react'
 import styled from 'styled-components';
 
+
+
+export interface ButtonPropsWithoutChildren {
+  kind?: 'primary' | 'secondary' | 'ghost',
+  size?: 'small' | 'medium' | 'large',
+  iconMode?: 'without-icon' | 'with-icon' | 'icon-only',
+  iconSrc?: string,
+  disabled?: boolean, // ???
+  isLoading?: boolean, // ???
+  className?: string, // ???
+  style?: object, // ???
+  onClick?: OnClickAdapter<HTMLButtonElement> // ???
+}
+
 const COLOR ={
   $WHITE:'#fff',
   $SEXY_PINK: '#d1036f',
@@ -28,22 +42,13 @@ const KIND = {
   GHOST: 'ghost',
 }
 
-const ICON = {
+const ICON_MODE = {
   WITHOUT_ICON: 'without-icon',
   WITH_ICON: 'with-icon',
   ICON_ONLY: 'icon-only',
 }
 
 
-export interface ButtonPropsWithoutChildren {
-  kind?: 'primary' | 'secondary' | 'ghost',
-  size?: 'small' | 'medium' | 'large',
-  icon?: 'without-icon' | 'with-icon' | 'icon-only',
-  disabled?: boolean, // ???
-  className?: string // ???
-  style?: object // ???
-  onClick?: OnClickAdapter<HTMLButtonElement> // ???
-}
 
 type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
 
@@ -64,11 +69,42 @@ padding: ${(props) =>
     :
     props.size === SIZES.SMALL
     ?
-    '0.8rem 2.2rem'
+    '0.6rem 1.8rem'
     :
-    '1.1rem 2.1rem' // SIZES.MEDIUM (Default value for undefind size)
+    '0.8rem 3.2rem' // SIZES.MEDIUM (Default value for undefind size)
 )};
 
+
+${(props) => {
+  if (!props.isLoading) return ``
+  
+  return(
+    `
+    background-color: ${COLOR.$GRAY15} !important;
+    border:0 !important;
+    cursor: progress !important;
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  
+    .loading{
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      border: .18rem solid #303030;
+      border-top-color: #FAFAFA;
+      animation: spin 1s infinite linear;
+    }
+    
+    `
+    )
+  }
+}
 
 ${(props) => {
   if (props.disabled) return ``
@@ -129,13 +165,11 @@ ${(props) => {
   }
 
 
-
 ${(props) =>{ 
-  if (!props.disabled) return ``
-
+  if (!props.disabled ) return ``
   const commonStyleForDisabled = (`
         color:${COLOR.$GRAY20};
-        cursor: not-allowed !important;
+        cursor: not-allowed;
         &:hover{
           transform: none;
         };
@@ -146,9 +180,7 @@ ${(props) =>{
       return(commonStyleForDisabled + 
         `
         border:0.1rem solid ${COLOR.$GRAY20};
-
         `)
-
     case KIND.GHOST:
       return ( commonStyleForDisabled + `
         border:0;
@@ -161,9 +193,43 @@ ${(props) =>{
         border:0.1rem solid ${COLOR.$GRAY20};  
       `)
   }
+}
+}
+
+${(props) => {
+  if ( (props.iconMode === 'without-icon') || (!props.iconMode) ) return ''
+  if (props.iconMode === 'with-icon') {
+    return(
+    `
+    .with-icon{
+      display:inline-flex;
+      padding:0 auto;
+      vertical-align: middle;
+    }
+    .with-icon-${KIND.PRIMARY} {
+      padding-right:8px;
+      background:${COLOR.$WHITE};
+     
+    }
   
-}
-}
+    .with-icon-${KIND.SECONDARY}{
+      filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+
+      path{
+        fill:${COLOR.$WISH_BLUE};
+      }
+    }
+
+    .with-icon-${KIND.GHOST}{
+        background:${COLOR.$SEXY_PINK};
+    }
+    }
+
+    `
+    )
+  }
+
+}}
 
 `;
 
@@ -177,14 +243,37 @@ export const Button = (props: ButtonProps) => {
         className={props.className}
         onClick={props.onClick}
         disabled={props.disabled}
+        isLoading={props.isLoading}
           {...props}
         >
-          {props.children}
+          <>
+          {props.isLoading 
+          ? 
+          <div className={'loading'}></div> 
+          :
+          (props.iconMode === 'icon-only') 
+          ?
+          <img className={'icon-only'} src={props.iconSrc} /> 
+          :
+          (props.iconMode === 'with-icon') 
+          ?
+          <div className={'with-icon'}>
+          <img className={`with-icon-${props.kind}`} src={props.iconSrc} /> 
+          <div>{props.children}</div> 
+          </div>
+          :
+          props.children
+} 
+          
+          
+          </>
         </StyledButton>
       );
 }
 
 
-
-
-
+// Button.defaultProps = {
+//   loadingText: null,
+//   isDisabled: false,
+//   ...buttonStyleDefaultProps,
+// };

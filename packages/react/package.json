@@ -78,5 +78,9 @@
   "dependencies": {
     "@undertheground/color": "^0.1.7",
     "styled-components": "^5.3.0"
-  }
+  },
+  
+  "types": "cutome.d.ts"
+
 }
+
