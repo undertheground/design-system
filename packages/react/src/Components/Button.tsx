@@ -2,6 +2,7 @@ import React from 'react'
 import {MouseEvent, PropsWithChildren, ButtonHTMLAttributes} from 'react'
 import styled from 'styled-components';
 // import {useThemeContext} from './theme';
+import colors from '@undertheground/color';
 
 declare type IconMode = {
   iconMode?: 'without-icon'
@@ -84,7 +85,7 @@ ${(props) => {
   
   return(
     `
-    background-color: ${COLOR.$GRAY15} !important;
+    background-color: ${colors.pink[1]} !important;
     border:0 !important;
     cursor: progress !important;
     @keyframes spin {

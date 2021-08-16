@@ -6,4 +6,8 @@ UNDER THE GROUND DESIGN SYSTEM
 >these materials enable a reliable development workflow to build beautiful and functional web projects.
 
 ## Getting Started
-
+For installing the design system, type the below command:
+```
+npm install @underthecround/react
+```
+## Contributors

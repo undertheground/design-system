@@ -2969,10 +2969,13 @@
     "semver" "^7.3.2"
     "tsutils" "^3.17.1"
 
-"@undertheground/color@^0.1.7":
-  "integrity" "sha512-J7g/0qQT0iy1EBevPSPQfwPaIVdAw5/UEWkUGeKvA8osELamz+8wxn1cfVaELoZ2rKuXdbu7/FZoq3rDMRNxkA=="
-  "resolved" "https://registry.npmjs.org/@undertheground/color/-/color-0.1.7.tgz"
-  "version" "0.1.7"
+"@undertheground/color@^0.1.14":
+  "integrity" "sha512-7rryhK+phJoD0hPmWFilfBa72MInNPMiPFQTVXKRGM+a+fVANWvcvQh4gxTM68nbn7MlZtHYPLBBFTuTR5JXww=="
+  "resolved" "https://registry.npmjs.org/@undertheground/color/-/color-0.1.14.tgz"
+  "version" "0.1.14"
+  dependencies:
+    "tslib" "^2.3.1"
+    "typescript" "^4.3.5"
 
 "@webassemblyjs/ast@1.9.0":
   "integrity" "sha512-C6wW5L+b7ogSDVqymbkkvuW9kruN//YisMED04xzeBBqjHa2FYnmvOlS6Xj68xWQRgWvI9cIglsjFowH/RJyEA=="
@@ -13162,10 +13165,10 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.0.0", "tslib@^2.0.1", "tslib@^2.0.3", "tslib@^2.3.0":
-  "integrity" "sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg=="
-  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.0.tgz"
-  "version" "2.3.0"
+"tslib@^2.0.0", "tslib@^2.0.1", "tslib@^2.0.3", "tslib@^2.3.0", "tslib@^2.3.1":
+  "integrity" "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
+  "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
+  "version" "2.3.1"
 
 "tslib@2.0.1":
   "integrity" "sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ=="

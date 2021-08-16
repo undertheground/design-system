@@ -4,7 +4,6 @@ import { Story } from '@storybook/react';
 import {MouseEvent, PropsWithChildren} from 'react';
 import Vector from '../public/Vector.svg';
 
-
 // type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
 
 export default {

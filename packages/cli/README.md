@@ -1,11 +1,1 @@
-# `cli`
-
-> TODO: description
-
-## Usage
-
-```
-const cli = require('cli');
-
-// TODO: DEMONSTRATE API
-```
+# CLI for Using Under The Ground 
