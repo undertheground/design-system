@@ -1,5 +1,5 @@
 import React from 'react'
-import {MouseEvent, PropsWithChildren, ButtonHTMLAttributes} from 'react'
+import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components';
 // import {useThemeContext} from './theme';
 import colors from '@undertheground/color';
@@ -14,10 +14,10 @@ declare type IconMode = {
 export type ButtonPropsWithoutChildren =  {
   kind?: 'primary' | 'secondary' | 'ghost',
   size?: 'small' | 'medium' | 'large',
-  disabled?: boolean, // ???
+  disabled?: boolean, 
   isLoading?: boolean, 
-  className?: string, // ???
-  style?: object, // ???
+  className?: string, 
+  style?: object, 
   onClick?: OnClickAdapter<HTMLButtonElement>,
 } & IconMode;
 
@@ -47,11 +47,11 @@ const KIND = {
   GHOST: 'ghost',
 }
 
-const ICON_MODE = {
-  WITHOUT_ICON: 'without-icon',
-  WITH_ICON: 'with-icon',
-  ICON_ONLY: 'icon-only',
-}
+// const ICON_MODE = {
+//   WITHOUT_ICON: 'without-icon',
+//   WITH_ICON: 'with-icon',
+//   ICON_ONLY: 'icon-only',
+// }
 
 
 
@@ -120,7 +120,7 @@ ${(props) => {
       return(`
         color: ${COLOR.$WISH_BLUE};
         border:0.1rem solid ${COLOR.$WISH_BLUE};
-        background-color:${COLOR.$WHITE};
+        background-color:transparent;
         
         &:hover{
           background:${COLOR.$SAPPHIRE};
@@ -137,7 +137,7 @@ ${(props) => {
     
       return (`
         color: ${COLOR.$SEXY_PINK};
-        background-color:${COLOR.$WHITE};
+        background-color:transparent;
         border:0.1rem solid ${COLOR.$WHITE} ;
         
         &:hover{
@@ -218,21 +218,22 @@ ${(props) => {
   
     .with-icon-${KIND.SECONDARY}{
 
-      color: red;
       padding-right:8px;
     }
 
     .with-icon-${KIND.GHOST}{
       padding-right:8px;
       
-      filter: invert(16%) sepia(98%) saturate(4959%) hue-rotate(319deg) brightness(81%) contrast(104%);
     }
     }
 
     `
     )
   }
-
+  if (props.iconMode === 'icon-only') {
+    return(``
+    )}
+  return ``
 }}
 
 `;
