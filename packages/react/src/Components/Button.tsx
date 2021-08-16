@@ -216,10 +216,9 @@ ${(props) => {
     }
   
     .with-icon-${KIND.SECONDARY}{
-      color:red;
-      fill:red;
+
+      color: red;
       padding-right:8px;
-      
     }
 
     .with-icon-${KIND.GHOST}{
