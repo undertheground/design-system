@@ -118,7 +118,7 @@ Secondary_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    iconSrc: Vector
+    iconSrc: Vector,
 } as ButtonProps;
 
 export const Ghost_With_Icon = Template.bind({});

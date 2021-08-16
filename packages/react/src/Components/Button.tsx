@@ -1,20 +1,25 @@
 import React from 'react'
-import {MouseEvent, PropsWithChildren} from 'react'
+import {MouseEvent, PropsWithChildren, ButtonHTMLAttributes} from 'react'
 import styled from 'styled-components';
+// import {useThemeContext} from './theme';
 
+declare type IconMode = {
+  iconMode?: 'without-icon'
+} | {
+  iconMode: 'with-icon' | 'icon-only',
+  iconSrc: string,
+}
 
-
-export interface ButtonPropsWithoutChildren {
+export type ButtonPropsWithoutChildren =  {
   kind?: 'primary' | 'secondary' | 'ghost',
   size?: 'small' | 'medium' | 'large',
-  iconMode?: 'without-icon' | 'with-icon' | 'icon-only',
-  iconSrc?: string,
   disabled?: boolean, // ???
-  isLoading?: boolean, // ???
+  isLoading?: boolean, 
   className?: string, // ???
   style?: object, // ???
-  onClick?: OnClickAdapter<HTMLButtonElement> // ???
-}
+  onClick?: OnClickAdapter<HTMLButtonElement>,
+} & IconMode;
+
 
 const COLOR ={
   $WHITE:'#fff',
@@ -27,7 +32,6 @@ const COLOR ={
   $GRAY20:'#BFBFBF',
   $SAPPHIRE: '#1A53AE',
   $DARK_CORNFLOWER_BLUE: '#16438B',
-
 }
 
 const SIZES = {
@@ -208,20 +212,20 @@ ${(props) => {
     }
     .with-icon-${KIND.PRIMARY} {
       padding-right:8px;
-      background:${COLOR.$WHITE};
      
     }
   
     .with-icon-${KIND.SECONDARY}{
-      filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
-
-      path{
-        fill:${COLOR.$WISH_BLUE};
-      }
+      color:red;
+      fill:red;
+      padding-right:8px;
+      
     }
 
     .with-icon-${KIND.GHOST}{
-        background:${COLOR.$SEXY_PINK};
+      padding-right:8px;
+      
+      filter: invert(16%) sepia(98%) saturate(4959%) hue-rotate(319deg) brightness(81%) contrast(104%);
     }
     }
 

@@ -69,6 +69,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
+    "react-svg-loader": "^3.0.3",
     "size-limit": "^5.0.2",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.0",
@@ -79,8 +80,5 @@
     "@undertheground/color": "^0.1.7",
     "styled-components": "^5.3.0"
   },
-  
   "types": "cutome.d.ts"
-
 }
-
