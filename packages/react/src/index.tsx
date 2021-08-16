@@ -1,13 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 // @ts-ignore
-import * as color from '@undertheground/color';
+import colors from '@undertheground/color';
 
 const Button = styled.button`
   /* Adapt the colors based on primary prop */
-  background: ${color.black};
-  color: ${color.pink};
-
+  background: ${colors.pink[2]};
+  color: ${colors.pink[1]};
   font-size: 1em;
   margin: 1em;
   padding: 0.25em 1em;

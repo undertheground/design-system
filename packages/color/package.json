@@ -1,6 +1,6 @@
 {
   "name": "@undertheground/color",
-  "version": "0.1.9",
+  "version": "0.1.14",
   "description": "> TODO: description",
   "author": "Amirhosein Shirani <amirhhh.shirani@yahoo.com>",
   "homepage": "https://github.com/undertheground/design-system#readme",
@@ -27,6 +27,7 @@
   },
   "gitHead": "a1cf639da21c3f9fc071b95d1d0de1af96b02c54",
   "dependencies": {
+    "tslib": "^2.3.1",
     "typescript": "^4.3.5"
   }
 }

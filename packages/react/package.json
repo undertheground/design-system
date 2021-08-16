@@ -71,12 +71,11 @@
     "react-is": "^17.0.2",
     "size-limit": "^5.0.2",
     "tsdx": "^0.14.1",
-    "tslib": "^2.3.0",
     "typescript": "^4.3.5"
   },
   "gitHead": "a1cf639da21c3f9fc071b95d1d0de1af96b02c54",
   "dependencies": {
-    "@undertheground/color": "^0.1.9",
+    "@undertheground/color": "^0.1.14",
     "styled-components": "^5.3.0"
   }
 }
