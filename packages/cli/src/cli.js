@@ -1,18 +1,16 @@
 import arg from 'arg'
 import inquirer from 'inquirer'
-import {createProject} from "./main";
+import {createProject} from "./main.js";
+
 
 function parseArgumentIntoOptions(rawArgs) {
     const args = arg(
         {
             '--git': Boolean,
             '--yes': Boolean,
-            '--install': Boolean,
             '--framework': String,
-            '--sb': Boolean,
             '-g': '--git',
-            '-y': '--yes',
-            '-i': '--install'
+            '-y': '--yes'
         },
         {
             argv: rawArgs.slice(2)
@@ -42,7 +40,7 @@ async function promptForMissingOptions(options) {
         questions.push({
             type: 'list',
             name: 'framework',
-            message: 'Please choose your JS framework',
+            message: 'Please choose your javascript framework',
             choices: ['React', 'Vue', 'Imba'],
             default: defaultFrameWork
         })
@@ -59,7 +57,6 @@ async function promptForMissingOptions(options) {
     const answer = await inquirer.prompt(questions);
     return {
         ...options,
-        template: options.template || answer.template,
         git: options.git || answer.git,
         framework: options.framework || answer.framework
     }

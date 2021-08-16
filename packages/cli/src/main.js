@@ -57,10 +57,10 @@ export async function createProject(options) {
     const currentFileUrl = import.meta.url;
     const templateDir = path.resolve(
         new URL(currentFileUrl).pathname,
-        `../../templates/${framework}/`,
+        `../../${framework}/`,
         options.template.toLowerCase()
     );
-    options.templateDirectory = templateDir;
+    options.framework = templateDir;
 
     try {
         await access(templateDir, fs.constants.R_OK);
@@ -71,7 +71,7 @@ export async function createProject(options) {
 
     const tasks = new Listr([
         {
-            title: 'Copy Project Files',
+            title: 'Copy Files',
             task: () => copyTemplateFiles(options),
         },
         {
