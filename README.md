@@ -11,4 +11,3 @@ For installing the design system, type the below command:
 npm install @underthecround/react
 ```
 ## Contributors
-[<img src="https://avatars.githubusercontent.com/u/38019094?v=4" width="100px;"/>
