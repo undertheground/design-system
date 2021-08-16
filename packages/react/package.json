@@ -79,5 +79,5 @@
     "@undertheground/color": "^0.1.14",
     "styled-components": "^5.3.0"
   },
-  "types": "cutome.d.ts"
+  "types": "cutom.d.ts"
 }
