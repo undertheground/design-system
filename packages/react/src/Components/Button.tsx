@@ -119,18 +119,18 @@ ${(props) => {
     
       return(`
         color: ${COLOR.$WISH_BLUE};
-        border:0.1rem solid ${COLOR.$WISH_BLUE};
+        border:0.14rem solid ${COLOR.$WISH_BLUE};
         background-color:transparent;
         
         &:hover{
           background:${COLOR.$SAPPHIRE};
           color: ${COLOR.$WHITE};
-          border:0.1rem solid ${COLOR.$SAPPHIRE};
+          border:0.14rem solid transparent;
         }
         &:active{
           background:${COLOR.$DARK_CORNFLOWER_BLUE};
           color: ${COLOR.$WHITE};
-          border:0.1rem solid ${COLOR.$DARK_CORNFLOWER_BLUE};
+          border:0.14rem solid transparent;
         }`) 
 
     case KIND.GHOST:
@@ -138,31 +138,31 @@ ${(props) => {
       return (`
         color: ${COLOR.$SEXY_PINK};
         background-color:transparent;
-        border:0.1rem solid ${COLOR.$WHITE} ;
+        border:0.14rem solid transparent ;
         
         &:hover{
           background:${COLOR.$GRAY15};
-          border:0.1rem solid ${COLOR.$GRAY15};
+          border:0.14rem solid transparent;
         }
         &:active{
           
-          border:0.1rem solid ${COLOR.$SEXY_PINK};
+          border:0.14rem solid ${COLOR.$SEXY_PINK};
         }`)
 
     default: // props.kind === KIND.PRIMARY (default kind)
 
       return (`
-        border:0.1rem solid ${COLOR.$SEXY_PINK};
+        border:0.14rem solid transparent;
         background-color: ${COLOR.$SEXY_PINK};
         color:${COLOR.$WHITE};
         
         &:hover{
           background: ${COLOR.$MAROON};
-          border:0.1rem solid ${COLOR.$MAROON};
+          border:0.14rem solid transparent;
         }
         &:active:{
           background: ${COLOR.$JAZZ_BERRY};
-          border:0.1rem solid ${COLOR.$JAZZ_BERRY};
+          border:0.14rem solid transparent;
         }`)
     
       }   
@@ -184,7 +184,7 @@ ${(props) =>{
     case KIND.SECONDARY:
       return(commonStyleForDisabled + 
         `
-        border:0.1rem solid ${COLOR.$GRAY20};
+        border:0.14rem solid ${COLOR.$GRAY20};
         `)
     case KIND.GHOST:
       return ( commonStyleForDisabled + `
@@ -195,7 +195,7 @@ ${(props) =>{
     default:
       return(commonStyleForDisabled + `
         background:${COLOR.$GRAY15};
-        border:0.1rem solid ${COLOR.$GRAY20};  
+        border:0.14rem solid ${COLOR.$GRAY20};  
       `)
   }
 }
@@ -212,26 +212,30 @@ ${(props) => {
       vertical-align: middle;
     }
     .with-icon-${KIND.PRIMARY} {
-      padding-right:8px;
-     
+      padding-right:0.4rem;
     }
   
     .with-icon-${KIND.SECONDARY}{
-
-      padding-right:8px;
+      padding-right:0.4rem;
     }
 
     .with-icon-${KIND.GHOST}{
-      padding-right:8px;
+      padding-right:0.4rem;
       
     }
-    }
+    
 
     `
     )
   }
   if (props.iconMode === 'icon-only') {
-    return(``
+    return(`
+    padding:0 !important;
+    icon-only:{
+
+    }
+    
+    `
     )}
   return ``
 }}

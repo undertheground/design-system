@@ -132,3 +132,31 @@ Ghost_With_Icon.args = {
     iconSrc: VectorGhost
 } as ButtonProps;
 
+export const Primary_Icon_Only = Template.bind({});
+Primary_Icon_Only.args = {
+    kind: 'primary',
+    size: 'medium',
+    children: 'Button',
+    iconMode: 'icon-only',
+    iconSrc: VectorPrimary
+} as ButtonProps;
+
+export const Secondary_Icon_Only = Template.bind({});
+Secondary_Icon_Only.args = {
+    kind: 'secondary',
+    size: 'medium',
+    children: 'Button',
+    iconMode: 'icon-only',
+    iconSrc: VectorSecondary
+} as ButtonProps;
+
+export const Ghost_Icon_Only = Template.bind({});
+Ghost_Icon_Only .args = {
+    kind: 'ghost',
+    size: 'medium',
+    children: 'Button',
+    iconMode: 'icon-only',
+    iconSrc: VectorGhost
+} as ButtonProps;
+
+
