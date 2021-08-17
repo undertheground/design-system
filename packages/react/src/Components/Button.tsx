@@ -1,5 +1,5 @@
 import React from 'react'
-import {MouseEvent, PropsWithChildren} from 'react'
+import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components';
 // import {useThemeContext} from './theme';
 import colors from '@undertheground/color';
@@ -14,10 +14,10 @@ declare type IconMode = {
 export type ButtonPropsWithoutChildren =  {
   kind?: 'primary' | 'secondary' | 'ghost',
   size?: 'small' | 'medium' | 'large',
-  disabled?: boolean, // ???
+  disabled?: boolean, 
   isLoading?: boolean, 
-  className?: string, // ???
-  style?: object, // ???
+  className?: string, 
+  style?: object, 
   onClick?: OnClickAdapter<HTMLButtonElement>,
 } & IconMode;
 
@@ -120,7 +120,7 @@ ${(props) => {
       return(`
         color: ${COLOR.$WISH_BLUE};
         border:0.1rem solid ${COLOR.$WISH_BLUE};
-        background-color:${COLOR.$WHITE};
+        background-color:transparent;
         
         &:hover{
           background:${COLOR.$SAPPHIRE};
@@ -137,7 +137,7 @@ ${(props) => {
     
       return (`
         color: ${COLOR.$SEXY_PINK};
-        background-color:${COLOR.$WHITE};
+        background-color:transparent;
         border:0.1rem solid ${COLOR.$WHITE} ;
         
         &:hover{
@@ -200,6 +200,45 @@ ${(props) =>{
   }
 }
 }
+<<<<<<< HEAD
+=======
+
+${(props) => {
+  if ( (props.iconMode === 'without-icon') || (!props.iconMode) ) return ''
+  if (props.iconMode === 'with-icon') {
+    return(
+    `
+    .with-icon{
+      display:inline-flex;
+      padding:0 auto;
+      vertical-align: middle;
+    }
+    .with-icon-${KIND.PRIMARY} {
+      padding-right:8px;
+     
+    }
+  
+    .with-icon-${KIND.SECONDARY}{
+
+      padding-right:8px;
+    }
+
+    .with-icon-${KIND.GHOST}{
+      padding-right:8px;
+      
+    }
+    }
+
+    `
+    )
+  }
+  if (props.iconMode === 'icon-only') {
+    return(``
+    )}
+  return ``
+}}
+
+>>>>>>> 0bb52f6ca8046992e53d60090e86c5545749e93c
 `;
 
 export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;

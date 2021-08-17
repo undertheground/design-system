@@ -1,8 +1,11 @@
 import React from 'react';
 import { Button, ButtonProps, ButtonPropsWithoutChildren } from '../../src/components/Button';
 import { Story } from '@storybook/react';
-import {MouseEvent, PropsWithChildren} from 'react';
-import Vector from '../public/Vector.svg';
+// import {MouseEvent, PropsWithChildren} from 'react';
+import VectorGhost from '../public/VectorGhost.svg';
+import VectorPrimary from '../public/VectorPrimary.svg';
+import VectorSecondary from '../public/VectorSecondary.svg';
+
 
 // type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
 
@@ -108,7 +111,7 @@ Primary_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    iconSrc: Vector
+    iconSrc: VectorPrimary
 } as ButtonProps;
 
 export const Secondary_With_Icon = Template.bind({});
@@ -117,7 +120,7 @@ Secondary_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    iconSrc: Vector,
+    iconSrc: VectorSecondary
 } as ButtonProps;
 
 export const Ghost_With_Icon = Template.bind({});
@@ -126,6 +129,6 @@ Ghost_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    iconSrc: Vector
+    iconSrc: VectorGhost
 } as ButtonProps;
 
