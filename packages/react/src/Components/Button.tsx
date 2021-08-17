@@ -1,5 +1,5 @@
 import React from 'react'
-import {MouseEvent, PropsWithChildren, ButtonHTMLAttributes} from 'react'
+import {MouseEvent, PropsWithChildren} from 'react'
 import styled from 'styled-components';
 // import {useThemeContext} from './theme';
 import colors from '@undertheground/color';
@@ -47,11 +47,11 @@ const KIND = {
   GHOST: 'ghost',
 }
 
-const ICON_MODE = {
-  WITHOUT_ICON: 'without-icon',
-  WITH_ICON: 'with-icon',
-  ICON_ONLY: 'icon-only',
-}
+// const ICON_MODE = {
+//   WITHOUT_ICON: 'without-icon',
+//   WITH_ICON: 'with-icon',
+//   ICON_ONLY: 'icon-only',
+// }
 
 
 
@@ -200,42 +200,6 @@ ${(props) =>{
   }
 }
 }
-
-${(props) => {
-  if ( (props.iconMode === 'without-icon') || (!props.iconMode) ) return ''
-  if (props.iconMode === 'with-icon') {
-    return(
-    `
-    .with-icon{
-      display:inline-flex;
-      padding:0 auto;
-      vertical-align: middle;
-    }
-    .with-icon-${KIND.PRIMARY} {
-      padding-right:8px;
-     
-    }
-  
-    .with-icon-${KIND.SECONDARY}{
-      color:red;
-      fill:red;
-      padding-right:8px;
-      
-    }
-
-    .with-icon-${KIND.GHOST}{
-      padding-right:8px;
-      
-      filter: invert(16%) sepia(98%) saturate(4959%) hue-rotate(319deg) brightness(81%) contrast(104%);
-    }
-    }
-
-    `
-    )
-  }
-
-}}
-
 `;
 
 export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
