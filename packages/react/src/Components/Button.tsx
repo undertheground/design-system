@@ -1,6 +1,6 @@
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
-import styled from 'styled-components';
+import styled from 'styled-components'
 // import {useThemeContext} from './theme';
 import colors from '@undertheground/color';
 
@@ -67,20 +67,20 @@ border-radius:0.3rem;
 outline:none !important;
 transition: all 150ms ease-out;
 transform: translate3d(0, 0, 0);
-padding: ${(props) => 
+${(props: { size: string }) => 
   (props.size === SIZES.LARGE
     ?
-    '1rem 4.86rem'
+    'padding: 1rem 4.86rem'
     :
     props.size === SIZES.SMALL
     ?
-    '0.6rem 1.8rem'
+    'padding: 0.6rem 1.8rem'
     :
-    '0.8rem 3.2rem' // SIZES.MEDIUM (Default value for undefind size)
+    'padding:0.8rem 3.2rem' // SIZES.MEDIUM (Default value for undefind size)
 )};
 
 
-${(props) => {
+${(props: { isLoading: boolean; }) => {
   if (!props.isLoading) return ``
   
   return(
@@ -111,7 +111,7 @@ ${(props) => {
   }
 }
 
-${(props) => {
+${(props: { disabled: boolean; kind: string; }) => {
   if (props.disabled) return ``
 
   switch (props.kind) {
@@ -170,7 +170,7 @@ ${(props) => {
   }
 
 
-${(props) =>{ 
+${(props: { disabled: boolean; kind: string; }) =>{ 
   if (!props.disabled ) return ``
   const commonStyleForDisabled = (`
         color:${COLOR.$GRAY20};
@@ -200,7 +200,7 @@ ${(props) =>{
   }
 }
 }
-${(props) => {
+${(props: { iconMode: string; }) => {
   if ( (props.iconMode === 'without-icon') || (!props.iconMode) ) return ''
   if (props.iconMode === 'with-icon') {
     return(
