@@ -5,6 +5,9 @@ UNDER THE GROUND DESIGN SYSTEM
 >Under the Ground design system helps developers and designers ship best possible products. Developed by core team of engineers and designers at Wish Work,
 >these materials enable a reliable development workflow to build beautiful and functional web projects.
 
+## Philosophy 
+For having access to the entire components and comprehending Wish Work Design Language, click on the link below:
+[Under the Ground Design System Documentation](https://undertheground.wishwork.org)
 
 ## Getting Started
 For installing the design system in React ecosystem, type the below command:
