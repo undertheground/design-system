@@ -8,7 +8,7 @@ UNDER THE GROUND DESIGN SYSTEM
 ## Philosophy 
 For having access to the entire components and comprehending Wish Work Design Language, click on the link below:
 
-[Under the Ground Design System Documentation](https://undertheground.wishwork.org)
+▪️ [Under the Ground Design System Documentation](https://undertheground.wishwork.org)
 
 ## Getting Started
 For installing the design system in React ecosystem, type the below command:
