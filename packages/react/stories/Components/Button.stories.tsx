@@ -2,9 +2,9 @@ import React from 'react';
 import { Button, ButtonProps, ButtonPropsWithoutChildren } from '../../src/Components/Button'; 
 import { Story } from '@storybook/react';
 // import {MouseEvent, PropsWithChildren} from 'react';
-import VectorGhost from '../public/VectorGhost.svg';
-import VectorPrimary from '../public/VectorPrimary.svg';
-import VectorSecondary from '../public/VectorSecondary.svg';
+// import VectorGhost from '../public/VectorGhost.svg';
+// import VectorPrimary from '../public/VectorPrimary.svg';
+// import VectorSecondary from '../public/VectorSecondary.svg';
 
 
 // type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
@@ -111,7 +111,7 @@ Primary_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    iconSrc: VectorPrimary
+    // iconSrc: VectorPrimary
 } as ButtonProps;
 
 export const Secondary_With_Icon = Template.bind({});
@@ -120,7 +120,7 @@ Secondary_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    iconSrc: VectorSecondary
+    // iconSrc: VectorSecondary
 } as ButtonProps;
 
 export const Ghost_With_Icon = Template.bind({});
@@ -129,7 +129,7 @@ Ghost_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    iconSrc: VectorGhost
+////////    iconSrc: VectorGhost
 } as ButtonProps;
 
 export const Primary_Icon_Only = Template.bind({});
@@ -138,7 +138,7 @@ Primary_Icon_Only.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'icon-only',
-    iconSrc: VectorPrimary
+    // iconSrc: VectorPrimary
 } as ButtonProps;
 
 export const Secondary_Icon_Only = Template.bind({});
@@ -147,7 +147,7 @@ Secondary_Icon_Only.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'icon-only',
-    iconSrc: VectorSecondary
+    // iconSrc: VectorSecondary
 } as ButtonProps;
 
 export const Ghost_Icon_Only = Template.bind({});
@@ -156,7 +156,7 @@ Ghost_Icon_Only .args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'icon-only',
-    iconSrc: VectorGhost
+//////////    iconSrc: VectorGhost
 } as ButtonProps;
 
 

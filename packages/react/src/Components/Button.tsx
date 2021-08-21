@@ -195,6 +195,10 @@ ${(props) => {
   if (props.iconMode === 'with-icon') {
     return(
     `
+    .content{
+      display: flex;
+      align-items:center;
+    }
     .with-icon{
       display:inline-flex;
       padding:0 auto;
@@ -218,10 +222,8 @@ ${(props) => {
   }
   if (props.iconMode === 'icon-only') {
     return(`
-    padding:0 !important;
-    icon-only:{
-        padding:0.4rem;
-    }
+    padding:0.4rem !important;
+    padding-bottom: 0.1rem !important;
     
     `
     )}
@@ -235,8 +237,8 @@ ${(props) => {
 export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
 
 export const Button = (props: ButtonProps) => {
-  
-        return (
+
+        return (  
         <StyledButton
         style={props.style}
         className={props.className}
@@ -252,14 +254,19 @@ export const Button = (props: ButtonProps) => {
           :
           (props.iconMode === 'icon-only') 
           ?
-          <img className={'icon-only'} src={props.iconSrc} /> 
-        
+          <>
+          <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+          <span className={'material-icons-outlined'}>add</span>
+          {/* <img className={'icon-only'} src={props.iconSrc} />  */}
+          </>
           :
           (props.iconMode === 'with-icon') 
           ?
           <div className={'with-icon'}>
-          <img className={`with-icon-${props.kind}`} src={props.iconSrc} /> 
-          <div>{props.children}</div> 
+            <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+            <span className={'material-icons-outlined `with-icon-${props.kind}`'}>add</span>
+           {/* <img className={`with-icon-${props.kind}`} src={props.iconSrc} />  */}
+          <div className={'content'}>{props.children}</div> 
           </div>
           :
           props.children
