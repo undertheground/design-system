@@ -200,9 +200,6 @@ ${(props) =>{
   }
 }
 }
-<<<<<<< HEAD
-=======
-
 ${(props) => {
   if ( (props.iconMode === 'without-icon') || (!props.iconMode) ) return ''
   if (props.iconMode === 'with-icon') {
@@ -238,7 +235,6 @@ ${(props) => {
   return ``
 }}
 
->>>>>>> 0bb52f6ca8046992e53d60090e86c5545749e93c
 `;
 
 export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
