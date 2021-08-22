@@ -59,13 +59,13 @@ transform: translate3d(0, 0, 0);
 padding: ${(props) => 
   (props.size === SIZES.LARGE
     ?
-    '1rem 4.86rem'
+    '0.813rem 4.063rem'
     :
     props.size === SIZES.SMALL
     ?
-    '0.6rem 1.8rem'
+    '0.813rem 2.438rem'
     :
-    '0.8rem 3.2rem' // SIZES.MEDIUM (Default value for undefind size)
+    '0.813rem 3.25rem' // SIZES.MEDIUM (Default value for undefind size)
 )};
 
 
