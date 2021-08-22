@@ -8,7 +8,7 @@ declare type IconMode = {
   iconMode?: 'without-icon'
 } | {
   iconMode: 'with-icon' | 'icon-only',
-  iconSrc: string,
+  iconName: string,
 }
 
 export type ButtonPropsWithoutChildren =  {
@@ -36,11 +36,6 @@ const KIND = {
   GHOST: 'ghost',
 }
 
-// const ICON_MODE = {
-//   WITHOUT_ICON: 'without-icon',
-//   WITH_ICON: 'with-icon',
-//   ICON_ONLY: 'icon-only',
-// }
 
 
 
@@ -256,7 +251,7 @@ export const Button = (props: ButtonProps) => {
           ?
           <>
           <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-          <span className={'material-icons-outlined'}>add</span>
+          <span className={'material-icons-outlined'}>{props.iconName}</span>
           {/* <img className={'icon-only'} src={props.iconSrc} />  */}
           </>
           :
@@ -264,7 +259,7 @@ export const Button = (props: ButtonProps) => {
           ?
           <div className={'with-icon'}>
             <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-            <span className={'material-icons-outlined `with-icon-${props.kind}`'}>add</span>
+            <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
            {/* <img className={`with-icon-${props.kind}`} src={props.iconSrc} />  */}
           <div className={'content'}>{props.children}</div> 
           </div>

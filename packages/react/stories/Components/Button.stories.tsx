@@ -65,8 +65,6 @@ Secondary_Disabled.args = {
     kind: 'secondary',
     size: 'medium',
     children: 'Button',
-    style:{},
-    className:'abas'
 } as ButtonProps;
 
 export const Ghost_Disabled = Template.bind({});
@@ -75,8 +73,6 @@ Ghost_Disabled.args = {
     kind: 'ghost',
     size: 'medium',
     children: 'Button',
-    style:{},
-    className:'abas'
 } as ButtonProps;
 
 export const Primary_Loading = Template.bind({});
@@ -111,7 +107,7 @@ Primary_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    // iconSrc: VectorPrimary
+    iconName: 'add'
 } as ButtonProps;
 
 export const Secondary_With_Icon = Template.bind({});
@@ -120,7 +116,7 @@ Secondary_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    // iconSrc: VectorSecondary
+    iconName: 'add'
 } as ButtonProps;
 
 export const Ghost_With_Icon = Template.bind({});
@@ -129,7 +125,7 @@ Ghost_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-////////    iconSrc: VectorGhost
+    iconName: 'add'
 } as ButtonProps;
 
 export const Primary_Icon_Only = Template.bind({});
@@ -138,7 +134,7 @@ Primary_Icon_Only.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'icon-only',
-    // iconSrc: VectorPrimary
+    iconName: 'home'
 } as ButtonProps;
 
 export const Secondary_Icon_Only = Template.bind({});
@@ -147,7 +143,7 @@ Secondary_Icon_Only.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'icon-only',
-    // iconSrc: VectorSecondary
+    iconName: 'home'
 } as ButtonProps;
 
 export const Ghost_Icon_Only = Template.bind({});
@@ -156,7 +152,8 @@ Ghost_Icon_Only .args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'icon-only',
-//////////    iconSrc: VectorGhost
+    iconName: 'home'
 } as ButtonProps;
+
 
 
