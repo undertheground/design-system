@@ -1,0 +1,58 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Button, ButtonProps } from '../../src/components/Button';
+import colors from '@undertheground/color';
+
+<style>{`
+
+.header {
+    color: #D1036F;
+}
+
+.code-snippet {
+    background-color: ${colors.grey[8]};
+}
+
+.fraction-size {
+    height: 30rem
+}
+
+`}</style>
+
+<Meta title="Components/Button Documentation" components={Button}/>
+
+# Button
+
+## Table of Content
+[OVERVIEW](#overview)  
+
+[BUTTON VARIANTS](#button-variants)
+
+[ANATOMY](#anatomy)
+
+## Overview 
+Buttons are clickable elements that are used to trigger actions. 
+They communicate calls to action to the user and allow users to interact with pages in a variety of ways. Button labels 
+express what action will occur when the user interacts with it.
+
+<h6 className={'header'}>When to use</h6>
+
+Use buttons to communicate actions users can take and to allow users to interact with the page. 
+Each page should have one primary button, and any remaining calls to action should be represented as lower emphasis buttons.
+
+<h6 className={'header'}>When not to use</h6>
+
+Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to a new page.
+
+## Button Variants
+Each button variant has a particular function and its design signals that function to the user. 
+It is therefore very important that the different variants are implemented consistently across products, 
+so that they message the correct actions.
+
+<Canvas className="code-snippet">
+    <Button>Button</Button>
+</Canvas>
+
+## Anatomy
+The main element in buttons is the label of that button, 
+as it represents the action that will be performed when the user interacts with it. All buttons label are hold 
+placed in the center. Even with icon, the group of label and icon should be in the center of button.
