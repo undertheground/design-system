@@ -22,7 +22,7 @@ export type ButtonPropsWithoutChildren =  {
 } & IconMode;
 
 
-const COLOR ={
+const COLOR = {
   $WHITE:'#fff',
   $SEXY_PINK: '#d1036f',
   $MAROON: '#BE0064',
@@ -67,7 +67,7 @@ border-radius:0.3rem;
 outline:none !important;
 transition: all 150ms ease-out;
 transform: translate3d(0, 0, 0);
-${(props: { size: string }) => 
+${(props) => 
   (props.size === SIZES.LARGE
     ?
     'padding: 1rem 4.86rem'
@@ -80,7 +80,7 @@ ${(props: { size: string }) =>
 )};
 
 
-${(props: { isLoading: boolean; }) => {
+${(props) => {
   if (!props.isLoading) return ``
   
   return(
@@ -111,7 +111,7 @@ ${(props: { isLoading: boolean; }) => {
   }
 }
 
-${(props: { disabled: boolean; kind: string; }) => {
+${(props) => {
   if (props.disabled) return ``
 
   switch (props.kind) {
@@ -170,7 +170,7 @@ ${(props: { disabled: boolean; kind: string; }) => {
   }
 
 
-${(props: { disabled: boolean; kind: string; }) =>{ 
+${(props) =>{ 
   if (!props.disabled ) return ``
   const commonStyleForDisabled = (`
         color:${COLOR.$GRAY20};
@@ -200,7 +200,7 @@ ${(props: { disabled: boolean; kind: string; }) =>{
   }
 }
 }
-${(props: { iconMode: string; }) => {
+${(props) => {
   if ( (props.iconMode === 'without-icon') || (!props.iconMode) ) return ''
   if (props.iconMode === 'with-icon') {
     return(

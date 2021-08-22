@@ -4,4 +4,16 @@ import wishworkTheme from './wishworkTheme';
 
 addons.setConfig({
   theme: wishworkTheme,
+  isToolshown: false,
+  showPanel: false,
+  sidebar: {
+    showRoots: false,
+  },
+  toolbar: {
+    title: { hidden: true },
+    zoom: { hidden: true },
+    eject: { hidden: true },
+    copy: { hidden: true },
+    fullscreen: { hidden: true },
+  },
 });

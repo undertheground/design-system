@@ -1728,7 +1728,7 @@
     "core-js" "^3.8.2"
     "ts-dedent" "^2.0.0"
 
-"@storybook/addon-docs@6.3.7":
+"@storybook/addon-docs@^6.3.7", "@storybook/addon-docs@6.3.7":
   "integrity" "sha512-cyuyoLuB5ELhbrXgnZneDCHqNq1wSdWZ4dzdHy1E5WwLPEhLlD6INfEsm8gnDIb4IncYuzMhK3XYBDd7d3ijOg=="
   "resolved" "https://registry.npmjs.org/@storybook/addon-docs/-/addon-docs-6.3.7.tgz"
   "version" "6.3.7"

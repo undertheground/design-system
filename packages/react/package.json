@@ -76,6 +76,7 @@
   },
   "gitHead": "a1cf639da21c3f9fc071b95d1d0de1af96b02c54",
   "dependencies": {
+    "@storybook/addon-docs": "^6.3.7",
     "@undertheground/color": "^0.1.15",
     "styled-components": "^5.3.0"
   },
