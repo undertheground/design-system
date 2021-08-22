@@ -8,7 +8,7 @@ declare type IconMode = {
   iconMode?: 'without-icon'
 } | {
   iconMode: 'with-icon' | 'icon-only',
-  iconSrc: string,
+  iconName: string,
 }
 
 export type ButtonPropsWithoutChildren =  {
@@ -20,20 +20,6 @@ export type ButtonPropsWithoutChildren =  {
   style?: object, 
   onClick?: OnClickAdapter<HTMLButtonElement>,
 } & IconMode;
-
-
-const COLOR = {
-  $WHITE:'#fff',
-  $SEXY_PINK: '#d1036f',
-  $MAROON: '#BE0064',
-  $JAZZ_BERRY:'#90004C',
-  $WISH_BLUE: '#1C5BC2',
-  $GRAY10: '#F5F5F5',
-  $GRAY15:'#F5F5F5',
-  $GRAY20:'#BFBFBF',
-  $SAPPHIRE: '#1A53AE',
-  $DARK_CORNFLOWER_BLUE: '#16438B',
-}
 
 const SIZES = {
   SMALL: 'small',
@@ -47,11 +33,6 @@ const KIND = {
   GHOST: 'ghost',
 }
 
-// const ICON_MODE = {
-//   WITHOUT_ICON: 'without-icon',
-//   WITH_ICON: 'with-icon',
-//   ICON_ONLY: 'icon-only',
-// }
 
 
 
@@ -85,7 +66,7 @@ ${(props) => {
   
   return(
     `
-    background-color: ${colors.pink[1]} !important;
+    background-color: ${colors.grey[0]} !important;
     border:0 !important;
     cursor: progress !important;
     @keyframes spin {
@@ -118,51 +99,51 @@ ${(props) => {
     case KIND.SECONDARY:
     
       return(`
-        color: ${COLOR.$WISH_BLUE};
-        border:0.1rem solid ${COLOR.$WISH_BLUE};
+        color: ${colors.blue[4]};
+        border:0.14rem solid ${colors.blue[4]};
         background-color:transparent;
         
         &:hover{
-          background:${COLOR.$SAPPHIRE};
-          color: ${COLOR.$WHITE};
-          border:0.1rem solid ${COLOR.$SAPPHIRE};
+          background:${colors.blue[5]};
+          color: ${colors.grey[1]};
+          border:0.14rem solid transparent;
         }
         &:active{
-          background:${COLOR.$DARK_CORNFLOWER_BLUE};
-          color: ${COLOR.$WHITE};
-          border:0.1rem solid ${COLOR.$DARK_CORNFLOWER_BLUE};
+          background:${colors.blue[6]};
+          color: ${colors.grey[1]};
+          border:0.14rem solid transparent;
         }`) 
 
     case KIND.GHOST:
     
       return (`
-        color: ${COLOR.$SEXY_PINK};
+        color: ${colors.pink[3]};
         background-color:transparent;
-        border:0.1rem solid ${COLOR.$WHITE} ;
+        border:0.14rem solid transparent ;
         
         &:hover{
-          background:${COLOR.$GRAY15};
-          border:0.1rem solid ${COLOR.$GRAY15};
+          background:${colors.grey[0]};
+          border:0.14rem solid transparent;
         }
         &:active{
           
-          border:0.1rem solid ${COLOR.$SEXY_PINK};
+          border:0.14rem solid ${colors.pink[5]};
         }`)
 
     default: // props.kind === KIND.PRIMARY (default kind)
 
       return (`
-        border:0.1rem solid ${COLOR.$SEXY_PINK};
-        background-color: ${COLOR.$SEXY_PINK};
-        color:${COLOR.$WHITE};
+        border:0.14rem solid transparent;
+        background-color: ${colors.pink[1]};
+        color:${colors.white};
         
         &:hover{
-          background: ${COLOR.$MAROON};
-          border:0.1rem solid ${COLOR.$MAROON};
+          background: ${colors.pink[5]};
+          border:0.14rem solid transparent;
         }
         &:active:{
-          background: ${COLOR.$JAZZ_BERRY};
-          border:0.1rem solid ${COLOR.$JAZZ_BERRY};
+          background: ${colors.pink[6]};
+          border:0.14rem solid transparent;
         }`)
     
       }   
@@ -173,7 +154,7 @@ ${(props) => {
 ${(props) =>{ 
   if (!props.disabled ) return ``
   const commonStyleForDisabled = (`
-        color:${COLOR.$GRAY20};
+        color:${colors.grey[3]};
         cursor: not-allowed;
         &:hover{
           transform: none;
@@ -184,64 +165,70 @@ ${(props) =>{
     case KIND.SECONDARY:
       return(commonStyleForDisabled + 
         `
-        border:0.1rem solid ${COLOR.$GRAY20};
+        border:0.14rem solid ${colors.grey[0]};
         `)
     case KIND.GHOST:
       return ( commonStyleForDisabled + `
-        border:0;
-        background:${COLOR.$WHITE}
+      border:0.14rem solid transparent;
+        background:${colors.white}
       `
       )
     default:
       return(commonStyleForDisabled + `
-        background:${COLOR.$GRAY15};
-        border:0.1rem solid ${COLOR.$GRAY20};  
+        background:${colors.grey[0]};
+        border:0.14rem solid ${colors.grey[0]};  
       `)
   }
 }
 }
-${(props) => {
+
+${(props) => { 
   if ( (props.iconMode === 'without-icon') || (!props.iconMode) ) return ''
   if (props.iconMode === 'with-icon') {
     return(
     `
+    .content{
+      display: flex;
+      align-items:center;
+    }
     .with-icon{
       display:inline-flex;
       padding:0 auto;
       vertical-align: middle;
     }
     .with-icon-${KIND.PRIMARY} {
-      padding-right:8px;
-     
+      padding-right:0.4rem;
     }
   
     .with-icon-${KIND.SECONDARY}{
-
-      padding-right:8px;
+      padding-right:0.4rem;
     }
 
     .with-icon-${KIND.GHOST}{
-      padding-right:8px;
+      padding-right:0.4rem;
       
-    }
     }
 
     `
     )
   }
   if (props.iconMode === 'icon-only') {
-    return(``
+    return(`
+    padding:0.4rem !important;
+    padding-bottom: 0.1rem !important;
+    
+    `
     )}
   return ``
+  
 }}
-
 `;
 
 export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
 
 export const Button = (props: ButtonProps) => {
-  
-        return (
+
+        return (  
         <StyledButton
         style={props.style}
         className={props.className}
@@ -257,13 +244,19 @@ export const Button = (props: ButtonProps) => {
           :
           (props.iconMode === 'icon-only') 
           ?
-          <img className={'icon-only'} src={props.iconSrc} /> 
+          <>
+          <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+          <span className={'material-icons-outlined'}>{props.iconName}</span>
+          {/* <img className={'icon-only'} src={props.iconSrc} />  */}
+          </>
           :
           (props.iconMode === 'with-icon') 
           ?
           <div className={'with-icon'}>
-          <img className={`with-icon-${props.kind}`} src={props.iconSrc} /> 
-          <div>{props.children}</div> 
+            <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+            <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
+           {/* <img className={`with-icon-${props.kind}`} src={props.iconSrc} />  */}
+          <div className={'content'}>{props.children}</div> 
           </div>
           :
           props.children

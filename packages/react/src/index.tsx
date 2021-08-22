@@ -2,7 +2,7 @@
 // import styled from 'styled-components';
 // @ts-ignore
 import colors from '@undertheground/color';
-export { Button } from './components/Button';
+export { Button } from './Components/Button';
 
 // const Button = styled.button`
 //   /* Adapt the colors based on primary prop */

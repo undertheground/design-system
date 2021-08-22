@@ -1,10 +1,10 @@
 import React from 'react';
-import { Button, ButtonProps, ButtonPropsWithoutChildren } from '../../src/components/Button';
+import { Button, ButtonProps, ButtonPropsWithoutChildren } from '../../src/Components/Button'; 
 import { Story } from '@storybook/react';
 // import {MouseEvent, PropsWithChildren} from 'react';
-import VectorGhost from '../public/VectorGhost.svg';
-import VectorPrimary from '../public/VectorPrimary.svg';
-import VectorSecondary from '../public/VectorSecondary.svg';
+// import VectorGhost from '../public/VectorGhost.svg';
+// import VectorPrimary from '../public/VectorPrimary.svg';
+// import VectorSecondary from '../public/VectorSecondary.svg';
 
 
 // type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
@@ -65,8 +65,6 @@ Secondary_Disabled.args = {
     kind: 'secondary',
     size: 'medium',
     children: 'Button',
-    style:{},
-    className:'abas'
 } as ButtonProps;
 
 export const Ghost_Disabled = Template.bind({});
@@ -75,8 +73,6 @@ Ghost_Disabled.args = {
     kind: 'ghost',
     size: 'medium',
     children: 'Button',
-    style:{},
-    className:'abas'
 } as ButtonProps;
 
 export const Primary_Loading = Template.bind({});
@@ -111,7 +107,7 @@ Primary_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    iconSrc: VectorPrimary
+    iconName: 'add'
 } as ButtonProps;
 
 export const Secondary_With_Icon = Template.bind({});
@@ -120,7 +116,7 @@ Secondary_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    iconSrc: VectorSecondary
+    iconName: 'add'
 } as ButtonProps;
 
 export const Ghost_With_Icon = Template.bind({});
@@ -129,6 +125,35 @@ Ghost_With_Icon.args = {
     size: 'medium',
     children: 'Button',
     iconMode: 'with-icon',
-    iconSrc: VectorGhost
+    iconName: 'add'
 } as ButtonProps;
+
+export const Primary_Icon_Only = Template.bind({});
+Primary_Icon_Only.args = {
+    kind: 'primary',
+    size: 'medium',
+    children: 'Button',
+    iconMode: 'icon-only',
+    iconName: 'home'
+} as ButtonProps;
+
+export const Secondary_Icon_Only = Template.bind({});
+Secondary_Icon_Only.args = {
+    kind: 'secondary',
+    size: 'medium',
+    children: 'Button',
+    iconMode: 'icon-only',
+    iconName: 'home'
+} as ButtonProps;
+
+export const Ghost_Icon_Only = Template.bind({});
+Ghost_Icon_Only .args = {
+    kind: 'ghost',
+    size: 'medium',
+    children: 'Button',
+    iconMode: 'icon-only',
+    iconName: 'home'
+} as ButtonProps;
+
+
 
