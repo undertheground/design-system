@@ -10,11 +10,66 @@ import colors from '@undertheground/color';
 
 .code-snippet {
     background-color: ${colors.grey[8]};
+    width:100%;
 }
 
 .fraction-size {
     height: 30rem
 }
+
+.container{
+    display:inline-flex;
+    width:100%;
+}
+
+.btn-primary::after {
+    content:'';
+    border-bottom:0.1rem solid ${colors.grey[2]};
+    width:100%;
+    display:block;
+}
+
+.btn-ghost::after{
+    content:'';
+    border-bottom:0.1rem solid ${colors.grey[2]};
+    width:100%;
+    display:block;
+}
+
+.row-1 , .row-2{
+    width:50%;
+    text-align:center;
+}
+
+.row-1{
+    border-right:0.1rem solid ${colors.grey[2]};
+}
+
+.icon-only_preview{
+    vertical-align:middle;
+}
+
+.btn-arrangment{
+    margin:3rem;
+}
+
+.live-demo{
+    background-color: ${colors.grey[8]};
+    width:80%;
+    margin: 0 auto;
+}
+
+
+th{
+    
+    background:${colors.gray[1]} ;
+    borderLeftStyle: 'transparent'
+}
+td{
+    color:${colors.pink[3]} ;
+}
+
+
 
 `}</style>
 
@@ -48,11 +103,53 @@ Each button variant has a particular function and its design signals that functi
 It is therefore very important that the different variants are implemented consistently across products, 
 so that they message the correct actions.
 
-<Canvas className="code-snippet">
-    <Button>Button</Button>
-</Canvas>
+<div className="code-snippet">
+  <div className="container">
+        <div className="row-1">
+            <div className="btn-primary">
+                <Button className="btn-arrangment" kind="primary">Button</Button>
+            </div>
+            <div className="btn-secondary">
+                <Button className="btn-arrangment" kind="secondary">Button</Button>
+            </div>
+        </div>  
+        <div className="row-2">  
+            <div className="btn-ghost">
+                <Button className="btn-arrangment" kind="ghost">Button</Button>
+            </div>
+            <div className="btn-icon-only">
+                <Button className="icon-only_preview btn-arrangment" kind="primary" iconMode="icon-only" iconName="search"></Button>
+            </div>
+        </div>    
+    </div> 
+</div>
 
+
+|Varients|Purpose|
+|---|---|
+| Primary |The primary button is designed for the call to action and it should have high contrast with the whole page cause it should have a strong visual weight. Primary buttons should only appear once per screen (not including the application header, modal dialog, or side panel), in summery primary button should be used where the platform wants to strongly suggest something that the user should do.|
+| Secondary|  The secondary button is designed for secondary actions. Secondary actions should have less visual weight because we assume that majority of users will go with the primary action. Secondary actions are actions like the cancel button next to submit button. In “Wish Work” we use outline buttons for secondary actions.|
+| Ghost  	|   Ghost button is usually used for miscellaneous actions,  the action is important, but it may not be the action that the user wishes for (looking for). For instance, ‘edit action’ or ‘add new’  for changing information is an important action but it is not a primary action.|
+|  Icon-only	|   Icon buttons have no label and are only an icon. Because they don’t have a label, they save a lot of space in an interface. Icon buttons also allow you to stack other icon buttons next to them in a small space. But you have to be concerned that the icon that you use without any label should represent itself clearly and do not confuse the user.|
+          
 ## Anatomy
-The main element in buttons is the label of that button, 
-as it represents the action that will be performed when the user interacts with it. All buttons label are hold 
-placed in the center. Even with icon, the group of label and icon should be in the center of button.
+The main element in buttons is the label of that button, as it represents the action that will be performed when the user interacts with it. 
+All buttons label are hold placed in the center. Even with icon, the group of label and icon should be in the center of button.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,6 +12,7 @@ declare type IconMode = {
 }
 
 export type ButtonPropsWithoutChildren =  {
+  id?: string,
   kind?: 'primary' | 'secondary' | 'ghost',
   size?: 'small' | 'medium' | 'large',
   disabled?: boolean, 
@@ -48,16 +49,19 @@ border-radius:0.3rem;
 outline:none !important;
 transition: all 150ms ease-out;
 transform: translate3d(0, 0, 0);
-${(props) => 
+
+margin: 1rem;
+height: 2.625rem;
+padding: ${(props) => 
   (props.size === SIZES.LARGE
     ?
-    'padding: 1rem 4.86rem'
+    '0 4.063rem'
     :
     props.size === SIZES.SMALL
     ?
-    'padding: 0.6rem 1.8rem'
+    '0 2.438rem'
     :
-    'padding:0.8rem 3.2rem' // SIZES.MEDIUM (Default value for undefind size)
+    '0 3.25rem' // SIZES.MEDIUM (Default value for undefind size)
 )};
 
 
@@ -215,7 +219,6 @@ ${(props) => {
   if (props.iconMode === 'icon-only') {
     return(`
     padding:0.4rem !important;
-    padding-bottom: 0.1rem !important;
     
     `
     )}
