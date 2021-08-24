@@ -4,6 +4,21 @@ import styled from 'styled-components'
 // import {useThemeContext} from './theme';
 import colors from '@undertheground/color';
 
+const KIND = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  GHOST: 'ghost',
+}
+
+const SIZES = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+};
+
+
+
+type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
 declare type IconMode = {
   iconMode?: 'without-icon'
 } | {
@@ -12,32 +27,17 @@ declare type IconMode = {
 }
 
 export type ButtonPropsWithoutChildren =  {
-  id?: string,
-  kind?: 'primary' | 'secondary' | 'ghost',
-  size?: 'small' | 'medium' | 'large',
-  disabled?: boolean, 
-  isLoading?: boolean, 
-  className?: string, 
-  style?: object, 
-  onClick?: OnClickAdapter<HTMLButtonElement>,
+  id?: string;
+  kind?: typeof KIND[keyof typeof KIND];
+  size?: typeof SIZES[keyof typeof SIZES];
+  disabled?: boolean; 
+  isLoading?: boolean; 
+  className?: string; 
+  style?: object; 
+  onClick?: OnClickAdapter<HTMLButtonElement>;
 } & IconMode;
 
-const SIZES = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
-};
 
-const KIND = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  GHOST: 'ghost',
-}
-
-
-
-
-type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
 
 //Button Styles//
 export const StyledButton = styled.button<ButtonPropsWithoutChildren>`
@@ -233,6 +233,7 @@ export const Button = (props: ButtonProps) => {
 
         return (  
         <StyledButton
+        id={props.id}
         style={props.style}
         className={props.className}
         onClick={props.onClick}

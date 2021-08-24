@@ -2,6 +2,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Button, ButtonProps } from '../../src/Components/Button';
 import colors from '@undertheground/color';
 
+
 <style>{`
 
 .header {
@@ -59,13 +60,11 @@ import colors from '@undertheground/color';
     margin: 0 auto;
 }
 
-
-th{
-    
-    background:${colors.gray[1]} ;
-    borderLeftStyle: 'transparent'
+.button-variant-table th{
+    background:${colors.grey[2]} ;
 }
-td{
+    
+.button-variant-table td{
     color:${colors.pink[3]} ;
 }
 
@@ -83,6 +82,10 @@ td{
 [BUTTON VARIANTS](#button-variants)
 
 [ANATOMY](#anatomy)
+
+
+
+
 
 ## Overview 
 Buttons are clickable elements that are used to trigger actions. 
@@ -103,6 +106,7 @@ Each button variant has a particular function and its design signals that functi
 It is therefore very important that the different variants are implemented consistently across products, 
 so that they message the correct actions.
 
+<div>
 <div className="code-snippet">
   <div className="container">
         <div className="row-1">
@@ -124,6 +128,7 @@ so that they message the correct actions.
     </div> 
 </div>
 
+<div className="button-variant-table">
 
 |Varients|Purpose|
 |---|---|
@@ -131,10 +136,46 @@ so that they message the correct actions.
 | Secondary|  The secondary button is designed for secondary actions. Secondary actions should have less visual weight because we assume that majority of users will go with the primary action. Secondary actions are actions like the cancel button next to submit button. In “Wish Work” we use outline buttons for secondary actions.|
 | Ghost  	|   Ghost button is usually used for miscellaneous actions,  the action is important, but it may not be the action that the user wishes for (looking for). For instance, ‘edit action’ or ‘add new’  for changing information is an important action but it is not a primary action.|
 |  Icon-only	|   Icon buttons have no label and are only an icon. Because they don’t have a label, they save a lot of space in an interface. Icon buttons also allow you to stack other icon buttons next to them in a small space. But you have to be concerned that the icon that you use without any label should represent itself clearly and do not confuse the user.|
+
+</div>
+</div>
+
           
 ## Anatomy
 The main element in buttons is the label of that button, as it represents the action that will be performed when the user interacts with it. 
 All buttons label are hold placed in the center. Even with icon, the group of label and icon should be in the center of button.
+
+
+<div className="container">
+    <div className="row-1">
+        <div className="label-btn">
+            <h6>1. Label only </h6>
+            <div className="label-btn_img">
+                 icon1
+            </div>
+        </div>
+        <div className="label-with_icon">
+            <h6> 2. Label with icon</h6>
+            <div className="label-with_icon__img">
+                 icon2
+            </div>
+        </div>
+        
+    </div>
+    <div className="row-2">
+        <h6>3. Icon-only</h6>
+        <div>
+            icon3
+        </div>
+    </div>
+    <div className="row-3">
+            | 1. Label only  	|   2. Label only	| 3. Icon-only
+            |---	|---	|
+            |   A. Text label	|   A. Text label	| -
+            |   	|   	|
+            |   	|   	|
+    <div>
+</div>
 
 
 
