@@ -15,7 +15,10 @@ For installing the design system in React ecosystem, type the below command:
 ```
 npm install @underthecround/react
 ```
-
+For installing the design system in Vue ecosystem, type the below command: 
+```
+npm install @undertheground/vue
+```
 Development of the design system for other frameworks is in progress.
 
 ## Contributors
