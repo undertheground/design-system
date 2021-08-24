@@ -2,6 +2,7 @@ import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Button, ButtonProps } from '../../src/Components/Button';
 import colors from '@undertheground/color';
 
+
 <style>{`
 
 .header {
@@ -9,11 +10,49 @@ import colors from '@undertheground/color';
 }
 
 .code-snippet {
-    background-color: ${colors.grey[8]};
+    background-color: ${colors.grey[0]};
+    width:100%;
 }
 
 .fraction-size {
     height: 30rem
+}
+
+.container{
+    display:inline-flex;
+    width:100%;
+    border:0.1rem solid ${colors.grey[2]};
+}
+
+.btn-primary::after {
+    content:'';
+    border-bottom:0.1rem solid ${colors.grey[2]};
+    width:100%;
+    display:block;
+}
+
+.btn-ghost::after{
+    content:'';
+    border-bottom:0.1rem solid ${colors.grey[2]};
+    width:100%;
+    display:block;
+}
+
+.row-1 , .row-2{
+    width:50%;
+    text-align:center;
+}
+
+.row-1{
+    border-right:0.1rem solid ${colors.grey[2]};
+}
+
+.icon-only_preview{
+    vertical-align:middle;
+}
+
+.btn-arrangment{
+    margin:3rem;
 }
 
 `}</style>
@@ -49,9 +88,30 @@ It is therefore very important that the different variants are implemented consi
 so that they message the correct actions.
 
 <Canvas className="code-snippet">
-    <Button>Button</Button>
+  <div className="container">
+        <div className="row-1">
+            <div className="btn-primary">
+                <Button className="btn-arrangment" kind="primary">Button</Button>
+            </div>
+            <div className="btn-secondary">
+                <Button className="btn-arrangment" kind="secondary">Button</Button>
+            </div>
+        </div>  
+        <div className="row-2">  
+            <div className="btn-ghost">
+                <Button className="btn-arrangment" kind="ghost">Button</Button>
+            </div>
+            <div className="btn-icon-only">
+                <Button className="icon-only_preview btn-arrangment" kind="primary" iconMode="icon-only" iconName="search"></Button>
+            </div>
+        </div>    
+    </div>    
 </Canvas>
 
+
+        
+        
+       
 ## Anatomy
 The main element in buttons is the label of that button, 
 as it represents the action that will be performed when the user interacts with it. All buttons label are hold 
