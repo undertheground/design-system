@@ -28,5 +28,5 @@ Development of the design system for other frameworks is in progress.
 <a href="https://github.com/tw15egan"><img src="https://avatars.githubusercontent.com/u/38019094?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TJ Egan</b></sub></a><br /><a href="" title="Code">💻</a> <a href="" title="Documentation">📖</a> <a href="https://github.com/carbon-design-system/carbon/pulls?q=is%3Apr+reviewed-by%3Atw15egan" title="Reviewed Pull Requests">👀</a>
   </td>
   <td>
-<a href="https://github.com/tw15egan"><img src="https://avatars.githubusercontent.com/u/38019094?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TJ Egan</b></sub></a><br /><a href="" title="Code">💻</a> <a href="" title="Documentation">📖</a> <a href="https://github.com/carbon-design-system/carbon/pulls?q=is%3Apr+reviewed-by%3Atw15egan" title="Reviewed Pull Requests">👀</a>
+<a href="https://github.com/tw15egan"><img src="https://avatars.githubusercontent.com/u/38019094?v=4?s=100" width="100px;" alt=""/><br /><sub><b>TJ Egan</b></sub></a><br /><a href="" title="Code">💻</a> <a href="" title="Documentation">📖</a>
   </td>
