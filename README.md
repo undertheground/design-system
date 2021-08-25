@@ -29,5 +29,7 @@ Development of the design system for other frameworks is in progress.
   </td>
   <td>
 <a href="https://github.com/tw15egan"><img src="https://avatars.githubusercontent.com/u/69623138?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shirin Ghelichi</b></sub></a><br /><a href="" title="Code">💻</a> <a href="#design-aagonzales" title="Design">🎨</a>
+  </td>
+  <td>
 <a href="https://github.com/tw15egan"><img src="https://avatars.githubusercontent.com/u/73250427?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bahador Alizadeh</b></sub></a><br /><a href="" title="Code">💻</a> 
   </td>
