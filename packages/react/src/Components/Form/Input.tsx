@@ -18,6 +18,7 @@ export type InputPropsWithoutChildren = {
     required?: boolean;
     disabled?: boolean;
     isLoading?: boolean; 
+
     className?: string;
     style?: object;
     placeholder?: string;
@@ -76,21 +77,20 @@ ${(props) => {
 input + label,
 select + label {
 position: absolute;
-
-top: -0.625rem;
+font-family: "Mukta";
+top: 0rem;
 left: 0.938rem;
 padding: 0px 10px 0px 10px;
-color: #fff;
+color: ${colors.grey[9]};
 font-size: 90%;
-color: #016BB9;
-background-color: #000000;
+background-color: ${colors.grey[1]};
 opacity: 1;
 visibility: visible;
 transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 input:placeholder-shown + label,
 select:placeholder-shown + label {
-transform: translateY(22px) scale(1.1);
+transform: translateY(10px) scale(0.51);
 opacity: 0;
 visibility: hidden;
 }
@@ -113,8 +113,9 @@ export type InputProps = PropsWithChildren<InputPropsWithoutChildren>;
 export const TextInput = (props: InputProps) => {
     return (
         <StyledDiv >
-            <div className={'box-item-title'}>{props.placeholder}</div>
             <input type={props.type} placeholder={props.placeholder} />
+            <label className={'box-item-title'}>{props.placeholder}</label>
+
         </StyledDiv>
 
     )

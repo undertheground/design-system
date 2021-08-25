@@ -93,6 +93,9 @@ h6 {
 
 }
 
+.abas {
+
+}
 
 `}</style>
 
@@ -326,4 +329,32 @@ When scaling layouts for large screen devices, buttons can adapt their visual pr
 
 
 
+
+
+
+
+
+
+<div >
+    <div style={{width:'100%' , display:'grid'}} >
+        <div style={{width:'50%',display:'inline-flex', float:'right', margin:'0 auto'}} >
+            <div style={{width:'50%',display:'grid'}}>
+            <Button kind="primary" size="large">Button</Button>
+            </div>
+            <div style={{width:'50%', display:'grid'}}>
+                <Button size="small" kind="secondary">Button</Button>    
+            </div>
+            
+        </div>    
+    </div>  
+    
+    <div >  
+        <div>
+            <Button  kind="ghost">Button</Button>
+        </div>
+        <div>
+            <Button  kind="primary" iconMode="icon-only" iconName="search"></Button>
+        </div>
+    </div>    
+</div>
 
