@@ -18,13 +18,15 @@ const Template = args => ({
 
 export const Primary = Template.bind({});
 Primary.args = {
+  size: "small",
   primary: true,
   children: "Button"
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  label: "Button"
+  size: "large",
+  children: "Button"
 };
 
 export const Large = Template.bind({});

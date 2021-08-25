@@ -1,12 +1,26 @@
 <template>
-  <styled-button>{{ children }}</styled-button>
+  <styled-button size="large">{{ children }}</styled-button>
 </template>
 
 <script lang="tsx">
-import { reactive, computed } from "vue";
+import { reactive } from "vue";
 import styled from "vue3-styled-components";
 
-const StyledButton = styled.button`
+declare interface Button {
+  size?: "small" | "medium" | "large";
+}
+
+const btnProps = {
+  size: String
+};
+
+const SIZES = {
+  SMALL: "small",
+  MEDIUM: "medium",
+  LARGE: "large"
+};
+
+export const StyledButton = styled("button", btnProps)`
   font-size: 1rem;
   font-family: "Arial";
   font-weight: 500;
@@ -16,6 +30,12 @@ const StyledButton = styled.button`
   transition: all 150ms ease-out;
   transform: translate3d(0, 0, 0);
   background-color: #38a2f3 !important;
+  ${props =>
+    props.size === SIZES.LARGE
+      ? "padding: 1rem 4.86rem"
+      : props.size === SIZES.SMALL
+      ? "padding: 0.6rem 1.8rem"
+      : "padding:0.8rem 3.2rem"}; // SIZES.MEDIUM (Default value for undefind size)
 `;
 
 export default {
@@ -37,6 +57,10 @@ export default {
     backgroundColor: {
       type: String
     }
+  },
+  setup(props) {
+    // console.log(props.size);
+    reactive(props);
   }
 };
 // name: "my-button",

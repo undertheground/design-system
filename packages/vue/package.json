@@ -57,5 +57,6 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "types": "cutom.d.ts"
 }
