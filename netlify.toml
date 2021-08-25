@@ -1,0 +1,11 @@
+[build]
+    # Directory to change to before starting a build.
+    # This is where we will look for package.json/.nvmrc/etc.
+    # If not set, defaults to the root directory.
+    base="packages/react/"
+
+    publish="packages/react/storybook-static"
+
+    # Defult build command
+    command="npm run build-storybook"
+    

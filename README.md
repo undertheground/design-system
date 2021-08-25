@@ -19,6 +19,6 @@ For installing the design system in Vue ecosystem, type the below command:
 ```
 npm i @undertheground/vue
 ```
-Development of the design system for other frameworks is in progress.
+Development of the design system is in the progress.
 
 ## Contributors
