@@ -8,17 +8,18 @@ const KIND = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
   GHOST: 'ghost',
-}
+} as const;
 
 const SIZES = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
-};
+}as const;
 
 
 
 type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
+
 declare type IconMode = {
   iconMode?: 'without-icon'
 } | {
@@ -150,9 +151,8 @@ ${(props) => {
           border:0.14rem solid transparent;
         }`)
     
-      }   
-    } 
-  }
+      }        
+}}
 
 
 ${(props) =>{ 
@@ -238,7 +238,6 @@ export const Button = (props: ButtonProps) => {
         className={props.className}
         onClick={props.onClick}
         disabled={props.disabled}
-        isLoading={props.isLoading}
           {...props}
         >
           <>

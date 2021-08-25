@@ -1,13 +1,8 @@
 import React from 'react';
-import { Button, ButtonProps, ButtonPropsWithoutChildren } from '../../src/Components/Button'; 
+import { Button, ButtonProps } from '../../src/Components/Button'; 
 import { Story } from '@storybook/react';
-// import {MouseEvent, PropsWithChildren} from 'react';
-// import VectorGhost from '../public/VectorGhost.svg';
-// import VectorPrimary from '../public/VectorPrimary.svg';
-// import VectorSecondary from '../public/VectorSecondary.svg';
 
 
-// type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
 
 export default {
   title: 'Components/Button',
@@ -16,16 +11,6 @@ export default {
     
   },
 };
-
-// interface Props {
-//     kind: 'primary' | 'secondary' | 'ghost',
-//     icon?: 'with-icon' | 'icon-only',
-//     size: 'small' | 'medium' | 'large',
-//     // disabled?: boolean,
-//     children: string,
-//     onClick(): OnClickAdapter<HTMLButtonElement>,
-// }
-
 
 const Template: Story <ButtonProps> = args => <Button {...args} />;
 

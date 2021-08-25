@@ -1,6 +1,9 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Button, ButtonProps } from '../../src/Components/Button';
 import colors from '@undertheground/color';
+import LabelOnly from '../Public/Button/LabelOnly.png';
+import LabelWithIcon from '../Public/Button/LabelWithIcon.png';
+import IconOnly from '../Public/Button/IconOnly.png';
 
 
 <style>{`
@@ -42,7 +45,7 @@ import colors from '@undertheground/color';
     text-align:center;
 }
 
-.row-1{
+.btn-row_1{
     border-right:0.1rem solid ${colors.grey[2]};
 }
 
@@ -66,8 +69,29 @@ import colors from '@undertheground/color';
     
 .button-variant-table td{
     color:${colors.pink[3]} ;
+
 }
 
+h6 {
+    height:10px
+}
+.anatomy-table{
+    margin:0 auto;
+    display:flex;
+}
+.label-btn_img{
+    margin: 1rem 0 2rem; 
+    height: 8rem;
+}
+.icon-only_img{
+    margin: 2.8rem 0 1rem; 
+    height: 6rem;
+}
+.label-with_icon__img{
+    margin: 1rem 0 1rem; 
+    height: 11rem;
+
+}
 
 
 `}</style>
@@ -106,10 +130,10 @@ Each button variant has a particular function and its design signals that functi
 It is therefore very important that the different variants are implemented consistently across products, 
 so that they message the correct actions.
 
-<div>
+
 <div className="code-snippet">
-  <div className="container">
-        <div className="row-1">
+  <div className="container container-btn_varient">
+        <div className="row-1 btn-row_1">
             <div className="btn-primary">
                 <Button className="btn-arrangment" kind="primary">Button</Button>
             </div>
@@ -117,7 +141,7 @@ so that they message the correct actions.
                 <Button className="btn-arrangment" kind="secondary">Button</Button>
             </div>
         </div>  
-        <div className="row-2">  
+        <div className="row-2 btn-row_2">  
             <div className="btn-ghost">
                 <Button className="btn-arrangment" kind="ghost">Button</Button>
             </div>
@@ -127,6 +151,8 @@ so that they message the correct actions.
         </div>    
     </div> 
 </div>
+
+######
 
 <div className="button-variant-table">
 
@@ -138,7 +164,7 @@ so that they message the correct actions.
 |  Icon-only	|   Icon buttons have no label and are only an icon. Because they don’t have a label, they save a lot of space in an interface. Icon buttons also allow you to stack other icon buttons next to them in a small space. But you have to be concerned that the icon that you use without any label should represent itself clearly and do not confuse the user.|
 
 </div>
-</div>
+
 
           
 ## Anatomy
@@ -150,14 +176,14 @@ All buttons label are hold placed in the center. Even with icon, the group of la
     <div className="row-1">
         <div className="label-btn">
             <h6>1. Label only </h6>
-            <div className="label-btn_img">
-                 icon1
+            <div>
+                <img className="label-btn_img" src={LabelOnly} alt="Label Only Button" />
             </div>
         </div>
         <div className="label-with_icon">
             <h6> 2. Label with icon</h6>
-            <div className="label-with_icon__img">
-                 icon2
+            <div>
+                <img className={"label-with_icon__img"} src={LabelWithIcon} alt="Label With Icon Button" />
             </div>
         </div>
         
@@ -165,32 +191,138 @@ All buttons label are hold placed in the center. Even with icon, the group of la
     <div className="row-2">
         <h6>3. Icon-only</h6>
         <div>
-            icon3
+            <img className="icon-only_img" src={IconOnly} alt="Icon Only Button" />
         </div>
     </div>
 
 
 </div>
 
+######
+
+<div className="anatomy-table">
+
 |   1. Label only	|   2. Label with icon	|   3. Icon-only	|
-|---	|---	|---	|
+|--------------------	|--------------------	|--------------------	|
 |   A. Text label	|   A. Text label	|   A. Icon	|
 |   B. Container	|   B. Container	|   B. Container	|
 |   C. ---	|   C. Icon	|   C. ---	|
 
+</div>
+
+## Specs
+Each type of button has its own attributes, that we gonna mention below.
+* Margin
+- Padding
++ Font
+- Radius
++ Stroke
+
+######
+
+<div className="specs">
+    <div className="container">
+        <div className="row-1">
+            <div className="label-btn-margin_img">
+                Shape 1
+            </div>
+            <div className="label-with-icon-btn-margin_img">
+                Shape 2
+            </div>
+        </div>
+        <div className="row-2">
+            <div className="ghost-btn-margin_img">
+                Shape 3
+            </div>
+            <div className="icon-btn-margin_img">
+                Shape 4
+            </div>
+        </div>        
+    </div>
+
+</div>
+
+######
+
+#### Label button attributes
 
 
+<div className="label-btn-tabel">
+
+|   Varient	| Margin(px/ rem) 	|    Padding(px/ rem)	|   Radius(px/ rem)	|   Stroke(rem)	|
+|---	|---	|---	|---	|---	|
+|   Primary	|   1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+|   Secondary	|    1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid #1C5BC2	|
+|   Ghost	|    1rem	|    left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+
+</div>
+
+######
+
+#### Label with icon button attributes
 
 
+<div className="label-btn-tabel">
+
+|   Varient	| Margin(px/ rem) 	|    Padding(px/ rem)	|   Radius(px/ rem)	|   Stroke(rem)	|
+|---	|---	|---	|---	|---	|
+|   Primary	|   1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+|   Secondary	|    1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid #1C5BC2	|
+|   Ghost	|    1rem	|    left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+
+</div>
+
+######
+
+#### Icon-only button attributes
 
 
+<div className="label-btn-tabel">
+
+|   Varient	| Margin(px/ rem) 	|    Padding(px/ rem)	|   Radius(px/ rem)	|   Stroke(rem)	|
+|---	|---	|---	|---	|---	|
+|   Primary	|   1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+|   Secondary	|    1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid #1C5BC2	|
+|   Ghost	|    1rem	|    left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+
+</div>
+
+######
+
+## Behavior
+Each button can act diffrently in diffrent situations,
+ like when user does not fullfield the requirement inputs and want 
+ to submit the form, in that situation the button should be disable until the user completed the form
+* Scaling
+- Arrangment
++ Animation
+- States
++ Skeleton loading
+
+######
 
 
+#### Scaling
+When scaling layouts for large screen devices, buttons can adapt their visual presentation,
+ alignment, and arrangement to fit different contexts and user needs. Buttons usually depends on their 
+ parents like the containers that they are placed in.
 
+ <div className = "scaling">
+    <div className ="container">
+        <div className="row-1">
+            <div className="btn-scaling_img1">
+                image 1 
+            </div>
+        </div>
+        <div className="row-2">
+            <div className="btn-scaling_img2">
+                image 1
+            </div> 
+        </div>
+    </div>
+ </div>
 
-
-
-
+#####
 
 
 
