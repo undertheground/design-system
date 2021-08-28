@@ -4,7 +4,12 @@ import colors from '@undertheground/color';
 import LabelOnly from '../Public/Button/LabelOnly.png';
 import LabelWithIcon from '../Public/Button/LabelWithIcon.png';
 import IconOnly from '../Public/Button/IconOnly.png';
-
+import LabelOnlyPadding from '../Public/Button/LabelOnlyPadding.png';
+import LabelWithIconPadding from '../Public/Button/LabelWithIconPadding.png';
+import GhostPadding from '../Public/Button/GhostPadding.png';
+import IconOnlyPadding from '../Public/Button/IconOnlyPadding.png';
+import ScalingResponsive from '../Public/Button/ScalingResponsive.png';
+import ScalingWeb from '../Public/Button/ScalingWeb.png';
 
 <style>{`
 
@@ -63,9 +68,9 @@ import IconOnly from '../Public/Button/IconOnly.png';
     margin: 0 auto;
 }
 
-.button-variant-table th{
-    background:${colors.grey[2]} ;
-}
+{/* .button-variant-table th{
+    background:${colors.grey[1]} ;
+} */}
     
 .button-variant-table td{
     color:${colors.pink[3]} ;
@@ -73,7 +78,7 @@ import IconOnly from '../Public/Button/IconOnly.png';
 }
 
 h6 {
-    height:10px
+    height:30px
 }
 .anatomy-table{
     margin:0 auto;
@@ -93,8 +98,21 @@ h6 {
 
 }
 
-.abas {
+.row{
+    display:flex;
+    margin:0 auto;
+}
 
+.btn-anatomy{
+    margin:0 4rem;
+}
+
+.tabel{
+    display:grid;
+    width:100%;
+}
+.img-margin{
+    margin:2rem;
 }
 
 `}</style>
@@ -102,6 +120,8 @@ h6 {
 <Meta title="Components/Button Documentation" components={Button}/>
 
 # Button
+
+######
 
 ## Table of Content
 [OVERVIEW](#overview)  
@@ -111,7 +131,7 @@ h6 {
 [ANATOMY](#anatomy)
 
 
-
+######
 
 
 ## Overview 
@@ -119,14 +139,16 @@ Buttons are clickable elements that are used to trigger actions.
 They communicate calls to action to the user and allow users to interact with pages in a variety of ways. Button labels 
 express what action will occur when the user interacts with it.
 
-<h6 className={'header'}>When to use</h6>
+<h5 className={'header'}>When to use</h5>
 
 Use buttons to communicate actions users can take and to allow users to interact with the page. 
 Each page should have one primary button, and any remaining calls to action should be represented as lower emphasis buttons.
 
-<h6 className={'header'}>When not to use</h6>
+<h5 className={'header'}>When not to use</h5>
 
 Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to a new page.
+
+######
 
 ## Button Variants
 Each button variant has a particular function and its design signals that function to the user. 
@@ -155,7 +177,6 @@ so that they message the correct actions.
     </div> 
 </div>
 
-######
 
 <div className="button-variant-table">
 
@@ -168,22 +189,30 @@ so that they message the correct actions.
 
 </div>
 
+######
 
           
 ## Anatomy
 The main element in buttons is the label of that button, as it represents the action that will be performed when the user interacts with it. 
 All buttons label are hold placed in the center. Even with icon, the group of label and icon should be in the center of button.
 
+######
 
 <div className="container">
-    <div className="row-1">
-        <div className="label-btn">
+    <div className="row">
+        <div className="label-btn btn-anatomy">
             <h6>1. Label only </h6>
             <div>
                 <img className="label-btn_img" src={LabelOnly} alt="Label Only Button" />
             </div>
         </div>
-        <div className="label-with_icon">
+        <div className="label-with_icon btn-anatomy">
+            <h6> 2. Label with icon</h6>
+            <div>
+                <img className={"label-with_icon__img"} src={LabelWithIcon} alt="Label With Icon Button" />
+            </div>
+        </div>
+        <div className="icon-only_btn btn-anatomy">
             <h6> 2. Label with icon</h6>
             <div>
                 <img className={"label-with_icon__img"} src={LabelWithIcon} alt="Label With Icon Button" />
@@ -191,19 +220,10 @@ All buttons label are hold placed in the center. Even with icon, the group of la
         </div>
         
     </div>
-    <div className="row-2">
-        <h6>3. Icon-only</h6>
-        <div>
-            <img className="icon-only_img" src={IconOnly} alt="Icon Only Button" />
-        </div>
-    </div>
-
-
 </div>
 
-######
 
-<div className="anatomy-table">
+<div className="anatomy-table tabel">
 
 |   1. Label only	|   2. Label with icon	|   3. Icon-only	|
 |--------------------	|--------------------	|--------------------	|
@@ -213,6 +233,8 @@ All buttons label are hold placed in the center. Even with icon, the group of la
 
 </div>
 
+######
+
 ## Specs
 Each type of button has its own attributes, that we gonna mention below.
 * Margin
@@ -221,36 +243,37 @@ Each type of button has its own attributes, that we gonna mention below.
 - Radius
 + Stroke
 
-######
-
 <div className="specs">
     <div className="container">
         <div className="row-1">
-            <div className="label-btn-margin_img">
-                Shape 1
+            <div className="label-btn-margin_img img-margin">
+                <img src={LabelOnlyPadding}/>
             </div>
-            <div className="label-with-icon-btn-margin_img">
-                Shape 2
+            <div className="label-with-icon-btn-margin_img img-margin">
+                <img src={LabelWithIconPadding}/>
             </div>
         </div>
         <div className="row-2">
-            <div className="ghost-btn-margin_img">
-                Shape 3
+            <div className="ghost-btn-margin_img img-margin">
+                <img src={GhostPadding}/>
             </div>
-            <div className="icon-btn-margin_img">
-                Shape 4
+            <div className="icon-btn-margin_img img-margin">
+                <img src={IconOnlyPadding}/>
             </div>
         </div>        
     </div>
 
 </div>
 
+
+
+
 ######
 
 #### Label button attributes
 
 
-<div className="label-btn-tabel">
+<div className="label-btn-tabel tabel">
 
 |   Varient	| Margin(px/ rem) 	|    Padding(px/ rem)	|   Radius(px/ rem)	|   Stroke(rem)	|
 |---	|---	|---	|---	|---	|
@@ -265,7 +288,7 @@ Each type of button has its own attributes, that we gonna mention below.
 #### Label with icon button attributes
 
 
-<div className="label-btn-tabel">
+<div className="label-btn-tabel tabel">
 
 |   Varient	| Margin(px/ rem) 	|    Padding(px/ rem)	|   Radius(px/ rem)	|   Stroke(rem)	|
 |---	|---	|---	|---	|---	|
@@ -280,7 +303,7 @@ Each type of button has its own attributes, that we gonna mention below.
 #### Icon-only button attributes
 
 
-<div className="label-btn-tabel">
+<div className="label-btn-tabel tabel">
 
 |   Varient	| Margin(px/ rem) 	|    Padding(px/ rem)	|   Radius(px/ rem)	|   Stroke(rem)	|
 |---	|---	|---	|---	|---	|
@@ -314,12 +337,12 @@ When scaling layouts for large screen devices, buttons can adapt their visual pr
     <div className ="container">
         <div className="row-1">
             <div className="btn-scaling_img1">
-                image 1 
+                <img src={ScalingResponsive}/>
             </div>
         </div>
         <div className="row-2">
             <div className="btn-scaling_img2">
-                image 1
+               <img src={ScalingWeb}/>
             </div> 
         </div>
     </div>
@@ -328,33 +351,4 @@ When scaling layouts for large screen devices, buttons can adapt their visual pr
 #####
 
 
-
-
-
-
-
-
-
-<div >
-    <div style={{width:'100%' , display:'grid'}} >
-        <div style={{width:'50%',display:'inline-flex', float:'right', margin:'0 auto'}} >
-            <div style={{width:'50%',display:'grid'}}>
-            <Button kind="primary" size="large">Button</Button>
-            </div>
-            <div style={{width:'50%', display:'grid'}}>
-                <Button size="small" kind="secondary">Button</Button>    
-            </div>
-            
-        </div>    
-    </div>  
-    
-    <div >  
-        <div>
-            <Button  kind="ghost">Button</Button>
-        </div>
-        <div>
-            <Button  kind="primary" iconMode="icon-only" iconName="search"></Button>
-        </div>
-    </div>    
-</div>
 
