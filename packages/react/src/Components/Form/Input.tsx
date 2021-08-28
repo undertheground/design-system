@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { MouseEvent, PropsWithChildren } from 'react'
+import { MouseEvent } from 'react'
 import colors from '@undertheground/color';
 
 
@@ -12,7 +12,7 @@ const SIZES = {
 
 type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
 
-export type InputPropsWithoutChildren = {
+export type InputProps = {
     type?: string;
     id?: string;
     required?: boolean;
@@ -21,101 +21,111 @@ export type InputPropsWithoutChildren = {
 
     className?: string;
     style?: object;
-    placeholder?: string;
+    placeholder: string;
     onChange?: OnClickAdapter<HTMLButtonElement>;
     size?: typeof SIZES[keyof typeof SIZES];
     
 }
 
 
-export const StyledDiv = styled.div<InputPropsWithoutChildren>`
-font-family: "Mukta",
-  
-position: relative;  
 
-${(props) => {
-    switch (props.size) {
-        case SIZES.LARGE:
-            return (`
-            input,
-            select {
-            padding: 0.313rem 0.938rem;
-            height: 2.5rem;
-            width: 27.5rem;
-            font-size: 1rem;
-            color: ${colors.grey[9]};
-            background-color: transparent;
-            border: 1px solid #016BB9;
-            border-radius: 2px;
-            outline: none;
-            }
-            `)
+export const StyledDiv = styled.div`
 
-        default:
-            return (`
-            input,
-            select {
-            padding: 0.313rem 0.938rem;
-            height: 2.5rem;
-            width: 27.5rem;
-            font-size: 1rem;
-            color: ${colors.grey[9]};
-            background-color: transparent;
-            border: 1px solid #016BB9;
-            border-radius: 2px;
-            outline: none;
-            }
-            `)
+font-family: 'Mukta Vaani', sans-serif;
+
+display:flex;
+
+width: 100%;
+margin-bottom:15px;
+position:relative;
 
 
-
-
-    }
-}}
-
-
-input + label,
-select + label {
-position: absolute;
-font-family: "Mukta";
-top: 0rem;
-left: 0.938rem;
-padding: 0px 10px 0px 10px;
-color: ${colors.grey[9]};
-font-size: 90%;
-background-color: ${colors.grey[1]};
-opacity: 1;
-visibility: visible;
-transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
-}
-input:placeholder-shown + label,
-select:placeholder-shown + label {
-transform: translateY(10px) scale(0.51);
-opacity: 0;
-visibility: hidden;
+input{
+    border:1px solid ${colors.grey[3]};
+    font-size: 1rem;
+    width:100%;
+    padding:20px 40px; 
+    outline:none;
 }
 
-.box-item-title {
-    margin-left: 30px;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 150%;
-    color: #black;
-  }
+input::placeholder{
+    opacity:0;
+}
 
+
+input:hover,
+select {
+    border-color: ${colors.blue[3]};
+} 
+
+
+
+input:focus{
+    border-color: ${colors.blue[3]};
+} 
+
+
+span{
+    cursor: text;
+    position:absolute;
+    top:-5px;
+    left:0;
+    transform:translateY(20px);
+    font-size:0.925rem;
+    transition-duration:300ms;
+    margin-left:34px;
+    border-left:6px solid white;
+    border-right:6px solid white;
+    border-bottom:0px;
+    color: ${colors.grey[3]};
+    
+}
+
+
+
+label:focus-within > span,
+input:not(:placeholder-shown) + span{
+    color: ${colors.blue[3]};
+    transform:translateY(-8px);
+    background:${colors.white};
+    text-align:center;
+    margin-left:30px;
+    font-size: 0.825rem;
+    
+}
+
+input:not(:placeholder-shown):not(:focus):not(:hover) + span{
+    color: ${colors.grey[3]};
+    transform:translateY(-8px);
+    background:${colors.white};
+    text-align:center;
+    margin-left:30px;
+    font-size: 0.825rem;
+    
+}
   
 `
-
-export type InputProps = PropsWithChildren<InputPropsWithoutChildren>;
 
 
 export const TextInput = (props: InputProps) => {
     return (
-        <StyledDiv >
-            <input type={props.type} placeholder={props.placeholder} />
-            <label className={'box-item-title'}>{props.placeholder}</label>
+        <StyledDiv>
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"></link>    
+            
+            <label>
+                <input type={props.type}
+                placeholder={props.placeholder}
+                id={props.id}
+                style={props.style}
+                className={props.className}
+                disabled={props.disabled}
+                
+                />
 
+                <span >{props.placeholder}</span>
+            </label>
         </StyledDiv>
 
     )

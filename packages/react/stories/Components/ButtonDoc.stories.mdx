@@ -10,6 +10,9 @@ import GhostPadding from '../Public/Button/GhostPadding.png';
 import IconOnlyPadding from '../Public/Button/IconOnlyPadding.png';
 import ScalingResponsive from '../Public/Button/ScalingResponsive.png';
 import ScalingWeb from '../Public/Button/ScalingWeb.png';
+import ArrangmentWeb from '../Public/Button/ArrangmentWeb.png';
+import ArrangmentRes from '../Public/Button/ArrangmentRes.png';
+
 
 <style>{`
 
@@ -115,6 +118,12 @@ h6 {
     margin:2rem;
 }
 
+.img-box{
+    margin:10px 70px
+}
+
+
+
 `}</style>
 
 <Meta title="Components/Button Documentation" components={Button}/>
@@ -213,9 +222,9 @@ All buttons label are hold placed in the center. Even with icon, the group of la
             </div>
         </div>
         <div className="icon-only_btn btn-anatomy">
-            <h6> 2. Label with icon</h6>
+            <h6> 3. Icon-only</h6>
             <div>
-                <img className={"label-with_icon__img"} src={LabelWithIcon} alt="Label With Icon Button" />
+                <img className={"label-with_icon__img"} src={IconOnly} alt="Icon Only Button" />
             </div>
         </div>
         
@@ -247,18 +256,18 @@ Each type of button has its own attributes, that we gonna mention below.
     <div className="container">
         <div className="row-1">
             <div className="label-btn-margin_img img-margin">
-                <img src={LabelOnlyPadding}/>
+                <img src={LabelOnlyPadding} alt="Label Only Button Paddings"/>
             </div>
             <div className="label-with-icon-btn-margin_img img-margin">
-                <img src={LabelWithIconPadding}/>
+                <img src={LabelWithIconPadding} alt="Label With Icon Button Paddings" />
             </div>
         </div>
         <div className="row-2">
             <div className="ghost-btn-margin_img img-margin">
-                <img src={GhostPadding}/>
+                <img src={GhostPadding} alt="Ghost Button Paddings"/>
             </div>
             <div className="icon-btn-margin_img img-margin">
-                <img src={IconOnlyPadding}/>
+                <img src={IconOnlyPadding} alt="Icon Only Button Paddings"/>
             </div>
         </div>        
     </div>
@@ -335,20 +344,62 @@ When scaling layouts for large screen devices, buttons can adapt their visual pr
 
  <div className = "scaling">
     <div className ="container">
-        <div className="row-1">
-            <div className="btn-scaling_img1">
+        <div className="row">
+            <div className="img-box">
                 <img src={ScalingResponsive}/>
             </div>
+            <div className="img-box">
+                 <img src={ScalingWeb}/>
+            </div>
         </div>
-        <div className="row-2">
-            <div className="btn-scaling_img2">
-               <img src={ScalingWeb}/>
-            </div> 
-        </div>
-    </div>
+    </div>         
  </div>
 
-#####
+ * A button’s position and size should scale in relationship to its container.
 
+######
 
+#### Arrangment
+Define the position and alignment of button elements such as text and icons in relationship to their container.
+For example, the icon and text label within a button remain centered and anchored to each other as the button width scales.
 
+* Note one:
+
+<div className = "Arrangment">
+    <div className ="container">
+        <div className="row">
+            <div className="img-box">
+                <img src={ArrangmentWeb}/>
+                <p>
+                    Do <br/>
+                    Group internal elements so that they scale appropriately. 
+                    Icons and text labels remain centered when button width increases.
+                </p>
+            </div>
+            <div className="img-box">
+                 <img src={ArrangmentRes}/>
+                    <p>
+                    Don't <br/>
+                    Don’t ungroup elements inside of a button container.
+                     This can lead to unwanted movement, such as the icon and label 
+                     anchoring to opposite sides of the button.
+                </p>
+            </div>
+        </div>
+    </div>         
+</div>
+
+* Note two:
+
+The size and placement of buttons can change as parent containers, such as cards, adapt for larger screens.
+
+######
+
+#### States
+<div className="container">
+    <p className="header">Primary button states</p>
+    <div className="primary-state"> 
+        <img src={PrimaryBtnStates}/>
+    </div>
+
+</div>
