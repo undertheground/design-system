@@ -13,6 +13,10 @@ import ScalingWeb from '../Public/Button/ScalingWeb.png';
 import ScalingWithIconCorrect from '../Public/Button/ScalingWithIconCorrect.png';
 import ScalingWithIconWrong from '../Public/Button/ScalingWithIconWrong.png';
 import PrimaryBtnStates from '../Public/Button/PrimaryBtnStates.png'
+import SecondaryBtnStates from '../Public/Button/SecondaryBtnStates.png'
+import GhostBtnStates from '../Public/Button/GhostBtnStates.png'
+
+
 
 <style>{`
 
@@ -68,16 +72,6 @@ import PrimaryBtnStates from '../Public/Button/PrimaryBtnStates.png'
     margin:3rem;
 }
 
-.live-demo{
-    background-color: ${colors.grey[8]};
-    width:80%;
-    margin: 0 auto;
-}
-
-{/* .button-variant-table th{
-    background:${colors.grey[1]} ;
-} */}
-    
 .button-variant-table td{
     color:${colors.pink[3]} ;
 
@@ -90,14 +84,17 @@ h6 {
     margin:0 auto;
     display:flex;
 }
+
 .label-btn_img{
     margin: 1rem 0 2rem; 
     height: 8rem;
 }
+
 .icon-only_img{
     margin: 2.8rem 0 1rem; 
     height: 6rem;
 }
+
 .label-with_icon__img{
     margin: 1rem 0 1rem; 
     height: 11rem;
@@ -117,15 +114,14 @@ h6 {
     display:grid;
     width:100%;
 }
+
 .img-margin{
     margin:4rem;
 }
 
 
-
 .img-box{
-    margin:1.6rem 6rem;
-   
+    margin:1.6rem 6rem; 
 }
 
 .box{
@@ -136,6 +132,15 @@ h6 {
 .btn-states_img{
     width:60%;
     margin: 3rem auto;
+}
+
+@media (max-width:1024px){
+    .btn-anatomy{
+        margin:0 1rem;
+    }
+    .img-box{
+        margin: 0.4rem 1.5rem;
+    }
 }
 
 
@@ -153,6 +158,10 @@ h6 {
 [BUTTON VARIANTS](#button-variants)
 
 [ANATOMY](#anatomy)
+
+[SPECS](#specs)
+
+[BEHAVIOR](#behavior)
 
 
 ######
@@ -420,11 +429,14 @@ The size and placement of buttons can change as parent containers, such as cards
 <div className="btn-states">
     <h4 className="sub-header">Primary button states</h4>
     <div className="row">
-         <img src={PrimaryBtnStates} className="btn-states_img"/>
+        <img src={PrimaryBtnStates} className="btn-states_img"/>
     </div>
     <h4 className="sub-header">Secondary button states</h4>
     <div className="row">
-         <img src={PrimaryBtnStates} className="btn-states_img"/>
+        <img src={SecondaryBtnStates} className="btn-states_img"/>
     </div>
-   
+    <h4 className="sub-header">Ghost button states</h4>
+    <div className="row">
+        <img src={GhostBtnStates} className="btn-states_img"/>
+    </div>
 </div>

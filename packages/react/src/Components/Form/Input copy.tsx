@@ -30,15 +30,80 @@ export type TextInputProps = {
 
 
 export const StyledDiv = styled.div`
+
+font-family: 'Mukta Vaani', sans-serif;
+
+display:flex;
+
+width: 100%;
+margin-bottom:15px;
+position:relative;
+
+
+input{
+    border:1px solid ${colors.grey[3]};
+    font-size: 1rem;
+    width:100%;
+    padding:20px 40px; 
+    outline:none;
+}
+
+input::placeholder{
+    opacity:0;
+}
+
+
+input:hover,
+select {
+    border-color: ${colors.blue[3]};
+} 
+
+
+
+input:focus{
+    border-color: ${colors.blue[3]};
+} 
+
+
+span{
+    cursor: text;
+    position:absolute;
+    top:-5px;
+    left:0;
+    transform:translateY(20px);
+    font-size:0.925rem;
+    transition-duration:300ms;
+    margin-left:34px;
+    border-left:6px solid white;
+    border-right:6px solid white;
+    border-bottom:0px;
+    color: ${colors.grey[3]};
+    
+}
+
+
+
+label:focus-within > span,
+input:not(:placeholder-shown) + span{
+    color: ${colors.blue[3]};
+    transform:translateY(-8px);
+    background:${colors.white};
+    text-align:center;
+    margin-left:30px;
+    font-size: 0.825rem;
+    
+}
+
+input:not(:placeholder-shown):not(:focus):not(:hover) + span{
+    color: ${colors.grey[3]};
+    transform:translateY(-8px);
+    background:${colors.white};
+    text-align:center;
+    margin-left:30px;
+    font-size: 0.825rem;
+    
+}
   
-`
-
-export const StyledInput = styled.input`
-  
-`
-
-export const StyledLabel= styled.label`
-
 `
 
 
