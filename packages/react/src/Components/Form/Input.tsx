@@ -20,9 +20,9 @@ export type TextInputProps = {
     required?: boolean;
     disabled?: boolean;
     isLoading?: boolean; 
-    className?: string;
+    inputClassName?: string;
+    lableClassName?: string;
     style?: object;
-    placeholder?: string;
     onChange?: OnClickAdapter<HTMLButtonElement>;
     size?: typeof SIZES[keyof typeof SIZES];
     
@@ -31,74 +31,85 @@ export type TextInputProps = {
 
 
 export const StyledDiv = styled.div`
-
-display:flex;
-width: 100%;
+font-family:"Mukta Vaani";
+display:grid;
 position:relative;
 
+
 input:not(:placeholder-shown) + span{
-    color: ${colors.blue[3]};
-    transform:translateY(-8px);
-    background:${colors.white};
-    text-align:center;
-    margin-left:30px;
+    color: ${colors.grey[3]};
+    transform: translateY(-0.5rem);
+    background: ${colors.white};
+    text-align: center;
+    margin-left: 1.5rem;
+    transition-duration:350ms;
     font-size: 0.825rem;
+    visibility: visible;
     
 }
 
-input::not(:focus):not(:hover) + span{
-    color: ${colors.grey[3]};
-    transform:translateY(-8px);
+input:hover + span {
+    color: ${colors.blue[3]};
+}
+
+input:focus + span {
+    display:flex;    
+    color: ${colors.blue[3]};
+    transform:translateY(-0.5rem);
     background:${colors.white};
     text-align:center;
-    margin-left:30px;
-    font-size: 0.825rem;
-    
+    margin-left:1.5rem;
+    font-size: 0.825rem; 
+    visibility: visible;
+    transition-duration:350ms;
 }
+
 
 
 `
 
 export const StyledInput = styled.input`
   
-border:1px solid ${colors.grey[3]};
 font-size: 1rem;
-width:100%;
-padding:20px 40px; 
+width:100%; 
 outline:none;
-
-padding: 0.313rem 0.938rem;
+padding: 0.313rem 2rem;
 height: 2.5rem;
 width: 27.5rem;
 font-size: 1rem;
 background-color: transparent;
-border: 1px solid ${colors.grey[3]};
-border-radius: 2px;
+border: 0.125rem solid ${colors.grey[2]};
+border-radius: 0.1rem;
 outline: none;
+transition-duration:300ms;
 
 :hover, :focus {
     border-color: ${colors.blue[3]};
+    
 }
 
 
 
+:hover::placeholder {
+    color: ${colors.blue[3]};
+}
+
+:focus::placeholder {
+    visibility: hidden;
+}
 
 `
 
 export const StyledSpan= styled.span`
-
+color: ${colors.grey[3]};
+margin-left: 1.5rem;
 cursor: text;
-position:absolute;
-top:-5px;
-left:0;
-transform:translateY(0px);
-font-size:0.925rem;
-transition-duration:300ms;
-margin-left:34px;
-border-left:6px solid white;
-border-right:6px solid white;
+font-size:1rem;
+border-left:0.5rem solid white;
+border-right:0.5rem solid white;
 border-bottom:0px;
-
+position:absolute;
+visibility: hidden;
 `
 
 
@@ -106,18 +117,22 @@ export const TextInput = (props: TextInputProps) => {
     console.log(props)
 
     return (
-        <StyledDiv style={props.style} className={props.className}>
+        <StyledDiv>
             <link rel="preconnect" href="https://fonts.googleapis.com"/>
             <link rel="preconnect" href="https://fonts.gstatic.com" />
             <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"></link>    
             
-            <StyledInput type={props.type}
-            placeholder={props.placeholder}
+            <StyledInput 
+            className={props.inputClassName}
+            type={props.type}
+            placeholder={props.title}
             id={props.id}
             disabled={props.disabled}
             />
 
-            <StyledSpan >{props.title}</StyledSpan>
+            <StyledSpan
+            className={props.lableClassName}>
+                {props.title}</StyledSpan>
             
         </StyledDiv>
 

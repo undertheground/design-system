@@ -1,7 +1,7 @@
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
-import {ThemeContextProvider, useThemeContext} from './theme';
+// import {ThemeContextProvider, useThemeContext} from './Theme';
 import colors from '@undertheground/color';
 
 const KIND = {
