@@ -2,7 +2,7 @@
 UNDER THE GROUND DESIGN SYSTEM
 </h1>
 
->Under the Ground design system helps developers and designers ship best possible products. Developed by core team of engineers and designers at Wish Work,
+>Under the Ground design system helps developers and designers ship the best possible products. Developed by core team of engineers and designers at Wish Work,
 >these materials enable a reliable development workflow to build beautiful and functional web projects.
 
 ## Philosophy 
@@ -25,14 +25,14 @@ Development of the design system is in the progress.
 <table>
 <tr>
   <td align="center">
-<a href="https://github.com/tw15egan"><img src="https://avatars.githubusercontent.com/u/38019094?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Amirhosein Shirani</b></sub></a><br /><a href="" title="Code">💻</a> <a href="" title="Documentation">📖</a>
+<a href="https://github.com/amirhoseinsh"><img src="https://avatars.githubusercontent.com/u/38019094?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Amirhosein Shirani</b></sub></a><br /><a href="" title="Code">💻</a> <a href="" title="Documentation">📖</a>
   </td>
   <td align="center">
-<a href="https://github.com/tw15egan"><img src="https://avatars.githubusercontent.com/u/69623138?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shirin Ghelichi</b></sub></a><br /><a href="" title="Code">💻</a> <a href="#design-aagonzales" title="Design">🎨</a>
+<a href="https://github.com/ElahehGhelichi"><img src="https://avatars.githubusercontent.com/u/69623138?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Shirin Ghelichi</b></sub></a><br /><a href="" title="Code">💻</a> <a href="#design-aagonzales" title="Design">🎨</a>
   </td>
   <td align="center">
-<a href="https://github.com/tw15egan"><img src="https://avatars.githubusercontent.com/u/73250427?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bahador Alizadeh</b></sub></a><br /><a href="" title="Code">💻</a> 
+<a href="https://github.com/Theo2r"><img src="https://avatars.githubusercontent.com/u/73250427?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Bahador Alizadeh</b></sub></a><br /><a href="" title="Code">💻</a> 
   </td>
   <td align="center">
-    <a href="https://github.com/tw15egan"><img src="https://avatars.githubusercontent.com/u/83944153?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mohanna Fazli</b></sub></a><br /><a href="#design-aagonzales" title="Design">🎨</a>
+    <a href="https://github.com/M0HANNA"><img src="https://avatars.githubusercontent.com/u/83944153?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mohanna Fazli</b></sub></a><br /><a href="#design-aagonzales" title="Design">🎨</a>
   </td>
