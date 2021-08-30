@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextInput, InputProps } from '../../../src/Components/Form/Input'; 
+import { TextInput, TextInputProps } from '../../../src/Components/Form/Input'; 
 import { Story } from '@storybook/react';
 
 
@@ -13,10 +13,11 @@ export default {
 };
 
 
-const Template: Story <InputProps> = args => <TextInput {...args} />;
+const Template: Story <TextInputProps> = args => <TextInput {...args} />;
 
 export const Example1 = Template.bind({});
 Example1.args = {
-    type: 'text',
-    placeholder: 'User Name',
-} as InputProps;
+  title: 'User Name',
+  name: 'UserName',
+  placeholder: 'Exp: abas0098',
+} as TextInputProps;

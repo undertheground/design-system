@@ -1,7 +1,7 @@
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
-// import {useThemeContext} from './theme';
+import {ThemeContextProvider, useThemeContext} from './theme';
 import colors from '@undertheground/color';
 
 const KIND = {
@@ -250,7 +250,6 @@ export const Button = (props: ButtonProps) => {
           <>
           <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
           <span className={'material-icons-outlined'}>{props.iconName}</span>
-          {/* <img className={'icon-only'} src={props.iconSrc} />  */}
           </>
           :
           (props.iconMode === 'with-icon') 
@@ -258,19 +257,19 @@ export const Button = (props: ButtonProps) => {
           <div className={'with-icon'}>
             <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
             <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
-           {/* <img className={`with-icon-${props.kind}`} src={props.iconSrc} />  */}
           <div className={'content'}>{props.children}</div> 
           </div>
           :
           props.children
-} 
-          
-          
+          } 
           </>
         </StyledButton>
       );
 }
 
+// export const ButtonTest = (props: ButtonProps) => {
+//   <ThemeContextProvider value={}/>
+// }
 
 // Button.defaultProps = {
 //   loadingText: null,
