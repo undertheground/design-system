@@ -2,7 +2,7 @@
 UNDER THE GROUND DESIGN SYSTEM
 </h1>
 
->Under the Ground design system is an open-source kits helping developers and designers ship state-of-the-art products. Developed by core team of engineers and designers at Wish Work,
+>Under the Ground design system is open-source libraries helping developers and designers ship state-of-the-art products. Developed by core team of engineers and designers at Wish Work,
 >these materials enable a reliable development workflow to build artistic and functional web projects.
 
 ## Philosophy 
