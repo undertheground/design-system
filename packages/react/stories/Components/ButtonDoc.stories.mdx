@@ -1,6 +1,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Button, ButtonProps } from '../../src/Components/Button';
 import colors from '@undertheground/color';
+import ButtonCover from '../Public/Button/ButtonCover.png'
 import LabelOnly from '../Public/Button/LabelOnly.png';
 import LabelWithIcon from '../Public/Button/LabelWithIcon.png';
 import IconOnly from '../Public/Button/IconOnly.png';
@@ -72,9 +73,15 @@ import GhostBtnStates from '../Public/Button/GhostBtnStates.png'
     margin:3rem;
 }
 
+.tabel{
+    overflow: scroll; /* Scrollbar are always visible */
+    overflow: auto;   /* Scrollbar is displayed as it's needed */
+    display:grid;
+    width:100%;
+}
+
 .button-variant-table td{
     color:${colors.pink[3]} ;
-
 }
 
 h6 {
@@ -110,10 +117,6 @@ h6 {
     margin:0 4rem;
 }
 
-.tabel{
-    display:grid;
-    width:100%;
-}
 
 .img-margin{
     margin:4rem;
@@ -136,17 +139,91 @@ h6 {
 
 @media (max-width:1024px){
     .btn-anatomy{
-        margin:0 1rem;
+        margin:0 3rem;
     }
     .img-box{
-        margin: 0.4rem 1.5rem;
+        margin: 0.4rem 4.5rem;
     }
 }
+
+@media (max-width:790px){
+    .row{
+        display:grid;
+        margin:0 auto;
+    }
+    .btn-anatomy{
+        margin-bottom:3rem;
+    }
+    .label-btn_img{
+        margin-bottom:0;
+    }
+    .label-with_icon__img{
+        margin-bottom:0;
+    }
+    .icon-only_img {
+     margin: 0.8rem 0 1rem;
+    }
+    .img-margin {
+        margin: 1rem;
+    }
+    .scaling-img{
+        height:16rem;
+    }
+    .scaling-box{
+        text-align:center;
+    }
+    .arrangment-img{
+        width: 19rem;
+    }
+    .box{
+        margin:2rem auto;
+        width:44%;
+    }
+    .btn-states_img{
+        width:80%;
+        margin: 3rem auto;
+    }
+    
+    @media (max-width:600px){
+        .container{
+            display:grid;
+        }
+        .btn-row_1 {
+            border-right: 0rem;
+        }
+        .row-1, .row-2 {
+            width: 100%;
+   
+        }
+        .btn-secondary::after {
+            content: '';
+            border-bottom: 0.1rem solid #BABABA;
+            width: 100%;
+            display: block;
+        }
+        .img-box{
+             margin: 0.4rem 2.5rem;
+        }
+        .box{
+     
+            width:74%;
+        }
+        .btn-states_img{
+            width:100%;
+            margin: 2rem auto;
+        }
+    }
+}
+
 
 
 `}</style>
 
 <Meta title="Components/Button Documentation" components={Button}/>
+
+<img src={ButtonCover}/>
+
+######
 
 # Button
 
@@ -212,7 +289,7 @@ so that they message the correct actions.
 </div>
 
 
-<div className="button-variant-table">
+<div className="button-variant-table tabel">
 
 |Varients|Purpose|
 |---|---|
@@ -257,7 +334,7 @@ All buttons label are hold placed in the center. Even with icon, the group of la
 </div>
 
 
-<div className="anatomy-table tabel">
+<div className="anatomy-table tabel tabel">
 
 |   1. Label only	|   2. Label with icon	|   3. Icon-only	|
 |--------------------	|--------------------	|--------------------	|
@@ -370,11 +447,11 @@ When scaling layouts for large screen devices, buttons can adapt their visual pr
  <div className = "scaling">
     <div className ="container">
         <div className="row">
-            <div className="img-box">
-                <img src={ScalingResponsive}/>
+            <div className="img-box scaling-box">
+                <img src={ScalingResponsive} className="scaling-img"/>
             </div>
-            <div className="img-box">
-                 <img src={ScalingWeb}/>
+            <div className="img-box scaling-box">
+                 <img src={ScalingWeb} className="scaling-img"/>
             </div>
         </div>
     </div>         
@@ -394,10 +471,10 @@ For example, the icon and text label within a button remain centered and anchore
     <div className ="container">
         <div className="row">
             <div className="img-box">
-                <img src={ScalingWithIconCorrect}/>
+                <img src={ScalingWithIconCorrect} className="arrangment-img"/>
             </div>
             <div className="img-box">
-                 <img src={ScalingWithIconWrong}/>
+                 <img src={ScalingWithIconWrong} className="arrangment-img"/>
             </div>
         </div>
     </div>    
