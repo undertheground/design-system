@@ -20,4 +20,15 @@ Example1.args = {
   title: 'User Name',
   name: 'UserName',
   placeholder: 'Exp: abas0098',
+  size: 'medium',
+} as TextInputProps;
+
+
+export const Input_Disabled = Template.bind({});
+Input_Disabled.args = {
+    disabled: true,
+    title: 'User Name',
+    name: 'UserName',
+    placeholder: 'Exp: abas0098',
+    size: 'medium',
 } as TextInputProps;

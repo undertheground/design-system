@@ -1,8 +1,7 @@
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
-// import {ThemeContextProvider, useThemeContext} from './Theme';
-import colors from '@undertheground/color';
+import {WishworkThemeContextProvider, useThemeContext, ThemeShape} from './Theme';
 
 const KIND = {
   PRIMARY: 'primary',
@@ -34,7 +33,8 @@ export type ButtonPropsWithoutChildren =  {
   disabled?: boolean; 
   isLoading?: boolean; 
   className?: string; 
-  style?: object; 
+  style?: object;
+  theme?: ThemeShape; 
   onClick?: OnClickAdapter<HTMLButtonElement>;
 } & IconMode;
 
@@ -71,7 +71,7 @@ ${(props) => {
   
   return(
     `
-    background-color: ${colors.grey[0]} !important;
+    background-color: ${props.theme.colors.neutralColor[0]} !important;
     border:0 !important;
     cursor: progress !important;
     @keyframes spin {
@@ -104,50 +104,50 @@ ${(props) => {
     case KIND.SECONDARY:
     
       return(`
-        color: ${colors.blue[4]};
-        border:0.14rem solid ${colors.blue[4]};
+        color: ${props.theme.colors.secondaryColor[4]};
+        border:0.14rem solid ${props.theme.colors.secondaryColor[4]};
         background-color:transparent;
         
         &:hover{
-          background:${colors.blue[5]};
-          color: ${colors.grey[1]};
+          background:${props.theme.colors.secondaryColor[5]};
+          color: ${props.theme.colors.neutralColor[1]};
           border:0.14rem solid transparent;
         }
         &:active{
-          background:${colors.blue[6]};
-          color: ${colors.grey[1]};
+          background:${props.theme.colors.secondaryColor[6]};
+          color: ${props.theme.colors.neutralColor[1]};
           border:0.14rem solid transparent;
         }`) 
 
     case KIND.GHOST:
     
       return (`
-        color: ${colors.pink[3]};
+        color: ${props.theme.colors.primaryColor[3]};
         background-color:transparent;
         border:0.14rem solid transparent ;
         
         &:hover{
-          background:${colors.grey[0]};
+          background:${props.theme.colors.neutralColor[0]};
           border:0.14rem solid transparent;
         }
         &:active{
           
-          border:0.14rem solid ${colors.pink[5]};
+          border:0.14rem solid ${props.theme.colors.primaryColor[5]};
         }`)
 
     default: // props.kind === KIND.PRIMARY (default kind)
 
       return (`
         border:0.14rem solid transparent;
-        background-color: ${colors.pink[1]};
-        color:${colors.white};
+        background-color: ${props.theme.colors.primaryColor[1]};
+        color:${props.theme.colors.white};
         
         &:hover{
-          background: ${colors.pink[5]};
+          background: ${props.theme.colors.primaryColor[5]};
           border:0.14rem solid transparent;
         }
         &:active:{
-          background: ${colors.pink[6]};
+          background: ${props.theme.colors.primaryColor[6]};
           border:0.14rem solid transparent;
         }`)
     
@@ -158,7 +158,7 @@ ${(props) => {
 ${(props) =>{ 
   if (!props.disabled ) return ``
   const commonStyleForDisabled = (`
-        color:${colors.grey[3]};
+        color:${props.theme.colors.neutralColor[3]};
         cursor: not-allowed;
         &:hover{
           transform: none;
@@ -169,18 +169,18 @@ ${(props) =>{
     case KIND.SECONDARY:
       return(commonStyleForDisabled + 
         `
-        border:0.14rem solid ${colors.grey[0]};
+        border:0.14rem solid ${props.theme.colors.neutralColor[0]};
         `)
     case KIND.GHOST:
       return ( commonStyleForDisabled + `
       border:0.14rem solid transparent;
-        background:${colors.white}
+        background:${props.theme.colors.white}
       `
       )
     default:
       return(commonStyleForDisabled + `
-        background:${colors.grey[0]};
-        border:0.14rem solid ${colors.grey[0]};  
+        background:${props.theme.colors.neutralColor[0]};
+        border:0.14rem solid ${props.theme.colors.neutralColor[0]};  
       `)
   }
 }
@@ -229,47 +229,55 @@ ${(props) => {
 
 export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
 
-export const Button = (props: ButtonProps) => {
+export const PureButton = (props: ButtonProps) => {
+  const theme = props.theme ?? useThemeContext()
 
-        return (  
-        <StyledButton
-        id={props.id}
-        style={props.style}
-        className={props.className}
-        onClick={props.onClick}
-        disabled={props.disabled}
-          {...props}
-        >
-          <>
-          {props.isLoading 
-          ? 
-          <div className={'loading'}></div> 
-          :
-          (props.iconMode === 'icon-only') 
-          ?
-          <>
+    return (
+      <StyledButton
+      theme={theme}
+      id={props.id}
+      style={props.style}
+      className={props.className}
+      onClick={props.onClick}
+      disabled={props.disabled}
+        {...props}
+      >
+        <>
+        {props.isLoading 
+        ? 
+        <div className={'loading'}></div> 
+        :
+        (props.iconMode === 'icon-only') 
+        ?
+        <>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+        <span className={'material-icons-outlined'}>{props.iconName}</span>
+        </>
+        :
+        (props.iconMode === 'with-icon') 
+        ?
+        <div className={'with-icon'}>
           <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-          <span className={'material-icons-outlined'}>{props.iconName}</span>
-          </>
-          :
-          (props.iconMode === 'with-icon') 
-          ?
-          <div className={'with-icon'}>
-            <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-            <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
-          <div className={'content'}>{props.children}</div> 
-          </div>
-          :
-          props.children
-          } 
-          </>
-        </StyledButton>
-      );
+          <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
+        <div className={'content'}>{props.children}</div> 
+        </div>
+        :
+        props.children
+        } 
+        </>
+      </StyledButton>
+  );
 }
 
-// export const ButtonTest = (props: ButtonProps) => {
-//   <ThemeContextProvider value={}/>
-// }
+export const Button = (props: ButtonProps) => {
+  const theme = props.theme ?? useThemeContext()
+  return(
+    WishworkThemeContextProvider({
+      theme: theme,
+      children: PureButton(props)
+    })
+  )
+}
 
 // Button.defaultProps = {
 //   loadingText: null,

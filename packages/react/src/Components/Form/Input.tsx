@@ -64,8 +64,6 @@ input:focus + span {
     transition-duration:350ms;
 }
 
-
-
 `
 
 export const StyledInput = styled.input`
@@ -75,19 +73,18 @@ width:100%;
 outline:none;
 padding: 0.313rem 2rem;
 height: 2.5rem;
-width: 27.5rem;
 font-size: 1rem;
 background-color: transparent;
 border: 0.125rem solid ${colors.grey[2]};
 border-radius: 0.1rem;
 outline: none;
 transition-duration:300ms;
+width: 24rem;
 
 :hover, :focus {
     border-color: ${colors.blue[3]};
     
 }
-
 
 
 :hover::placeholder {
@@ -97,6 +94,19 @@ transition-duration:300ms;
 :focus::placeholder {
     visibility: hidden;
 }
+
+${(props) =>{
+    if (!props.disabled) return ''
+    return(
+        `
+        cursor: not-allowed;
+        :hover, :focus {
+            border-color: transparent;
+            
+        }        
+    `
+    )
+}}
 
 `
 
@@ -110,6 +120,7 @@ border-right:0.5rem solid white;
 border-bottom:0px;
 position:absolute;
 visibility: hidden;
+
 `
 
 

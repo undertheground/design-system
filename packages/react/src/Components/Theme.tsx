@@ -91,29 +91,30 @@ export const colors = {
     blue
 }
 
-type ThemeShape = {
+export type ThemeShape = {
     colors: {
         [key: string]: {[key: number]: string}
     }
 }
 
-const ThemeContext = createContext<ThemeShape>({
+const WishworkThemeContext = createContext<ThemeShape>({
     colors: {
-        pink,
-        grey,
+        primaryColor: pink,
+        secondaryColor: blue,
+        neutralColor: grey,
         white,
         black,
-        blue
+        
     }
 });
 
-export function ThemeContextProvider(props: PropsWithChildren<{theme: ThemeShape}>) {
-    return <ThemeContext.Provider value={props.theme}>
+export function WishworkThemeContextProvider(props: PropsWithChildren<{theme: ThemeShape}>) {
+    return <WishworkThemeContext.Provider value={props.theme}>
         {props.children}
-    </ThemeContext.Provider>
+    </WishworkThemeContext.Provider>
 
 }
 
 export function useThemeContext() {
-    return useContext(ThemeContext);
+    return useContext(WishworkThemeContext);
 }
