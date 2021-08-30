@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, ButtonProps, ButtonPropsWithoutChildren } from '../../src/Components/Button'; 
+import { Button, ButtonProps} from '../../src/Components/Button'; 
 import { Story } from '@storybook/react';
 // import {MouseEvent, PropsWithChildren} from 'react';
 // import VectorGhost from '../public/VectorGhost.svg';
