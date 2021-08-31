@@ -215,8 +215,9 @@ ${(props) => {
       vertical-align: middle;
     }
     .with-icon-${SIZE_TYPES.SMALL} {
-      padding-right:0.5rem;
-      padding-left:0.7rem
+      padding-right:0.7rem;
+      padding-left:0.5rem;
+
     }
   
     .with-icon-${SIZE_TYPES.MEDIUM}{
@@ -229,7 +230,7 @@ ${(props) => {
     }
 
     .icon-size-${SIZE_TYPES.SMALL}{
-      font-size:0.4rem;
+      font-size:1rem;
     }
 
     `
@@ -275,9 +276,9 @@ export const PureButton = (props: ButtonProps) => {
         :
         (props.iconMode === 'with-icon') 
         ?
-        <div className={'with-icon'}>
+        <div className={`with-icon with-icon-${props.sizeType}`}>
           <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-          <span className={'material-icons-outlined `with-icon-${props.sizeType}` `icon-size-${props.sizeType}`'}>{props.iconName}</span>
+          <span className={`material-icons-outlined  icon-size-${props.sizeType}`}>{props.iconName}</span>
         <div className={'content'}>{props.children}</div> 
         </div>
         :
