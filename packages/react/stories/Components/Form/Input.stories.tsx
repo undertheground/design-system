@@ -15,8 +15,8 @@ export default {
 
 const Template: Story <TextInputProps> = args => <TextInput {...args} />;
 
-export const Example1 = Template.bind({});
-Example1.args = {
+export const Input_Active = Template.bind({});
+Input_Active.args = {
   title: 'User Name',
   name: 'UserName',
   placeholder: 'Exp: abas0098',
@@ -31,4 +31,15 @@ Input_Disabled.args = {
     name: 'UserName',
     placeholder: 'Exp: abas0098',
     size: 'medium',
+} as TextInputProps;
+
+export const Input_With_Icon = Template.bind({});
+Input_With_Icon.args = {
+  title: 'User Name',
+  name: 'UserName',
+  placeholder: 'Exp: abas0098',
+  size: 'medium',
+  iconMode: 'with-icon',
+  iconName: 'add'
+
 } as TextInputProps;
