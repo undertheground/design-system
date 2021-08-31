@@ -1,3 +1,4 @@
+import { Props } from '@storybook/addon-docs';
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
@@ -9,7 +10,7 @@ const KIND = {
   GHOST: 'ghost',
 } as const;
 
-const SIZES = {
+const SIZE_TYPES = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
@@ -29,7 +30,7 @@ declare type IconMode = {
 export type ButtonPropsWithoutChildren =  {
   id?: string;
   kind?: typeof KIND[keyof typeof KIND];
-  size?: typeof SIZES[keyof typeof SIZES];
+  sizeType?: typeof SIZE_TYPES[keyof typeof SIZE_TYPES];
   disabled?: boolean; 
   isLoading?: boolean; 
   className?: string; 
@@ -42,7 +43,6 @@ export type ButtonPropsWithoutChildren =  {
 
 //Button Styles//
 export const StyledButton = styled.button<ButtonPropsWithoutChildren>`
-font-size:1rem;
 font-family:'Arial';
 font-weight:500;
 cursor:pointer;
@@ -50,21 +50,35 @@ border-radius:0.3rem;
 outline:none !important;
 transition: all 150ms ease-out;
 transform: translate3d(0, 0, 0);
-
 margin: 1rem;
-height: 2.625rem;
-padding: ${(props) => 
-  (props.size === SIZES.LARGE
-    ?
-    '0 4.063rem'
-    :
-    props.size === SIZES.SMALL
-    ?
-    '0 1rem'
-    :
-    '0 3.25rem' // SIZES.MEDIUM (Default value for undefind size)
-)};
 
+${(props) =>{
+  switch(props.sizeType){
+    case SIZE_TYPES.SMALL:
+      return(`
+      font-size:0.875rem;
+      height: 1.8rem;
+      padding:0 1rem;
+      
+      `)
+      case SIZE_TYPES.LARGE:
+        return(`
+        height: 2.625rem;
+        font-size:1.2rem;
+        padding:0 4.063rem;
+
+        `)
+
+
+      default: 
+      return(`
+      height: 2.625rem;
+      padding:0 3.25rem;
+      font-size:1rem;
+      
+      `)
+  }
+}}
 
 ${(props) => {
   if (!props.isLoading) return ``
@@ -200,17 +214,22 @@ ${(props) => {
       padding:0 auto;
       vertical-align: middle;
     }
-    .with-icon-${KIND.PRIMARY} {
-      padding-right:0.4rem;
+    .with-icon-${SIZE_TYPES.SMALL} {
+      padding-right:0.5rem;
+      padding-left:0.7rem
     }
   
-    .with-icon-${KIND.SECONDARY}{
+    .with-icon-${SIZE_TYPES.MEDIUM}{
       padding-right:0.4rem;
     }
 
-    .with-icon-${KIND.GHOST}{
+    .with-icon-${SIZE_TYPES.LARGE}{
       padding-right:0.4rem;
       
+    }
+
+    .icon-size-${SIZE_TYPES.SMALL}{
+      font-size:0.4rem;
     }
 
     `
@@ -258,7 +277,7 @@ export const PureButton = (props: ButtonProps) => {
         ?
         <div className={'with-icon'}>
           <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-          <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
+          <span className={'material-icons-outlined `with-icon-${props.sizeType}` `icon-size-${props.sizeType}`'}>{props.iconName}</span>
         <div className={'content'}>{props.children}</div> 
         </div>
         :

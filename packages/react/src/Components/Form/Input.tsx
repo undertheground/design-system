@@ -1,18 +1,17 @@
 import React from 'react'
+import { PropsWithChildren } from 'react'
 import styled from 'styled-components'
-import { MouseEvent } from 'react'
 import colors from '@undertheground/color';
 
 
-const SIZES = {
+
+const SIZE_TYPES = {
     SMALL: 'small',
     MEDIUM: 'medium',
     LARGE: 'large',
-}as const;
+  }as const;
 
-type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
-
-export type TextInputProps = {
+export type TextInputPropsWithoutChildren = {
     title: string;
     name?: string;
     type?: 'string' |'number';
@@ -23,8 +22,7 @@ export type TextInputProps = {
     inputClassName?: string;
     lableClassName?: string;
     style?: object;
-    onChange?: OnClickAdapter<HTMLButtonElement>;
-    size?: typeof SIZES[keyof typeof SIZES];
+    sizeType?: typeof SIZE_TYPES[keyof typeof SIZE_TYPES];
     
 }& IconMode;
 
@@ -72,7 +70,7 @@ input:focus + span {
 
 `
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<TextInputPropsWithoutChildren>`
   
 font-size: 1rem;
 width:100%; 
@@ -86,17 +84,7 @@ border-radius: 0.2rem;
 outline: none;
 transition-duration:300ms;
 width: 24rem;
-/* padding: ${(props) => 
-  (props.size === SIZES.LARGE
-    ?
-    '0 4.063rem'
-    :
-    props.size === SIZES.SMALL
-    ?
-    '0 2.438rem'
-    :
-    '0 3.25rem' // SIZES.MEDIUM (Default value for undefind size)
-)}; */
+
 
 :hover, :focus {
     border-color: ${colors.blue[3]};
@@ -133,15 +121,23 @@ ${(props) =>{
 }}
 
 
+${(props) => {
 
-/* ${(props) =>{
-    switch (props.size) {
-        case SIZES.SMALL:
+    switch (props.sizeType) {
+        case SIZE_TYPES.SMALL:
             return(`
-                 width: 16rem; 
+                width: 16rem; 
+            `)
+        
+        case SIZE_TYPES.MEDIUM:
+            return(`
+            `)
+
+        case SIZE_TYPES.LARGE:
+            return(`
             `)
     }
-}} */
+}}
 
 
 `
@@ -167,6 +163,7 @@ visibility: hidden;
 
 `
 
+export type TextInputProps = PropsWithChildren<TextInputPropsWithoutChildren>;
 
 
 export const TextInput = (props: TextInputProps) => {
@@ -185,40 +182,11 @@ export const TextInput = (props: TextInputProps) => {
             id={props.id}
             disabled={props.disabled}
             />
-
-            <>
-
-                {props.iconMode === 'with-icon'
-
-
-                ?
-                
-                    <>
-                    <StyledSpan
-                    className={props.lableClassName}>
-                    {props.title}
-                    </StyledSpan>
-    
-                            
-                    <InputIcon>
-                        <>
-                            <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-                            <span className={'material-icons-outlined'}>{props.iconName}</span>
-                        </>
-                    </InputIcon>
-
-                    </>
-
-                :
-
-                    <StyledSpan
-                    className={props.lableClassName}>
-                    {props.title}
-                    </StyledSpan>
-
-
-                }
-            </>
+            <StyledSpan
+            className={props.lableClassName}>
+            {props.title}
+            </StyledSpan>
+            
             
         </StyledDiv>
     

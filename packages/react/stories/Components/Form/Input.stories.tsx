@@ -20,7 +20,7 @@ Input_Active.args = {
   title: 'User Name',
   name: 'UserName',
   placeholder: 'Exp: abas0098',
-  size: 'medium',
+  sizeType: 'medium',
 } as TextInputProps;
 
 
@@ -30,7 +30,7 @@ Input_Disabled.args = {
     title: 'User Name',
     name: 'UserName',
     placeholder: 'Exp: abas0098',
-    size: 'medium',
+    sizeType: 'medium',
 } as TextInputProps;
 
 export const Input_With_Icon = Template.bind({});
@@ -38,7 +38,7 @@ Input_With_Icon.args = {
   title: 'User Name',
   name: 'UserName',
   placeholder: 'Exp: abas0098',
-  size: 'medium',
+  sizeType: 'medium',
   iconMode: 'with-icon',
   iconName: 'add'
 
