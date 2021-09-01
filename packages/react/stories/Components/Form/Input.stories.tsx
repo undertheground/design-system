@@ -83,3 +83,12 @@ Input_With_Both_Icon_With_Error.args = {
   errorMsg: 'who the fuck are you!!',
   isError: true
 } as TextInputProps;
+
+export const Input_With_Success = Template.bind({});
+Input_With_Success.args = {
+  title: 'User Name',
+  name: 'UserName',
+  sizeType: 'medium',
+  successMsg: 'oh it`s you!!',
+  isSuccess: true
+} as TextInputProps;

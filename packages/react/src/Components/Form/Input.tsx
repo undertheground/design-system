@@ -10,6 +10,7 @@ const SIZE_TYPES = {
     LARGE: 'large',
   }as const;
 
+
 export type TextInputProps = {
     title: string;
     
@@ -22,6 +23,11 @@ export type TextInputProps = {
 
     isError?:boolean;
     errorMsg?:string;
+
+    isSuccess?:boolean;
+    successMsg?:string;
+
+    helperMsg?:string;
     
     inputClassName?: string;
     lableClassName?: string;
@@ -44,6 +50,7 @@ export const TextInput = (props: TextInputProps) => {
         <StyledDiv 
         leftIconName={props.leftIconName}
         isError={props.isError}
+        isSuccess={props.isSuccess}
         >
         
             <StyledInput 
@@ -79,18 +86,30 @@ export const TextInput = (props: TextInputProps) => {
             </RightImageSpan>
             }
         </StyledDiv>
-
-        {props.errorMsg &&
-        <ErrorMessage>
+            
+        {props.errorMsg 
+        ?
+        <Message>
             {props.errorMsg}
-        </ErrorMessage>
+        </Message>
+        :
+        (props.successMsg)
+        ?
+        <Message>
+            {props.successMsg}
+        </Message>
+        :
+        <Message>
+            {props.helperMsg}
+        </Message>
+
         }
         </>
     
     );
 }
 
-export const StyledDiv = styled.div<Pick<TextInputProps, "sizeType" | "leftIconName" | "isError" >>`
+export const StyledDiv = styled.div<Pick<TextInputProps, "sizeType" | "leftIconName" | "isError" | "isSuccess">>`
 font-family:"Mukta Vaani";
 font-weight: 400;
 display:flex;
@@ -171,7 +190,7 @@ input:focus + span {
 }
 `
 
-export const StyledInput = styled.input<Pick<TextInputProps, "sizeType" | "isLoading" | "leftIconName" | "rightIconName" | "isError" >>`
+export const StyledInput = styled.input<Pick<TextInputProps, "sizeType" | "isLoading" | "leftIconName" | "rightIconName" | "isError" | "isSuccess">>`
   
 font-size: 1rem;
 width:100%; 
@@ -276,10 +295,10 @@ ${(props) => {
 
 `
 
-export const LeftImageSpan = styled.span<Pick<TextInputProps, "leftIconName" | "isError">>`
+export const LeftImageSpan = styled.span<Pick<TextInputProps, "leftIconName" | "isError" | "isSuccess">>`
 
 position:absolute;
-margin:0.813rem 1.25rem;
+margin:0.8rem 1.25rem;
 
 ${(props) =>{
     if (props.isError) {
@@ -295,9 +314,9 @@ ${(props) =>{
 `
 
 
-export const RightImageSpan = styled.span<Pick<TextInputProps, "rightIconName"| "isError">>`
+export const RightImageSpan = styled.span<Pick<TextInputProps, "rightIconName"| "isError"| "isSuccess">>`
 position:absolute;
-margin:0.813rem calc(100% - 2.75rem);
+margin:0.8rem calc(100% - 2.75rem);
 
 ${(props) =>{
     if (props.isError) {
@@ -311,14 +330,16 @@ ${(props) =>{
 }}
 `
 
-export const ErrorMessage = styled.p<Pick<TextInputProps, "errorMsg" >>`
+export const Message = styled.p<Pick<TextInputProps, "errorMsg" | "successMsg" | "helperMsg" >>`
 color:red;
-margin-top:5px;
+margin-top:0.2rem;
 display:grid;
 font-family:"Mukta Vaani";
+font-weight: 500;
+font-size:0.8rem;
 `
 
-export const StyledSpan= styled.span<Pick<TextInputProps, "leftIconName" | "isError">>`
+export const StyledSpan= styled.span<Pick<TextInputProps, "leftIconName" | "isError"| "isSuccess">>`
 margin-left: 1rem;
 cursor: text;
 font-size:1rem;

@@ -1,3 +1,4 @@
+import { Props } from '@storybook/addon-docs';
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
@@ -40,65 +41,7 @@ export type ButtonPropsWithoutChildren =  {
 
 
 
-
-export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
-
-export const PureButton = (props: ButtonProps) => {
-  const theme = props.theme ?? useThemeContext()
-
-    return (
-      <StyledButton
-      theme={theme}
-      id={props.id}
-      style={props.style}
-      className={props.className}
-      onClick={props.onClick}
-      disabled={props.disabled}
-        {...props}
-      >
-        <>
-        {props.isLoading 
-        ? 
-        <div className={'loading'}></div> 
-        :
-        (props.iconMode === 'icon-only') 
-        ?
-        <>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-        <span className={'material-icons-outlined'}>{props.iconName}</span>
-        </>
-        :
-        (props.iconMode === 'with-icon') 
-        ?
-        <div className={`with-icon with-icon-${props.sizeType}`}>
-          <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-          <span className={`material-icons-outlined  icon-size-${props.sizeType}`}>{props.iconName}</span>
-        <div className={'content'}>{props.children}</div> 
-        </div>
-        :
-        props.children
-        } 
-        </>
-      </StyledButton>
-  );
-}
-
-export const Button = (props: ButtonProps) => {
-  const theme = props.theme ?? useThemeContext()
-  return(
-    WishworkThemeContextProvider({
-      theme: theme,
-      children: PureButton(props)
-    })
-  )
-}
-
-// Button.defaultProps = {
-//   loadingText: null,
-//   isDisabled: false,
-//   ...buttonStyleDefaultProps,
-// };
-
+//Button Styles//
 export const StyledButton = styled.button<ButtonPropsWithoutChildren>`
 font-family:'Arial';
 font-weight:500;
@@ -272,9 +215,8 @@ ${(props) => {
       vertical-align: middle;
     }
     .with-icon-${SIZE_TYPES.SMALL} {
-      padding-right:0.7rem;
-      padding-left:0.5rem;
-
+      padding-right:0.5rem;
+      padding-left:0.7rem
     }
   
     .with-icon-${SIZE_TYPES.MEDIUM}{
@@ -287,7 +229,7 @@ ${(props) => {
     }
 
     .icon-size-${SIZE_TYPES.SMALL}{
-      font-size:1rem;
+      font-size:0.4rem;
     }
 
     `
@@ -303,3 +245,61 @@ ${(props) => {
   
 }}
 `;
+
+export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
+
+export const PureButton = (props: ButtonProps) => {
+  const theme = props.theme ?? useThemeContext()
+
+    return (
+      <StyledButton
+      theme={theme}
+      id={props.id}
+      style={props.style}
+      className={props.className}
+      onClick={props.onClick}
+      disabled={props.disabled}
+        {...props}
+      >
+        <>
+        {props.isLoading 
+        ? 
+        <div className={'loading'}></div> 
+        :
+        (props.iconMode === 'icon-only') 
+        ?
+        <>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+        <span className={'material-icons-outlined'}>{props.iconName}</span>
+        </>
+        :
+        (props.iconMode === 'with-icon') 
+        ?
+        <div className={'with-icon'}>
+          <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+          <span className={'material-icons-outlined `with-icon-${props.sizeType}` `icon-size-${props.sizeType}`'}>{props.iconName}</span>
+        <div className={'content'}>{props.children}</div> 
+        </div>
+        :
+        props.children
+        } 
+        </>
+      </StyledButton>
+  );
+}
+
+export const Button = (props: ButtonProps) => {
+  const theme = props.theme ?? useThemeContext()
+  return(
+    WishworkThemeContextProvider({
+      theme: theme,
+      children: PureButton(props)
+    })
+  )
+}
+
+// Button.defaultProps = {
+//   loadingText: null,
+//   isDisabled: false,
+//   ...buttonStyleDefaultProps,
+// };
