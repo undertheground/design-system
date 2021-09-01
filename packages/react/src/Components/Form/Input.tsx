@@ -1,6 +1,5 @@
-import React from 'react'
-import { PropsWithChildren } from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 import colors from '@undertheground/color';
 
 
@@ -11,71 +10,144 @@ const SIZE_TYPES = {
     LARGE: 'large',
   }as const;
 
-export type TextInputPropsWithoutChildren = {
+export type TextInputProps = {
     title: string;
+    
     name?: string;
     type?: 'string' |'number';
     id?: string;
     required?: boolean;
     disabled?: boolean;
     isLoading?: boolean; 
+
+    isError?:boolean;
+    errorMsg?:string;
+    
     inputClassName?: string;
     lableClassName?: string;
-    style?: object;
+    
+    leftIconName?: string;
+    rightIconName?: string;
+  
     sizeType?: typeof SIZE_TYPES[keyof typeof SIZE_TYPES];
     
-}& IconMode;
+};
 
-declare type IconMode = {
-    iconMode?: 'without-icon'
-  } | {
-    iconMode: 'with-icon' | 'with-two-icon',
-    iconName: string,
+export const TextInput = (props: TextInputProps) => {
+    console.log(props)
+
+    return (
+        <StyledDiv leftIconName={props.leftIconName}>
+            <link rel="preconnect" href="https://fonts.googleapis.com"/>
+            <link rel="preconnect" href="https://fonts.gstatic.com" />
+            <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"></link>    
+            
+            <StyledInput 
+            className={props.inputClassName}
+            type={props.type}
+            placeholder={props.title}
+            id={props.id}
+            disabled={props.disabled}
+            isError={props.isError}
+            leftIconName={props.leftIconName}
+            />
+            <StyledSpan
+            className={props.lableClassName}
+            leftIconName={props.leftIconName}
+            isError={props.isError}>
+            {props.title}
+            </StyledSpan>
+
+            {props.leftIconName &&
+            <LeftImageSpan>
+                <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+                <span className={'material-icons-outlined'}>{props.leftIconName}</span>
+            </LeftImageSpan>
+            }
+
+            {props.rightIconName &&
+            <RightImageSpan>
+                <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+                <span className={'material-icons-outlined'}>{props.rightIconName}</span>
+            </RightImageSpan>
+            }
+            {props.errorMsg &&
+            <ErrorMessage>
+                {props.errorMsg}
+            </ErrorMessage>
+
+            }
+
+        </StyledDiv>
+    
+    );
 }
 
-
-export const StyledDiv = styled.div`
+export const StyledDiv = styled.div<Pick<TextInputProps, "sizeType" | "leftIconName" |"isError" >>`
 font-family:"Mukta Vaani";
 font-weight: 400;
 display:flex;
 position:relative;
-
+width:24rem;
 
 input:not(:placeholder-shown) + span{
     color: ${colors.grey[3]};
-    transform: translateY(-0.5rem);
+    transform: translateY(-0.6rem);
     background: ${colors.white};
     text-align: center;
-    margin-left: 1.5rem;
+    margin-left: 1rem;
     transition-duration:350ms;
     font-size: 0.825rem;
-    visibility: visible;    
+    visibility: visible; 
+    ${(props) =>{
+        if (props.leftIconName) {
+        return(`
+            margin-left:1rem;
+        `)
+        }
+        return ``
+    }}   
 }
 
-input:hover + span {
+
+input:hover ~ span, input:focus ~ span {
     color: ${colors.blue[3]};
 }
 
 input:focus + span {
     display:flex;    
     color: ${colors.blue[3]};
-    transform:translateY(-0.5rem);
+    transform:translateY(-0.6rem);
     background:${colors.white};
     text-align:center;
-    margin-left:1.5rem;
+    margin-left:1rem;
     font-size: 0.825rem; 
     visibility: visible;
     transition-duration:350ms;
+    ${(props) =>{
+        if (props.leftIconName) {
+        return(`
+            margin-left:1rem;
+        `)
+        }
+        return ``
+    }}
+    ${(props) =>{
+        if (props.isError) {
+        return(`
+            
+        `)
+        }
+        return ``
+    }}
 }
-
 `
 
-export const StyledInput = styled.input<TextInputPropsWithoutChildren>`
+export const StyledInput = styled.input<Pick<TextInputProps, "sizeType" | "isLoading" | "leftIconName" | "rightIconName" | "isError" >>`
   
 font-size: 1rem;
 width:100%; 
 outline:none;
-padding: 0.313rem 2rem;
 height: 2.2rem;
 font-size: 1rem;
 background-color: transparent;
@@ -83,23 +155,53 @@ border: 0.12rem solid ${colors.grey[2]};
 border-radius: 0.2rem;
 outline: none;
 transition-duration:300ms;
-width: 24rem;
 
+${(props) =>{
+    if (props.leftIconName) {
+    return(`
+        padding: 0.313rem 3.2rem;
+    `)
+    }
+    return (`
+        padding: 0.313rem 1.2rem;
+    `)
+}}
 
-:hover, :focus {
-    border-color: ${colors.blue[3]};
-    
-}
+${(props) =>{
+    if (props.isError) {
+    return(`
+        border: 0.12rem solid red;
+        :hover, :focus {
+            border-color: red;
+            
+        }
+        ::placeholder {
+            color: red;
+        }
+        :hover::placeholder {
+            color: red;
+        }
+    `)
+    }
+    return (`
+        border: 0.12rem solid ${colors.grey[2]};
+        :hover, :focus {
+            border-color: ${colors.blue[3]};
+            
+        }
+        ::placeholder {
+            color: ${colors.grey[3]};
+            font-family:"Mukta Vaani";
+            font-weight: 400;
+        }
+        :hover::placeholder {
+            color: ${colors.blue[3]};
+        }
+        
+        
+    `)
+}}
 
-::placeholder {
-    color: ${colors.grey[3]};
-    font-family:"Mukta Vaani";
-    font-weight: 400;
-}
-
-:hover::placeholder {
-    color: ${colors.blue[3]};
-}
 
 :focus::placeholder {
     visibility: hidden;
@@ -111,7 +213,7 @@ ${(props) =>{
         `
         cursor: not-allowed;   
         :hover{
-            border-color: ${colors.grey[2]};
+            border-color: ${colors.grey[1]};
         }
         :hover::placeholder{
             color: ${colors.grey[3]};
@@ -136,23 +238,40 @@ ${(props) => {
         case SIZE_TYPES.LARGE:
             return(`
             `)
+        default:
+        return(`
+
+        `)
     }
 }}
 
 
 `
 
-export const InputIcon = styled.div`
-position: absolute;
-padding: 0.8rem;
-padding-left: 0.4rem;
-color: ${colors.grey[3]};
+export const LeftImageSpan = styled.span<Pick<TextInputProps, "leftIconName" >>`
+
+position:absolute;
+margin:0.813rem 1.25rem;
+color:${colors.grey[2]};
 
 `
 
-export const StyledSpan= styled.span`
+
+export const RightImageSpan = styled.span<Pick<TextInputProps, "rightIconName">>`
+position:absolute;
+margin:0.813rem calc(100% - 2.75rem);
+color:${colors.grey[2]};
+`
+
+export const ErrorMessage = styled.p<Pick<TextInputProps, "errorMsg" >>`
+color:red;
+position:relative;
+display:grid;
+`
+
+export const StyledSpan= styled.span<Pick<TextInputProps, "leftIconName" | "isError">>`
 color: ${colors.grey[3]};
-margin-left: 1.5rem;
+margin-left: 1rem;
 cursor: text;
 font-size:1rem;
 border-left:0.5rem solid white;
@@ -161,37 +280,15 @@ border-bottom:0px;
 position:absolute;
 visibility: hidden;
 
+${(props) =>{
+    if (props.leftIconName) {
+    return(`
+        margin-left:1rem;
+    `)
+    }
+    return ``
+    }}
+
 `
-
-export type TextInputProps = PropsWithChildren<TextInputPropsWithoutChildren>;
-
-
-export const TextInput = (props: TextInputProps) => {
-    console.log(props)
-
-    return (
-        <StyledDiv>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"></link>    
-            
-            <StyledInput 
-            className={props.inputClassName}
-            type={props.type}
-            placeholder={props.title}
-            id={props.id}
-            disabled={props.disabled}
-            />
-            <StyledSpan
-            className={props.lableClassName}>
-            {props.title}
-            </StyledSpan>
-            
-            
-        </StyledDiv>
-    
-    );
-}
-
 
 

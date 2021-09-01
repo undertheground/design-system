@@ -21,6 +21,7 @@ Input_Active.args = {
   name: 'UserName',
   placeholder: 'Exp: abas0098',
   sizeType: 'medium',
+
 } as TextInputProps;
 
 
@@ -29,17 +30,56 @@ Input_Disabled.args = {
     disabled: true,
     title: 'User Name',
     name: 'UserName',
-    placeholder: 'Exp: abas0098',
     sizeType: 'medium',
+
 } as TextInputProps;
 
-export const Input_With_Icon = Template.bind({});
-Input_With_Icon.args = {
+export const Input_With_Left_Icon = Template.bind({});
+Input_With_Left_Icon.args = {
   title: 'User Name',
   name: 'UserName',
   placeholder: 'Exp: abas0098',
   sizeType: 'medium',
-  iconMode: 'with-icon',
-  iconName: 'add'
+  leftIconName:'search',
 
+} as TextInputProps;
+
+export const Input_With_Right_Icon = Template.bind({});
+Input_With_Right_Icon.args = {
+  title: 'User Name',
+  name: 'UserName',
+  placeholder: 'Exp: abas0098',
+  sizeType: 'medium',
+  rightIconName:'search',
+} as TextInputProps;
+
+export const Input_With_Both_Icon = Template.bind({});
+Input_With_Both_Icon.args = {
+  title: 'User Name',
+  name: 'UserName',
+  placeholder: 'Exp: abas0098',
+  sizeType: 'medium',
+  rightIconName:'add',
+  leftIconName:'home',
+} as TextInputProps;
+
+export const Input_With_Error = Template.bind({});
+Input_With_Error.args = {
+  title: 'User Name',
+  name: 'UserName',
+  sizeType: 'medium',
+  errorMsg: 'who the fuck are you!!',
+  isError: true
+} as TextInputProps;
+
+export const Input_With_Both_Icon_With_Error = Template.bind({});
+Input_With_Both_Icon_With_Error.args = {
+  title: 'User Name',
+  name: 'UserName',
+  placeholder: 'Exp: abas0098',
+  sizeType: 'medium',
+  rightIconName:'add',
+  leftIconName:'home',
+  errorMsg: 'who the fuck are you!!',
+  isError: true
 } as TextInputProps;
