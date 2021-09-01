@@ -34,14 +34,18 @@ export type TextInputProps = {
 };
 
 export const TextInput = (props: TextInputProps) => {
-    console.log(props)
 
     return (
-        <StyledDiv leftIconName={props.leftIconName}>
-            <link rel="preconnect" href="https://fonts.googleapis.com"/>
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"></link>    
-            
+        <>
+        <link rel="preconnect" href="https://fonts.googleapis.com"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"></link> 
+
+        <StyledDiv 
+        leftIconName={props.leftIconName}
+        isError={props.isError}
+        >
+        
             <StyledInput 
             className={props.inputClassName}
             type={props.type}
@@ -59,31 +63,34 @@ export const TextInput = (props: TextInputProps) => {
             </StyledSpan>
 
             {props.leftIconName &&
-            <LeftImageSpan>
+            <LeftImageSpan
+            isError={props.isError}>
                 <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
                 <span className={'material-icons-outlined'}>{props.leftIconName}</span>
             </LeftImageSpan>
             }
 
             {props.rightIconName &&
-            <RightImageSpan>
+            <RightImageSpan
+            isError={props.isError}
+            >
                 <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
                 <span className={'material-icons-outlined'}>{props.rightIconName}</span>
             </RightImageSpan>
             }
-            {props.errorMsg &&
-            <ErrorMessage>
-                {props.errorMsg}
-            </ErrorMessage>
-
-            }
-
         </StyledDiv>
+
+        {props.errorMsg &&
+        <ErrorMessage>
+            {props.errorMsg}
+        </ErrorMessage>
+        }
+        </>
     
     );
 }
 
-export const StyledDiv = styled.div<Pick<TextInputProps, "sizeType" | "leftIconName" |"isError" >>`
+export const StyledDiv = styled.div<Pick<TextInputProps, "sizeType" | "leftIconName" | "isError" >>`
 font-family:"Mukta Vaani";
 font-weight: 400;
 display:flex;
@@ -106,17 +113,36 @@ input:not(:placeholder-shown) + span{
         `)
         }
         return ``
-    }}   
+    }} 
+
+    ${(props) =>{
+        if (props.isError) {
+        return(`
+        color: red;
+        `)
+        }
+        return (`
+        color: ${colors.blue[3]};
+        `)
+    }}  
 }
 
 
 input:hover ~ span, input:focus ~ span {
-    color: ${colors.blue[3]};
+    ${(props) =>{
+        if (props.isError) {
+        return(`
+        color: red;
+        `)
+        }
+        return (`
+        color: ${colors.blue[3]};
+        `)
+    }}
 }
 
 input:focus + span {
     display:flex;    
-    color: ${colors.blue[3]};
     transform:translateY(-0.6rem);
     background:${colors.white};
     text-align:center;
@@ -135,10 +161,12 @@ input:focus + span {
     ${(props) =>{
         if (props.isError) {
         return(`
-            
+        color: red;
         `)
         }
-        return ``
+        return (`
+        color: ${colors.blue[3]};
+        `)
     }}
 }
 `
@@ -248,29 +276,49 @@ ${(props) => {
 
 `
 
-export const LeftImageSpan = styled.span<Pick<TextInputProps, "leftIconName" >>`
+export const LeftImageSpan = styled.span<Pick<TextInputProps, "leftIconName" | "isError">>`
 
 position:absolute;
 margin:0.813rem 1.25rem;
-color:${colors.grey[2]};
+
+${(props) =>{
+    if (props.isError) {
+    return(`
+    color: red;
+    `)
+    }
+    return (`
+    color: ${colors.grey[2]};
+    `)
+}}
 
 `
 
 
-export const RightImageSpan = styled.span<Pick<TextInputProps, "rightIconName">>`
+export const RightImageSpan = styled.span<Pick<TextInputProps, "rightIconName"| "isError">>`
 position:absolute;
 margin:0.813rem calc(100% - 2.75rem);
-color:${colors.grey[2]};
+
+${(props) =>{
+    if (props.isError) {
+    return(`
+    color: red;
+    `)
+    }
+    return (`
+    color: ${colors.grey[2]};
+    `)
+}}
 `
 
 export const ErrorMessage = styled.p<Pick<TextInputProps, "errorMsg" >>`
 color:red;
-position:relative;
+margin-top:5px;
 display:grid;
+font-family:"Mukta Vaani";
 `
 
 export const StyledSpan= styled.span<Pick<TextInputProps, "leftIconName" | "isError">>`
-color: ${colors.grey[3]};
 margin-left: 1rem;
 cursor: text;
 font-size:1rem;
@@ -287,6 +335,17 @@ ${(props) =>{
     `)
     }
     return ``
+    }}
+
+    ${(props) =>{
+        if (props.isError) {
+        return(`
+        color: red;
+        `)
+        }
+        return (`
+        color: ${colors.grey[3]};
+        `)
     }}
 
 `
