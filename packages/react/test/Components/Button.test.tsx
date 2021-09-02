@@ -12,4 +12,3 @@ it('renders the button in the primary state', () => {
     render(<Primary children={"Button"}/>);
     expect(screen.getByRole('button')).toHaveTextContent('Button');
 });
-
