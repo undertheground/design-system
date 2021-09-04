@@ -56,24 +56,24 @@ ${(props) =>{
     case SIZE_TYPES.SMALL:
       return(`
       font-size:0.875rem;
-      height: 1.8rem;
+      height: 2rem;
       padding:0 1rem;
       
       `)
       case SIZE_TYPES.LARGE:
         return(`
-        height: 2.625rem;
-        font-size:1.2rem;
-        padding:0 4.063rem;
+        height: 3rem;
+        font-size: 1.25rem;
+        padding:0 4rem;
 
         `)
 
 
       default: 
       return(`
-      height: 2.625rem;
-      padding:0 3.25rem;
+      height: 2.5rem;
       font-size:1rem;
+      padding:0 3rem;
       
       `)
   }
