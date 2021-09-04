@@ -92,3 +92,37 @@ Input_With_Success.args = {
   successMsg: 'oh it`s you!!',
   isSuccess: true
 } as TextInputProps;
+
+export const Input_With_Icon_With_Success = Template.bind({});
+Input_With_Icon_With_Success.args = {
+  title: 'User Name',
+  name: 'UserName',
+  sizeType: 'medium',
+  successMsg: 'oh it`s you!!',
+  isSuccess: true,
+  rightIconName:'add',
+  leftIconName:'home',
+} as TextInputProps;
+
+
+export const Input_With_helper = Template.bind({});
+Input_With_helper.args = {
+  title: 'User Name',
+  name: 'UserName',
+  sizeType: 'medium',
+  helperMsg: "I'm the helper msg !!",
+  showhelp: true,
+
+} as TextInputProps;
+
+
+let count
+export const Input_With_Counter = Template.bind({});
+Input_With_Counter.args = {
+  title: 'User Name',
+  name: 'UserName',
+  sizeType: 'medium',
+  maxCount:20,
+  hasCounter: true,
+  value: count
+} as TextInputProps;

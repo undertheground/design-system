@@ -1,4 +1,3 @@
-import { Props } from '@storybook/addon-docs';
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
