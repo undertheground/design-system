@@ -1,7 +1,7 @@
 {
-  "name": "vue",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@undertheground/vue",
+  "version": "0.1.2",
+  "private": false,
   "main": "dist/Button.umd.js",
   "module": "dist/Button.esm.js",
   "unpkg": "dist/Button.min.js",
@@ -19,9 +19,8 @@
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
-    "@storybook/addon-docs": "^6.3.7",
     "@undertheground/color": "^0.2.5",
-    "core-js": "^3.6.5",
+    "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.20",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-styled-components": "^1.6.0",
@@ -34,6 +33,7 @@
     "@rollup/plugin-node-resolve": "^13.0.4",
     "@rollup/plugin-typescript": "^8.2.5",
     "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-docs": "^6.3.7",
     "@storybook/addon-essentials": "^6.3.7",
     "@storybook/addon-links": "^6.3.7",
     "@storybook/vue3": "^6.3.7",

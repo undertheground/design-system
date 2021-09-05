@@ -5,6 +5,7 @@
     :isLoading="isLoading"
     :iconMode="iconMode"
     :iconName="iconName"
+    @click="click"
     >{{ children }}</styled-button
   >
 </template>
@@ -49,24 +50,31 @@ export type ButtonPropsWithoutChildren = {
 // let btnProps: ButtonPropsWithoutChildren = {};
 
 export const StyledButton = styled("button")`
-  font-size: 1rem;
-  font-family: "Arial";
-  font-weight: 500;
-  cursor: pointer;
-  border-radius: 0.3rem;
-  outline: none !important;
-  transition: all 150ms ease-out;
-  transform: translate3d(0, 0, 0);
-  ${props =>
-    props.size === SIZES.LARGE
-      ? "padding: 1rem 4.86rem"
-      : props.size === SIZES.SMALL
-      ? "padding: 0.6rem 1.8rem"
-      : "padding:0.8rem 3.2rem"}; // SIZES.MEDIUM (Default value for undefind size)
-      ${props => {
-        if (!props.isLoading) return ``;
+font-size:1rem;
+font-family:'Arial';
+font-weight:500;
+cursor:pointer;
+border-radius:0.3rem;
+outline:none !important;
+transition: all 150ms ease-out;
+transform: translate3d(0, 0, 0);
 
-        return `
+margin: 1rem;
+height: 2.625rem;
+padding: ${
+  props =>
+    props.size === SIZES.LARGE
+      ? "0 4.063rem"
+      : props.size === SIZES.SMALL
+      ? "0 2.438rem"
+      : "0 3.25rem" // SIZES.MEDIUM (Default value for undefind size)
+};
+
+
+${props => {
+  if (!props.isLoading) return ``;
+
+  return `
     background-color: ${colors.grey[0]} !important;
     border:0 !important;
     cursor: progress !important;
@@ -78,7 +86,7 @@ export const StyledButton = styled("button")`
         transform: rotate(360deg);
       }
     }
-
+  
     .loading{
       border-radius: 50%;
       width: 1rem;
@@ -87,9 +95,9 @@ export const StyledButton = styled("button")`
       border-top-color: #FAFAFA;
       animation: spin 1s infinite linear;
     }
-
+    
     `;
-      }}
+}}
 
 ${props => {
   if (props.disabled) return ``;
@@ -100,7 +108,7 @@ ${props => {
         color: ${colors.blue[4]};
         border:0.14rem solid ${colors.blue[4]};
         background-color:transparent;
-
+        
         &:hover{
           background:${colors.blue[5]};
           color: ${colors.grey[1]};
@@ -117,13 +125,13 @@ ${props => {
         color: ${colors.pink[3]};
         background-color:transparent;
         border:0.14rem solid transparent ;
-
+        
         &:hover{
           background:${colors.grey[0]};
           border:0.14rem solid transparent;
         }
         &:active{
-
+          
           border:0.14rem solid ${colors.pink[5]};
         }`;
 
@@ -134,7 +142,7 @@ ${props => {
         border:0.14rem solid transparent;
         background-color: ${colors.pink[1]};
         color:${colors.white};
-
+        
         &:hover{
           background: ${colors.pink[5]};
           border:0.14rem solid transparent;
@@ -177,7 +185,7 @@ ${props => {
         commonStyleForDisabled +
         `
         background:${colors.grey[0]};
-        border:0.14rem solid ${colors.grey[0]};
+        border:0.14rem solid ${colors.grey[0]};  
       `
       );
   }
@@ -199,14 +207,14 @@ ${props => {
     .with-icon-${KIND.PRIMARY} {
       padding-right:0.4rem;
     }
-
+  
     .with-icon-${KIND.SECONDARY}{
       padding-right:0.4rem;
     }
 
     .with-icon-${KIND.GHOST}{
       padding-right:0.4rem;
-
+      
     }
 
     `;
@@ -214,7 +222,7 @@ ${props => {
   if (props.iconMode === "icon-only") {
     return `
     padding:0.4rem !important;
-
+    
     `;
   }
   return ``;
@@ -247,11 +255,20 @@ export default {
     },
     iconName: {
       type: String
+    },
+    click: {
+      type: Object
     }
   },
-  setup(props: ButtonPropsWithoutChildren) {
+  emits: ["click"],
+  setup(props: ButtonPropsWithoutChildren, { emit }) {
     // console.log(props.size);
     reactive(props);
+    return {
+      onClick() {
+        emit("click");
+      }
+    };
   }
 };
 // name: "my-button",

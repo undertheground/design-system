@@ -13,14 +13,17 @@ const Template = args => ({
     return { args };
   },
   // And then the `args` are bound to your component with `v-bind="args"`
-  template: '<Button v-bind="args" />'
+  template: '<Button v-bind="args"/>'
 });
 
 export const Primary = Template.bind({});
 Primary.args = {
   kind: "primary",
   size: "medium",
-  children: "Button"
+  // children: "Button",
+  click: () => {
+    console.log("ss");
+  }
 };
 
 export const Secondary = Template.bind({});
