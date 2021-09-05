@@ -245,7 +245,7 @@ input:focus + span {
         }
         if(props.isSuccess){
             return(`
-            color:green;
+            color: green;
             `)
         }
         return (`
