@@ -1,5 +1,6 @@
 import React , { ComponentProps, FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
+import colors from '@undertheground/color';
 
 
 export type CheckBoxProps ={
@@ -22,14 +23,21 @@ export const Checkbox: FunctionComponent<CheckBoxProps & ComponentProps<typeof I
     const errorId = `${id}-error`;
     return (
       <StyledCheckbox>
-        <Label>
+        <Label className="label-cbx">
           <Input
+            className="invisible"
             id={id}
             aria-describedby={errorId}
             aria-invalid={!!error}
             type="checkbox"
             {...props}
           />
+          <div className="checkbox">
+            <svg width="20px" height="20px" viewBox="0 0 20 20">
+              <path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
+              <polyline points="4 11 8 15 16 6"></polyline>
+            </svg>
+          </div>
           <LabelText>
             <OptionalText hideLabel={props.hideLabel}>{props.label}</OptionalText>
           </LabelText>
@@ -41,20 +49,67 @@ export const Checkbox: FunctionComponent<CheckBoxProps & ComponentProps<typeof I
 
 
 export const StyledCheckbox = styled.div`
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+user-select: none;
+cursor: pointer;
+margin-bottom: 0;
+
+input:checked + .checkbox {
+  border-color:${colors.pink[3]};
+}
+input:checked + .checkbox svg path {
+  fill:${colors.pink[3]};
+}
+input:checked + .checkbox svg polyline {
+  stroke-dashoffset: 0;
+}
+:hover .checkbox svg path {
+  stroke-dashoffset: 0;
+}
+.checkbox {
+  position: relative;
+  top: 2px;
+  float: left;
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid ${colors.pink[3]};
+  border-radius: 3px;
+}
+.checkbox svg {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+}
+.label-cbx .checkbox svg path {
+  fill: none;
+  stroke:${colors.pink[3]};
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 71px;
+  stroke-dashoffset: 71px;
+  transition: all 0.6s ease;
+}
+.label-cbx .checkbox svg polyline {
+  fill: none;
+  stroke: #FFF;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 18px;
+  stroke-dashoffset: 18px;
+  transition: all 0.3s ease;
+}
+.label-cbx > span {
+  pointer-events: none;
+  vertical-align: middle;
+}
+
+
 `
 
 export const Label = styled.div`
 
-cursor: pointer;
-  font-size: 1rem;
-  font-weight: 300;
-  position: relative;
-  height: 1em;
-  display: flex;
-  align-items: center;
 
 `
 export const LabelText = styled.div`
@@ -62,76 +117,12 @@ export const LabelText = styled.div`
 `
 
 export const Input = styled.input.attrs({ type: 'checkbox' })<{ checkboxColor: string }>`
-border:50%;
-color: black;
-width: 1rem;
-height: 1rem;
-& + ${LabelText} {
-    &:before,
-    &:after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 1em;
-      width: 1em;
-      content: '';
-      display: block;
-    }
-    &:before {
-      border-radius: 4px;
-    }
-    &:after {
-      border-radius: 3px;
-    }
-  }
-  & + ${LabelText}:before {
-    box-shadow: black 0 0 0 1px inset;
-  }
-  &:focus + ${LabelText}:before {
-    box-shadow: ${(props) => props.checkboxColor} 0 0 0 1px inset;
-  }
-  &:checked + ${LabelText}:before {
-    box-shadow: ${(props) => props.checkboxColor} 0 0 0 1px inset;
-  }
-  
-  & + ${LabelText}:after {
-    transition: all 150ms ease-out;
-    transform: scale3d(0, 0, 1);
-    height: 10px;
-    margin-left: 2px;
-    margin-top: 2px;
-    width: 10px;
-    opacity: 0;
-  }
-  &:checked + ${LabelText}:after {
-    transform: scale3d(1, 1, 1);
-    background: ${(props) => props.checkboxColor};
-    opacity: 1;
-  }
 
 `
 
 export const OptionalText = styled.span<{ hideLabel: boolean }>`
-  ${(props) =>
-    props.hideLabel &&
-    `
-      border: 0px !important;
-      clip: rect(0 0 0 0) !important;
-      -webkit-clip-path: inset(100%) !important;
-      clip-path: inset(100%) !important;
-      height: 1px !important;
-      overflow: hidden !important;
-      padding: 0px !important;
-      position: absolute !important;
-      white-space: nowrap !important;
-      width: 1px !important;
-    `}
 
 `
 export const Error = styled.div`
-  color:black;
-  margin-left: 6px;
-  height: 1em;
-  display: flex;
-  align-items: center;
+
 `
