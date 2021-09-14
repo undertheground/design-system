@@ -22,5 +22,11 @@ You can see the total structure of the project in the following table:
 | | Tags | |
 
 
-Every three weeks we select 2 or 3 topic from these categories, and implement them within this period.
+Some the topics have a *Finish to Start* realation but the most ones are *Start to Start*, so we priority them and implement them within 3 weeks.
+First of all we design it in **Figma** and then develope it with **Typescript**.
 
+## What have done?
+
+We have developed **TextInput** and **Button** components by now, which you can see them on <a href="undertheground.wishwork.org"> undertheground.wishwork.org </a>  
+
+## next Step
