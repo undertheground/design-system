@@ -1,15 +1,26 @@
-## Roadmap of the design system
+## Roadmap of the development of the design system
 
-There will be two dimension for the development of the design system.
-We break it down into two dimension, horizental development and vertical development and diagonal development which has been breaked down below:
+You can see the total structure of the project in the following table:
+
+| Fandamentals | Components | Mixed Components |
+| --- | --- | --- |
+| Spacing | Button | Form |
+| Colors | Drop Down | Navigation Bar |
+| Theming | Cards | Navigation slider |
+| Typography | Checkbox | Footer |
+| Grid system | Collapsible Content | Modal Pages |
+| | Content Switcher | Data Table |
+| | Date Picker | |
+| | File Uplouder | |
+| | Link | |
+| | Redio Button | |
+| | Search | |
+| | Select | |
+| | Slider | |
+| | Text Input | |
+| | Toggle | |
+| | Tags | |
 
 
-## Vertical Development
-Consist of Component-Driven-Development for the development of the design system. There are plenty of components with different levels of abstraction 
-that could be used by software engineers.
+Every three weeks we select 2 or 3 topic from these categories, and implement them within this period.
 
-## Horizental Development
-Consist of design elements that help intergrity and consistency among the products. 
-
-## Diagonal Development
-Consist of 
