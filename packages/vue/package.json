@@ -1,17 +1,26 @@
 {
-  "name": "vue",
-  "version": "0.1.0",
-  "private": true,
+  "name": "@undertheground/vue",
+  "version": "0.1.2",
+  "private": false,
+  "main": "dist/Button.umd.js",
+  "module": "dist/Button.esm.js",
+  "unpkg": "dist/Button.min.js",
+  "browser": {
+    "./sfc": "src/Button.vue"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config rollup.config.js --format umd --file dist/Button.umd.js",
+    "build:es": "rollup --config rollup.config.js --format es --file dist/Button.esm.js",
+    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/Button.min.js",
     "lint": "vue-cli-service lint",
     "build-storybook": "build-storybook",
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
-    "@storybook/addon-docs": "^6.3.7",
-    "core-js": "^3.6.5",
+    "@undertheground/color": "^0.2.5",
+    "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.20",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
     "vue-styled-components": "^1.6.0",
@@ -19,7 +28,12 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-typescript": "^8.2.5",
     "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-docs": "^6.3.7",
     "@storybook/addon-essentials": "^6.3.7",
     "@storybook/addon-links": "^6.3.7",
     "@storybook/vue3": "^6.3.7",
@@ -35,7 +49,13 @@
     "babel-loader": "^8.2.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^7.0.0",
-    "typescript": "~4.1.5",
+    "rollup": "^2.56.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-pug": "^1.1.1",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "tslib": "^1.14.1",
+    "typescript": "^4.4.2",
     "vue-loader": "^16.5.0"
   },
   "eslintConfig": {
@@ -57,5 +77,6 @@
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "types": "cutom.d.ts"
 }

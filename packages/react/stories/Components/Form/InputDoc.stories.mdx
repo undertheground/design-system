@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { TextInput, TextInputProps } from '../../../src/Components/Form/Input.tsx';
+import colors from '@undertheground/color';
+
+<Meta title="Components/Input Documentation" components={TextInput}/>
+
+<style>{`
+
+.test{
+    
+    input {
+    borderlabel{
+        
+    }-color: red !important;
+    background-color: blue;
+    }
+
+    span{
+        color:${colors.pink[3]} !important;
+    }
+
+}
+
+
+`}</style>
+
+<div>
+    <TextInput type={'email'} placeholder={'Email'} className='test' />
+    
+</div>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Button, ButtonProps } from '../../src/Components/Button'; 
 import { Story } from '@storybook/react';
-import { FC } from 'react';
 
 
 export default {
@@ -11,7 +10,6 @@ export default {
     
   },
 };
-
 
 const Template: Story <ButtonProps> = args => <Button {...args} />;
 

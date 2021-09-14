@@ -1,26 +1,233 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Button, ButtonProps } from '../../src/Components/Button';
 import colors from '@undertheground/color';
+import ButtonCover from '../Public/ButtonIcon/ButtonCover.png'
+import LabelOnly from '../Public/ButtonIcon/LabelOnly.png';
+import LabelWithIcon from '../Public/ButtonIcon/LabelWithIcon.png';
+import IconOnly from '../Public/ButtonIcon/IconOnly.png';
+import LabelOnlyPadding from '../Public/ButtonIcon/LabelOnlyPadding.png';
+import LabelWithIconPadding from '../Public/ButtonIcon/LabelWithIconPadding.png';
+import GhostPadding from '../Public/ButtonIcon/GhostPadding.png';
+import IconOnlyPadding from '../Public/ButtonIcon/IconOnlyPadding.png';
+import ScalingResponsive from '../Public/ButtonIcon/ScalingResponsive.png';
+import ScalingWeb from '../Public/ButtonIcon/ScalingWeb.png';
+import ScalingWithIconCorrect from '../Public/ButtonIcon/ScalingWithIconCorrect.png';
+import ScalingWithIconWrong from '../Public/ButtonIcon/ScalingWithIconWrong.png';
+import PrimaryBtnStates from '../Public/ButtonIcon/PrimaryBtnStates.png'
+import SecondaryBtnStates from '../Public/ButtonIcon/SecondaryBtnStates.png'
+import GhostBtnStates from '../Public/ButtonIcon/GhostBtnStates.png'
+
+
 
 <style>{`
 
 .header {
     color: #D1036F;
 }
+.sub-header{
+    font-weight:500;
+}
 
 .code-snippet {
-    background-color: ${colors.grey[8]};
+    background-color: ${colors.grey[9]};
+    width:100%;
 }
 
 .fraction-size {
     height: 30rem
 }
 
+.container{
+    display:inline-flex;
+    width:100%;
+}
+
+.btn-primary::after {
+    content:'';
+    border-bottom:0.1rem solid ${colors.grey[2]};
+    width:100%;
+    display:block;
+}
+
+.btn-ghost::after{
+    content:'';
+    border-bottom:0.1rem solid ${colors.grey[2]};
+    width:100%;
+    display:block;
+}
+
+.row-1 , .row-2{
+    width:50%;
+    text-align:center;
+}
+
+.btn-row_1{
+    border-right:0.1rem solid ${colors.grey[2]};
+}
+
+.icon-only_preview{
+    vertical-align:middle;
+}
+
+.btn-arrangment{
+    margin:3rem;
+}
+
+.tabel{
+    overflow: scroll; /* Scrollbar are always visible */
+    overflow: auto;   /* Scrollbar is displayed as it's needed */
+    display:grid;
+    width:100%;
+}
+
+.button-variant-table td{
+    color:${colors.pink[3]} ;
+}
+
+h6 {
+    height:30px
+}
+.anatomy-table{
+    margin:0 auto;
+    display:flex;
+}
+
+.label-btn_img{
+    margin: 1rem 0 2rem; 
+    height: 8rem;
+}
+
+.icon-only_img{
+    margin: 2.8rem 0 1rem; 
+    height: 6rem;
+}
+
+.label-with_icon__img{
+    margin: 1rem 0 1rem; 
+    height: 11rem;
+
+}
+
+.row{
+    display:flex;
+    margin:0 auto;
+}
+
+.btn-anatomy{
+    margin:0 4rem;
+}
+
+
+.img-margin{
+    margin:4rem;
+}
+
+
+.img-box{
+    margin:1.6rem 6rem; 
+}
+
+.box{
+    margin:1.6rem 6rem;
+    width:50%; 
+}
+
+.btn-states_img{
+    width:60%;
+    margin: 3rem auto;
+}
+
+@media (max-width:1024px){
+    .btn-anatomy{
+        margin:0 3rem;
+    }
+    .img-box{
+        margin: 0.4rem 4.5rem;
+    }
+}
+
+@media (max-width:790px){
+    .row{
+        display:grid;
+        margin:0 auto;
+    }
+    .btn-anatomy{
+        margin-bottom:3rem;
+    }
+    .label-btn_img{
+        margin-bottom:0;
+    }
+    .label-with_icon__img{
+        margin-bottom:0;
+    }
+    .icon-only_img {
+     margin: 0.8rem 0 1rem;
+    }
+    .img-margin {
+        margin: 1rem;
+    }
+    .scaling-img{
+        height:16rem;
+    }
+    .scaling-box{
+        text-align:center;
+    }
+    .arrangment-img{
+        width: 19rem;
+    }
+    .box{
+        margin:2rem auto;
+        width:44%;
+    }
+    .btn-states_img{
+        width:80%;
+        margin: 3rem auto;
+    }
+    
+    @media (max-width:600px){
+        .container{
+            display:grid;
+        }
+        .btn-row_1 {
+            border-right: 0rem;
+        }
+        .row-1, .row-2 {
+            width: 100%;
+   
+        }
+        .btn-secondary::after {
+            content: '';
+            border-bottom: 0.1rem solid #BABABA;
+            width: 100%;
+            display: block;
+        }
+        .img-box{
+             margin: 0.4rem 2.5rem;
+        }
+        .box{
+     
+            width:74%;
+        }
+        .btn-states_img{
+            width:100%;
+            margin: 2rem auto;
+        }
+    }
+}
+
+
+
 `}</style>
 
 <Meta title="Components/Button Documentation" components={Button}/>
 
+<img src={ButtonCover}/>
+
+######
+
 # Button
+
+######
 
 ## Table of Content
 [OVERVIEW](#overview)  
@@ -29,30 +236,284 @@ import colors from '@undertheground/color';
 
 [ANATOMY](#anatomy)
 
+[SPECS](#specs)
+
+[BEHAVIOR](#behavior)
+
+
+######
+
+
 ## Overview 
 Buttons are clickable elements that are used to trigger actions. 
 They communicate calls to action to the user and allow users to interact with pages in a variety of ways. Button labels 
 express what action will occur when the user interacts with it.
 
-<h6 className={'header'}>When to use</h6>
+<h5 className={'header'}>When to use</h5>
 
 Use buttons to communicate actions users can take and to allow users to interact with the page. 
 Each page should have one primary button, and any remaining calls to action should be represented as lower emphasis buttons.
 
-<h6 className={'header'}>When not to use</h6>
+<h5 className={'header'}>When not to use</h5>
 
 Do not use buttons as navigational elements. Instead, use links when the desired action is to take the user to a new page.
+
+######
 
 ## Button Variants
 Each button variant has a particular function and its design signals that function to the user. 
 It is therefore very important that the different variants are implemented consistently across products, 
 so that they message the correct actions.
 
-<Canvas className="code-snippet">
-    <Button>Button</Button>
-</Canvas>
+######
 
+<div className="code-snippet">
+  <div className="container container-btn_varient">
+        <div className="row-1 btn-row_1">
+            <div className="btn-primary">
+                <Button className="btn-arrangment" kind="primary">Button</Button>
+            </div>
+            <div className="btn-secondary">
+                <Button className="btn-arrangment" kind="secondary">Button</Button>
+            </div>
+        </div>  
+        <div className="row-2 btn-row_2">  
+            <div className="btn-ghost">
+                <Button className="btn-arrangment" kind="ghost">Button</Button>
+            </div>
+            <div className="btn-icon-only">
+                <Button className="icon-only_preview btn-arrangment" kind="primary" iconMode="icon-only" iconName="search"></Button>
+            </div>
+        </div>    
+    </div> 
+</div>
+
+
+<div className="button-variant-table tabel">
+
+|Varients|Purpose|
+|---|---|
+| Primary |The primary button is designed for the call to action and it should have high contrast with the whole page cause it should have a strong visual weight. Primary buttons should only appear once per screen (not including the application header, modal dialog, or side panel), in summery primary button should be used where the platform wants to strongly suggest something that the user should do.|
+| Secondary|  The secondary button is designed for secondary actions. Secondary actions should have less visual weight because we assume that majority of users will go with the primary action. Secondary actions are actions like the cancel button next to submit button. In “Wish Work” we use outline buttons for secondary actions.|
+| Ghost  	|   Ghost button is usually used for miscellaneous actions,  the action is important, but it may not be the action that the user wishes for (looking for). For instance, ‘edit action’ or ‘add new’  for changing information is an important action but it is not a primary action.|
+|  Icon-only	|   Icon buttons have no label and are only an icon. Because they don’t have a label, they save a lot of space in an interface. Icon buttons also allow you to stack other icon buttons next to them in a small space. But you have to be concerned that the icon that you use without any label should represent itself clearly and do not confuse the user.|
+
+</div>
+
+######
+
+          
 ## Anatomy
-The main element in buttons is the label of that button, 
-as it represents the action that will be performed when the user interacts with it. All buttons label are hold 
-placed in the center. Even with icon, the group of label and icon should be in the center of button.
+The main element in buttons is the label of that button, as it represents the action that will be performed when the user interacts with it. 
+All buttons label are hold placed in the center. Even with icon, the group of label and icon should be in the center of button.
+
+######
+
+<div className="container">
+    <div className="row">
+        <div className="label-btn btn-anatomy">
+            <h6>1. Label only </h6>
+            <div>
+                <img className="label-btn_img" src={LabelOnly} alt="Label Only Button" />
+            </div>
+        </div>
+        <div className="label-with_icon btn-anatomy">
+            <h6> 2. Label with icon</h6>
+            <div>
+                <img className={"label-with_icon__img"} src={LabelWithIcon} alt="Label With Icon Button" />
+            </div>
+        </div>
+        <div className="icon-only_btn btn-anatomy">
+            <h6> 3. Icon-only</h6>
+            <div>
+                <img className={"icon-only_img"} src={IconOnly} alt="Icon Only Button" />
+            </div>
+        </div>
+        
+    </div>
+</div>
+
+
+<div className="anatomy-table tabel tabel">
+
+|   1. Label only	|   2. Label with icon	|   3. Icon-only	|
+|--------------------	|--------------------	|--------------------	|
+|   A. Text label	|   A. Text label	|   A. Icon	|
+|   B. Container	|   B. Container	|   B. Container	|
+|   C. ---	|   C. Icon	|   C. ---	|
+
+</div>
+
+######
+
+## Specs
+Each type of button has its own attributes, that we gonna mention below.
+* Margin
+- Padding
++ Font
+- Radius
++ Stroke
+
+<div className="specs">
+    <div className="container">
+        <div className="row-1">
+            <div className="img-margin">
+                <img src={LabelOnlyPadding} alt="Label Only Button Paddings"/>
+            </div>
+            <div className="img-margin">
+                <img src={LabelWithIconPadding} alt="Label With Icon Button Paddings" />
+            </div>
+        </div>
+        <div className="row-2">
+            <div className="img-margin">
+                <img src={GhostPadding} alt="Ghost Button Paddings"/>
+            </div>
+            <div className="img-margin">
+                <img src={IconOnlyPadding} alt="Icon Only Button Paddings"/>
+            </div>
+        </div>        
+    </div>
+
+</div>
+
+
+
+
+######
+
+### Label button attributes
+
+
+<div className="label-btn-tabel tabel">
+
+|   Varient	| Margin(px/ rem) 	|    Padding(px/ rem)	|   Radius(px/ rem)	|   Stroke(rem)	|
+|---	|---	|---	|---	|---	|
+|   Primary	|   1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+|   Secondary	|    1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid #1C5BC2	|
+|   Ghost	|    1rem	|    left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+
+</div>
+
+######
+
+### Label with icon button attributes
+
+
+<div className="label-btn-tabel tabel">
+
+|   Varient	| Margin(px/ rem) 	|    Padding(px/ rem)	|   Radius(px/ rem)	|   Stroke(rem)	|
+|---	|---	|---	|---	|---	|
+|   Primary	|   1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+|   Secondary	|    1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid #1C5BC2	|
+|   Ghost	|    1rem	|    left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+
+</div>
+
+######
+
+### Icon-only button attributes
+
+
+<div className="label-btn-tabel tabel">
+
+|   Varient	| Margin(px/ rem) 	|    Padding(px/ rem)	|   Radius(px/ rem)	|   Stroke(rem)	|
+|---	|---	|---	|---	|---	|
+|   Primary	|   1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+|   Secondary	|    1rem	|   left and right 52/3.25	|   4/0.25	|   0.14rem solid #1C5BC2	|
+|   Ghost	|    1rem	|    left and right 52/3.25	|   4/0.25	|   0.14rem solid transparent	|
+
+</div>
+
+######
+
+## Behavior
+Each button can act diffrently in diffrent situations,
+ like when user does not fullfield the requirement inputs and want 
+ to submit the form, in that situation the button should be disable until the user completed the form
+* Scaling
+- Arrangment
++ Animation
+- States
++ Skeleton loading
+
+######
+
+
+### Scaling
+When scaling layouts for large screen devices, buttons can adapt their visual presentation,
+ alignment, and arrangement to fit different contexts and user needs. Buttons usually depends on their 
+ parents like the containers that they are placed in.
+
+ <div className = "scaling">
+    <div className ="container">
+        <div className="row">
+            <div className="img-box scaling-box">
+                <img src={ScalingResponsive} className="scaling-img"/>
+            </div>
+            <div className="img-box scaling-box">
+                 <img src={ScalingWeb} className="scaling-img"/>
+            </div>
+        </div>
+    </div>         
+ </div>
+
+ * A button’s position and size should scale in relationship to its container.
+
+######
+
+### Arrangment
+Define the position and alignment of button elements such as text and icons in relationship to their container.
+For example, the icon and text label within a button remain centered and anchored to each other as the button width scales.
+
+* Note one:
+
+<div className = "Arrangment">
+    <div className ="container">
+        <div className="row">
+            <div className="img-box">
+                <img src={ScalingWithIconCorrect} className="arrangment-img"/>
+            </div>
+            <div className="img-box">
+                 <img src={ScalingWithIconWrong} className="arrangment-img"/>
+            </div>
+        </div>
+    </div>    
+    <div className="container">
+        <div className="row">
+                <p className="box">
+                    Do <br/>
+                    Group internal elements so that they scale appropriately. 
+                    Icons and text labels remain centered when button width increases.
+                </p>
+                <p className="box">
+                    Don't <br/>
+                    Don’t ungroup elements inside of a button container.
+                     This can lead to unwanted movement, such as the icon and label 
+                     anchoring to opposite sides of the button.
+                </p>
+        </div>
+    </div>     
+</div>
+
+* Note two:
+
+The size and placement of buttons can change as parent containers, such as cards, adapt for larger screens.
+
+######
+
+### States
+######
+<div className="btn-states">
+    <h4 className="sub-header">Primary button states</h4>
+    <div className="row">
+        <img src={PrimaryBtnStates} className="btn-states_img"/>
+    </div>
+    <h4 className="sub-header">Secondary button states</h4>
+    <div className="row">
+        <img src={SecondaryBtnStates} className="btn-states_img"/>
+    </div>
+    <h4 className="sub-header">Ghost button states</h4>
+    <div className="row">
+        <img src={GhostBtnStates} className="btn-states_img"/>
+    </div>
+</div>

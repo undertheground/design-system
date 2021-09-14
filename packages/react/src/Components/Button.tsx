@@ -1,8 +1,23 @@
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
-// import {useThemeContext} from './theme';
 import colors from '@undertheground/color';
+
+const KIND = {
+  PRIMARY: 'primary',
+  SECONDARY: 'secondary',
+  GHOST: 'ghost',
+} as const;
+
+const SIZES = {
+  SMALL: 'small',
+  MEDIUM: 'medium',
+  LARGE: 'large',
+}as const;
+
+
+
+type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
 
 declare type IconMode = {
   iconMode?: 'without-icon'
@@ -12,31 +27,17 @@ declare type IconMode = {
 }
 
 export type ButtonPropsWithoutChildren =  {
-  kind?: 'primary' | 'secondary' | 'ghost',
-  size?: 'small' | 'medium' | 'large',
-  disabled?: boolean, 
-  isLoading?: boolean, 
-  className?: string, 
-  style?: object, 
-  onClick?: OnClickAdapter<HTMLButtonElement>,
+  id?: string;
+  kind?: typeof KIND[keyof typeof KIND];
+  size?: typeof SIZES[keyof typeof SIZES];
+  disabled?: boolean; 
+  isLoading?: boolean; 
+  className?: string; 
+  style?: object; 
+  onClick?: OnClickAdapter<HTMLButtonElement>;
 } & IconMode;
 
-const SIZES = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-  LARGE: 'large',
-};
 
-const KIND = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-  GHOST: 'ghost',
-}
-
-
-
-
-type OnClickAdapter<E extends HTMLElement> = (event: MouseEvent<E>) => void
 
 //Button Styles//
 export const StyledButton = styled.button<ButtonPropsWithoutChildren>`
@@ -48,16 +49,19 @@ border-radius:0.3rem;
 outline:none !important;
 transition: all 150ms ease-out;
 transform: translate3d(0, 0, 0);
-${(props) => 
+
+margin: 1rem;
+height: 2.625rem;
+padding: ${(props) => 
   (props.size === SIZES.LARGE
     ?
-    'padding: 1rem 4.86rem'
+    '0 4.063rem'
     :
     props.size === SIZES.SMALL
     ?
-    'padding: 0.6rem 1.8rem'
+    '0 2.438rem'
     :
-    'padding:0.8rem 3.2rem' // SIZES.MEDIUM (Default value for undefind size)
+    '0 3.25rem' // SIZES.MEDIUM (Default value for undefind size)
 )};
 
 
@@ -146,9 +150,8 @@ ${(props) => {
           border:0.14rem solid transparent;
         }`)
     
-      }   
-    } 
-  }
+      }        
+}}
 
 
 ${(props) =>{ 
@@ -215,7 +218,6 @@ ${(props) => {
   if (props.iconMode === 'icon-only') {
     return(`
     padding:0.4rem !important;
-    padding-bottom: 0.1rem !important;
     
     `
     )}
@@ -230,11 +232,11 @@ export const Button = (props: ButtonProps) => {
 
         return (  
         <StyledButton
+        id={props.id}
         style={props.style}
         className={props.className}
         onClick={props.onClick}
         disabled={props.disabled}
-        isLoading={props.isLoading}
           {...props}
         >
           <>
@@ -247,7 +249,6 @@ export const Button = (props: ButtonProps) => {
           <>
           <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
           <span className={'material-icons-outlined'}>{props.iconName}</span>
-          {/* <img className={'icon-only'} src={props.iconSrc} />  */}
           </>
           :
           (props.iconMode === 'with-icon') 
@@ -255,19 +256,19 @@ export const Button = (props: ButtonProps) => {
           <div className={'with-icon'}>
             <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
             <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
-           {/* <img className={`with-icon-${props.kind}`} src={props.iconSrc} />  */}
           <div className={'content'}>{props.children}</div> 
           </div>
           :
           props.children
-} 
-          
-          
+          } 
           </>
         </StyledButton>
       );
 }
 
+// export const ButtonTest = (props: ButtonProps) => {
+//   <ThemeContextProvider value={}/>
+// }
 
 // Button.defaultProps = {
 //   loadingText: null,
