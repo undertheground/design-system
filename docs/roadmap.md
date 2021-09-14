@@ -23,10 +23,19 @@ You can see the total structure of the project in the following table:
 
 
 Some the topics have a *Finish to Start* realation but the most ones are *Start to Start*, so we priority them and implement them within 3 weeks.
-First of all we design it in **Figma** and then develope it with **Typescript**.
+at the end of the period we will publish our packages.
+
+## Procedure
+
+First of all we select the topics and design it in **Figma**. Second we discuss about the props that where we shoud restrict our user experience and where we should give them ability to change. As soon as shaping the solution we start to develop it using **Typescript**.
 
 ## What have done?
 
-We have developed **TextInput** and **Button** components by now, which you can see them on <a href="https://undertheground.wishwork.org"> undertheground.wishwork.org </a>  
+We have developed **TextInput** and **Button** components by now, which you can see them on [undertheground.wishwork.org](https://undertheground.wishwork.org) 
 
-## next Step
+## Next Step (Start: Tue 21 Sep)
+
+For the upcomming 3 weeks we will implement **Fluid Grid**, **Checkbox**, **Radio Button** and **Dropdown**.
+
+
+
