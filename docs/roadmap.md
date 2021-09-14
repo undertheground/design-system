@@ -27,6 +27,6 @@ First of all we design it in **Figma** and then develope it with **Typescript**.
 
 ## What have done?
 
-We have developed **TextInput** and **Button** components by now, which you can see them on <a href="undertheground.wishwork.org"> undertheground.wishwork.org </a>  
+We have developed **TextInput** and **Button** components by now, which you can see them on <a href="https://undertheground.wishwork.org"> undertheground.wishwork.org </a>  
 
 ## next Step
