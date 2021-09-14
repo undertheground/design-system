@@ -33,7 +33,7 @@ First of all we select the topics and design it in **Figma**. Second we discuss 
 
 We have developed **TextInput** and **Button** components by now, which you can see them on [undertheground.wishwork.org](https://undertheground.wishwork.org) 
 
-## Next Step (Start: Tue 21 Sep)
+## Next Step (Start: September 21)
 
 For the upcomming 3 weeks we will implement **Fluid Grid**, **Checkbox**, **Radio Button** and **Dropdown**.
 
