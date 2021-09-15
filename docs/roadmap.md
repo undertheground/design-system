@@ -45,17 +45,17 @@ These are Mixed-Components which emerge from a combination of horizontal and ver
 
 ## Procedure
 
-Some of the topics have a *Finish to Start* relation but the most ones are *Start to Start*, so we priority and implement them within 3 weeks.
+Some of the topics have a *Finish to Start* relation, but most of them are *Start to Start* ones, so we prioritize and implement them within three weeks.
 
-First of all we select topics and design them with **Figma**. Second, we discuss where we should restrict our user experience and where we should give them freedom to configure. As soon as shaping the solution we start to develop it using **Typescript**.
+First of all, we select topics and design them with **Figma**. And for the second, we discuss where we should restrict our user experience and give them the freedom to configure. As soon as shaping the solution, we start to develop it using **Typescript**.
 
 ## What have done?
 
-We have developed **TextInput** and **Button** components by now, which you can see them on [undertheground.wishwork.org](https://undertheground.wishwork.org) 
+We have developed **TextInput** and **Button** components by now, which you can see on [undertheground.wishwork.org](https://undertheground.wishwork.org) 
 
 ## Next Step (Start: September 21)
 
-For the upcomming 3 weeks we will implement **Fluid Grid**, **Checkbox**, **Radio Button** and **Dropdown**.
+For the next three weeks we will implement **Fluid Grid**, **Checkbox**, **Radio Button** and **Dropdown**.
 
 
 
