@@ -1,38 +1,51 @@
-## Roadmap of the development of the design system
+# Roadmap of the development of the design system
 
-### Horizontal Development
+## Horizontal Development
 
-- Colors
-- Grid System
-- Typography
-- Spacing
-- Theming
+Consist of design elements that help intergrity and consistency among the products. 
 
+- Colors (priority: 1)
+- Grid System (priority: 2)
+- Typography (priority: 3)
+- Spacing (priority: 4)
+- Theming (priority: 5)
 
+## Vertical Development
 
-| Fandamentals | Components | Mixed Components |
-| --- | --- | --- |
-| Spacing | Button | Form |
-| Colors | Drop Down | Navigation Bar |
-| Theming | Cards | Navigation slider |
-| Typography | Checkbox | Footer |
-| Grid system | Collapsible Content | Modal Pages |
-| | Content Switcher | Data Table |
-| | Date Picker | |
-| | File Uplouder | |
-| | Link | |
-| | Redio Button | |
-| | Search | |
-| | Select | |
-| | Slider | |
-| | Text Input | |
-| | Toggle | |
-| | Tags | |
+Consist of Component-Driven-Development for the development of the design system. There are plenty of components with different levels of abstraction 
+that could be used by software engineers.
 
+- Button (priority: 1)
+- Checkbox (priority: 2)
+- Redio Button (priority: 2)
+- Text Input (priority: 2)
+- Drop Down (priority: 3)
+- File Uplouder (priority: 3)
+- Link (priority: 3)
+- Cards (priority: 4)
+- Date Picker (priority: 5)
+- Select (priority: 5)
+- Toggle (priority: 5)
+- Search (priority: 6)
+- Slider (priority: 6)
+- Tags (priority: 6)
 
-Some of the topics have a *Finish to Start* relation but the most ones are *Start to Start*, so we priority and implement them within 3 weeks.
+## Diagonal Development
+
+Consist of Mixed-Components which have been develped by means of horizontal and vertical development.
+
+- Form (priority: 1)
+- Navigation Bar (priority: 2)
+- Footer (priority: 2)
+- Modal Pages (priority: 3)
+- Navigation slider (priority: 4)
+- Data Table (priority: 5)
+- Collapsible Content (priority: 6)
+- Content Switcher (priority: 6)
 
 ## Procedure
+
+Some of the topics have a *Finish to Start* relation but the most ones are *Start to Start*, so we priority and implement them within 3 weeks.
 
 First of all we select topics and design them with **Figma**. Second, we discuss where we should restrict our user experience and where we should give them freedom to configure. As soon as shaping the solution we start to develop it using **Typescript**.
 
