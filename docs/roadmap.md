@@ -2,7 +2,7 @@
 
 ## Horizontal Development
 
-Consist of design elements that help intergrity and consistency among the products. 
+It consists of design elements that help intergrity and consistency among the products. 
 
 - Colors (priority: 1)
 - Grid System (priority: 2)
@@ -12,7 +12,7 @@ Consist of design elements that help intergrity and consistency among the produc
 
 ## Vertical Development
 
-Consist of Component-Driven-Development for the development of the design system. There are plenty of components with different levels of abstraction 
+It consists of Component-Driven-Development for the development of the design system. There are plenty of components with different levels of abstraction 
 that could be used by software engineers.
 
 - Button (priority: 1)
@@ -32,7 +32,7 @@ that could be used by software engineers.
 
 ## Diagonal Development
 
-Consist of Mixed-Components which have been develped by means of horizontal and vertical development.
+It consists of Mixed-Components which have been develped by means of horizontal and vertical development.
 
 - Form (priority: 1)
 - Navigation Bar (priority: 2)
