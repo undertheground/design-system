@@ -32,7 +32,7 @@ that could be used by software engineers.
 
 ## Diagonal Development
 
-It consists of Mixed-Components which have been develped by means of horizontal and vertical development.
+These are Mixed-Components which emerge from a combination of horizontal and vertical development.
 
 - Form (priority: 1)
 - Navigation Bar (priority: 2)
