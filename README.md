@@ -13,7 +13,7 @@ For having access to the entire components and comprehending Wish Work Design La
 ## Getting Started
 For installing the design system in React ecosystem, type the below command:
 ```
-npm i @underthecround/react
+npm i @undertheground/react
 ```
 For installing the design system in Vue ecosystem, type the below command: 
 ```
