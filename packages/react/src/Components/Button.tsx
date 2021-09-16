@@ -58,14 +58,19 @@ ${(props) =>{
       font-size:0.875rem;
       height: 2rem;
       padding:0 1rem;
-      
+      span {
+        font-size: 0.875rem;
+      }
       `)
-      case SIZE_TYPES.LARGE:
-        return(`
-        height: 3rem;
+    case SIZE_TYPES.LARGE:
+      return(`
+      height: 3rem;
+      font-size: 1.25rem;
+      padding:0 4rem;
+      span {
         font-size: 1.25rem;
-        padding:0 4rem;
-        `)
+      }
+      `)
 
 
       default: 
@@ -73,7 +78,9 @@ ${(props) =>{
       height: 2.5rem;
       font-size:1rem;
       padding:0 3rem;
-      
+      span {
+        font-size: 1rem;
+      }
       `)
   }
 }}
@@ -211,6 +218,7 @@ ${(props) => {
       display:inline-flex;
       padding:0 auto;
       vertical-align: middle;
+      margin-right:0.5rem;
     }
     .with-icon-${SIZE_TYPES.SMALL} {
       padding-right:0.5rem;
@@ -224,10 +232,6 @@ ${(props) => {
     .with-icon-${SIZE_TYPES.LARGE}{
       padding-right:0.4rem;
       
-    }
-
-    .icon-size-${SIZE_TYPES.SMALL}{
-      font-size:0.4rem;
     }
 
     `
@@ -275,7 +279,7 @@ export const PureButton = (props: ButtonProps) => {
         ?
         <div className={'with-icon'}>
           <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-          <span className={'material-icons-outlined `with-icon-${props.sizeType}` `icon-size-${props.sizeType}`'}>{props.iconName}</span>
+          <span className={'material-icons-outlined'}>{props.iconName}</span>
         <div className={'content'}>{props.children}</div> 
         </div>
         :
