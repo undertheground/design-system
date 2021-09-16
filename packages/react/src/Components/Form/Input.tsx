@@ -72,6 +72,7 @@ export const TextInput = (props: TextInputProps) => {
         >
         
             <StyledInput 
+            {...props}
             className={props.inputClassName}
             type={props.type}
             placeholder={props.title}
@@ -82,7 +83,7 @@ export const TextInput = (props: TextInputProps) => {
             isSuccess={props.isSuccess}
             showHelp={props.showHelp}
             leftIconName={props.leftIconName}
-            {...props}
+            
             />
 
             <TitleSpan
