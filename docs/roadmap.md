@@ -2,7 +2,7 @@
 
 ## Horizontal Development
 
-It consists of design elements that help intergrity and consistency among the products. 
+Consists of design elements that helps intergrity and consistency among the products. 
 
 - `Colors (priority: 1)`
 - `Grid System (priority: 2)`
@@ -12,7 +12,7 @@ It consists of design elements that help intergrity and consistency among the pr
 
 ## Vertical Development
 
-It consists of Component-Driven-Development for the development of the design system. There are plenty of components with different levels of abstraction 
+Consists of Component-Driven-Development of the design system. There are plenty of components with different levels of abstraction 
 that could be used by software engineers.
 
 - `Button (priority: 1)`
@@ -32,7 +32,7 @@ that could be used by software engineers.
 
 ## Diagonal Development
 
-These are Mixed-Components which emerge from a combination of horizontal and vertical development.
+These are Mixed-Components that wouls be emerged by the combination of horizontal and vertical concepts.
 
 - `Form (priority: 1)`
 - `Navigation Bar (priority: 2)`
@@ -49,13 +49,13 @@ Some of the topics have a *Finish to Start* relation, but most of them are *Star
 
 First of all, we select topics and design them with **Figma**. And for the second, we discuss where we should restrict our user experience and give them the freedom to configure. As soon as shaping the solution, we start to develop it using **Typescript**.
 
-## What have done?
+## What have been done?
 
-We have developed **TextInput** and **Button** components by now, which you can see on [undertheground.wishwork.org](https://undertheground.wishwork.org) 
+We've developed **TextInput** and **Button** components by now, that you can see on [undertheground.wishwork.org](https://undertheground.wishwork.org) 
 
 ## Next Step (Start: September 21)
 
-For the next three weeks we will implement **Fluid Grid**, **Checkbox**, **Radio Button** and **Dropdown**.
+For the next three weeks we will put **Fluid Grid**, **Checkbox**, **Radio Button** and **Dropdown** into effect.
 
 
 
