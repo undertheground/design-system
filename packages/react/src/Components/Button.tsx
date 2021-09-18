@@ -24,6 +24,7 @@ declare type IconMode = {
 } | {
   iconMode: 'with-icon' | 'icon-only',
   iconName: string,
+  iconType: 'regular' | 'outlined',
 }
 
 export type ButtonPropsWithoutChildren =  {
@@ -246,18 +247,31 @@ export const Button = (props: ButtonProps) => {
           :
           (props.iconMode === 'icon-only') 
           ?
-          <>
-          <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-          <span className={'material-icons-outlined'}>{props.iconName}</span>
-          </>
+            (props.iconType === 'outlined') ? 
+            <>
+            <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+            <span className={'material-icons-outlined'}>{props.iconName}</span>
+            </>
+            :
+            <>
+            <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet"/>
+            <span className={'material-icons'}>{props.iconName}</span>
+            </>
           :
           (props.iconMode === 'with-icon') 
           ?
-          <div className={'with-icon'}>
-            <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-            <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
-          <div className={'content'}>{props.children}</div> 
-          </div>
+            (props.iconType === 'outlined') ? 
+            <div className={'with-icon'}>
+              <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+              <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
+            <div className={'content'}>{props.children}</div> 
+            </div>
+            :
+            <div className={'with-icon'}>
+              <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet"/>
+              <span className={'material-icons `with-icon-${props.kind}`'}>{props.iconName}</span>
+            <div className={'content'}>{props.children}</div> 
+            </div>
           :
           props.children
           } 
