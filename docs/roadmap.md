@@ -1,6 +1,6 @@
 # Roadmap of the development of the design system
 
-## Horizontal Development
+## ⬅️➡️ Horizontal Development
 
 Consists of design elements that helps intergrity and consistency among the products. 
 
@@ -10,7 +10,7 @@ Consists of design elements that helps intergrity and consistency among the prod
 - [ ] `Spacing (priority: 4)`
 - [ ] `Theming (priority: 5)`
 
-## Vertical Development
+## ⬆️⬇️ Vertical Development
 
 Consists of Component-Driven-Development of the design system. There are plenty of components with different levels of abstraction 
 that could be used by software engineers.
@@ -30,7 +30,7 @@ that could be used by software engineers.
 - [ ] `Slider (priority: 6)`
 - [ ] `Tags (priority: 6)`
 
-## Diagonal Development
+## ↗️↙️ Diagonal Development
 
 These are Mixed-Components that wouls be emerged by the combination of horizontal and vertical concepts.
 
@@ -43,13 +43,13 @@ These are Mixed-Components that wouls be emerged by the combination of horizonta
 - [ ] `Collapsible Content (priority: 6)`
 - [ ] `Content Switcher (priority: 6)`
 
-## Procedure
+## 🔄 Procedure
 
 Some of the topics have a *Finish to Start* relation, but most of them are *Start to Start* ones, so we prioritize and implement them within three weeks.
 
 First of all, we select topics and design them with **Figma**. And for the second, we discuss where we should restrict our user experience and give them the freedom to configure. As soon as shaping the solution, we start to develop it using **Typescript**.
 
-## What have been done?
+## ⏯ What have been done?
 
 We've developed **TextInput** and **Button** components by now, that you can see on [undertheground.wishwork.org](https://undertheground.wishwork.org) 
 
