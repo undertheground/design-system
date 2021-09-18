@@ -1,7 +1,9 @@
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
-import {WishworkThemeContextProvider, useThemeContext, ThemeShape} from './Theme';
+import {WishworkThemeContextProvider, useThemeContext, ThemeShape} from '../Horizontal/Theme';
+import { windowSize } from '../Horizontal/Grid';
+
 
 const KIND = {
   PRIMARY: 'primary',
@@ -36,12 +38,13 @@ export type ButtonPropsWithoutChildren =  {
   style?: object;
   theme?: ThemeShape; 
   onClick?: OnClickAdapter<HTMLButtonElement>;
+  windowWidth?: string;
 } & IconMode;
 
 
 
 //Button Styles//
-export const StyledButton = styled.button<ButtonPropsWithoutChildren>`
+export const StyledButton = styled.button<ButtonPropsWithoutChildren >`
 font-family:'Arial';
 font-weight:500;
 cursor:pointer;
@@ -49,7 +52,11 @@ border-radius:0.3rem;
 outline:none !important;
 transition: all 150ms ease-out;
 transform: translate3d(0, 0, 0);
-margin: 1rem;
+
+
+
+
+
 
 ${(props) =>{
   switch(props.sizeType){
@@ -59,8 +66,27 @@ ${(props) =>{
       height: 2rem;
       padding:0 1rem;
       span {
-        font-size: 0.875rem;
+        font-size: 1.2rem;
       }
+      ${() => {
+        switch (props.windowWidth) {
+        case 'sm':
+          return(`
+            font-size:4.875rem;
+            height: 2rem;
+            padding:0 0.5rem;
+            font-color:blue;
+            span {
+              font-size: 1.2rem;
+            }`
+          )
+      
+        default:
+        return``
+      }
+      }}
+
+
       `)
     case SIZE_TYPES.LARGE:
       return(`
@@ -68,7 +94,7 @@ ${(props) =>{
       font-size: 1.25rem;
       padding:0 4rem;
       span {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
       }
       `)
 
@@ -252,9 +278,13 @@ export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
 
 export const PureButton = (props: ButtonProps) => {
   const theme = props.theme ?? useThemeContext()
+  const width = window.innerWidth
+  const windowWidth = windowSize(width)
+  console.log(windowWidth)
 
     return (
       <StyledButton
+      windowWidth={windowWidth}
       theme={theme}
       id={props.id}
       style={props.style}

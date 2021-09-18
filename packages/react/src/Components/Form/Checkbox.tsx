@@ -1,6 +1,8 @@
 import React , { ComponentProps, FunctionComponent, ReactNode } from 'react';
 import styled from 'styled-components';
-import colors from '@undertheground/color';
+import './Checkbox.css';
+
+// import colors from '@undertheground/color';
 
 
 export type CheckBoxProps ={
@@ -22,7 +24,7 @@ export const Checkbox: FunctionComponent<CheckBoxProps & ComponentProps<typeof I
   }) => {
     const errorId = `${id}-error`;
     return (
-      <StyledCheckbox>
+      <StyledCheckbox >
         <Label className="label-cbx">
           <Input
             className="invisible"
@@ -56,57 +58,6 @@ user-select: none;
 cursor: pointer;
 margin-bottom: 0;
 
-input:checked + .checkbox {
-  border-color:${colors.pink[3]};
-}
-input:checked + .checkbox svg path {
-  fill:${colors.pink[3]};
-}
-input:checked + .checkbox svg polyline {
-  stroke-dashoffset: 0;
-}
-:hover .checkbox svg path {
-  stroke-dashoffset: 0;
-}
-.checkbox {
-  position: relative;
-  top: 2px;
-  float: left;
-  margin-right: 8px;
-  width: 20px;
-  height: 20px;
-  border: 2px solid ${colors.pink[3]};
-  border-radius: 3px;
-}
-.checkbox svg {
-  position: absolute;
-  top: -2px;
-  left: -2px;
-}
-.label-cbx .checkbox svg path {
-  fill: none;
-  stroke:${colors.pink[3]};
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 71px;
-  stroke-dashoffset: 71px;
-  transition: all 0.6s ease;
-}
-.label-cbx .checkbox svg polyline {
-  fill: none;
-  stroke: #FFF;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 18px;
-  stroke-dashoffset: 18px;
-  transition: all 0.3s ease;
-}
-.label-cbx > span {
-  pointer-events: none;
-  vertical-align: middle;
-}
 
 
 `
