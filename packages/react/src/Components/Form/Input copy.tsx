@@ -32,9 +32,7 @@ export type TextInputProps = {
 export const StyledDiv = styled.div`
 
 font-family: 'Mukta Vaani', sans-serif;
-
 display:flex;
-
 width: 100%;
 margin-bottom:15px;
 position:relative;

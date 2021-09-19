@@ -12,4 +12,4 @@ that could be used by software engineers.
 Consist of design elements that help intergrity and consistency among the products. 
 
 ## Diagonal Development
-Consist of 
+Consist of architectural and foundational development of the design system
