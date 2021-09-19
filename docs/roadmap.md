@@ -49,7 +49,7 @@ Some of the topics have a *Finish to Start* relation, but most of them are *Star
 
 First of all, we select topics and design them with **Figma**. And for the second, we discuss where we should restrict our user experience and give them the freedom to configure. As soon as shaping the solution, we start to develop it using **Typescript**.
 
-## ⏯ What have been done?
+## ⏯ What have been done so far?
 
 We've developed **TextInput** and **Button** components by now, that you can see on [undertheground.wishwork.org](https://undertheground.wishwork.org) 
 
