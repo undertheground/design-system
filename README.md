@@ -36,3 +36,6 @@ Development of the design system is in the progress.
   <td align="center">
     <a href="https://github.com/M0HANNA"><img src="https://avatars.githubusercontent.com/u/83944153?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mohanna Fazli</b></sub></a><br /><a href="#design-aagonzales" title="Design">🎨</a>
   </td>
+  <td align="center">
+    <a href="https://github.com/M0HANNA"><img src="https://avatars.githubusercontent.com/u/83944153?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mohanna Fazli</b></sub></a><br /><a href="#design-aagonzales" title="Design">🎨</a>
+  </td>
