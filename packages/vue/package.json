@@ -1,6 +1,6 @@
 {
   "name": "@undertheground/vue",
-  "version": "0.1.2",
+  "version": "0.3.0",
   "private": false,
   "main": "dist/Button.umd.js",
   "module": "dist/Button.esm.js",
@@ -19,7 +19,7 @@
     "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
-    "@undertheground/color": "^0.2.5",
+    "@undertheground/color": "^0.3.0",
     "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.20",
     "vue": "^3.0.0",
     "vue-class-component": "^8.0.0-0",
