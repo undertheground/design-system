@@ -89,7 +89,11 @@
     "@undertheground/color": "^0.3.0",
     "core-js": "^3.16.4",
     "material-design-icons": "^3.0.1",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.0",
+    "styled-components-breakpoint": "^3.0.0-preview.20",
+    "styled-components-grid": "^2.2.2",
+    "styled-components-spacing": "^3.1.1",
+    "styled-theming": "^2.2.0"
   },
   "types": "cutom.d.ts"
 }

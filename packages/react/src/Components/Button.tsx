@@ -249,8 +249,7 @@ ${(props) => {
       margin-right:0.5rem;
     }
     .with-icon-${SIZE_TYPES.SMALL} {
-      padding-right:0.5rem;
-      padding-left:0.7rem
+      padding: 0.2rem 0.4rem 0rem 0.4rem !important;
     }
   
     .with-icon-${SIZE_TYPES.MEDIUM}{
@@ -258,7 +257,7 @@ ${(props) => {
     }
 
     .with-icon-${SIZE_TYPES.LARGE}{
-      padding-right:0.4rem;
+      padding:0.2rem 0.6rem 0rem 0.6rem !important;
       
     }
 
