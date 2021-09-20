@@ -94,7 +94,8 @@ ${(props) =>{
       font-size: 1.25rem;
       padding:0 4rem;
       span {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
+
       }
       `)
 
@@ -105,7 +106,8 @@ ${(props) =>{
       font-size:1rem;
       padding:0 3rem;
       span {
-        font-size: 1rem;
+        font-size: 1.5rem;
+  
       }
       `)
   }
@@ -239,6 +241,7 @@ ${(props) => {
     .content{
       display: flex;
       align-items:center;
+      padding-left:0.3rem;
     }
     .with-icon{
       display:inline-flex;
@@ -265,7 +268,7 @@ ${(props) => {
   }
   if (props.iconMode === 'icon-only') {
     return(`
-    padding:0.4rem !important;
+    padding:0.36rem 0.4rem 0.4rem 0.4rem !important;
     
     `
     )}
