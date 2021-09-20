@@ -93,10 +93,7 @@ ${(props) =>{
         font-size: 1.6rem;
 
       }
-      ${breakpoint('mobile')`
-        font-size: 1rem ;
-        padding:0 3rem;
-      `}
+
       `)
 
 
@@ -154,6 +151,7 @@ ${(props) => {
         color: ${props.theme.colors.secondaryColor[4]};
         border:0.14rem solid ${props.theme.colors.secondaryColor[4]};
         background-color:transparent;
+
         
         &:hover{
           background:${props.theme.colors.secondaryColor[5]};
@@ -196,7 +194,14 @@ ${(props) => {
         &:active:{
           background: ${props.theme.colors.primaryColor[6]};
           border:0.14rem solid transparent;
-        }`)
+        }
+        
+        ${breakpoint('desktop')`
+        background-color:yellow;
+       `}
+        
+        `)
+
     
       }        
 }}
