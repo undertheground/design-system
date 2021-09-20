@@ -2,7 +2,6 @@ import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import {WishworkThemeContextProvider, useThemeContext, ThemeShape} from '../Horizontal/Theme';
-import { windowSize } from '../Horizontal/Grid';
 
 const KIND = {
   PRIMARY: 'primary',
@@ -25,7 +24,7 @@ declare type IconMode = {
 } | {
   iconMode: 'with-icon' | 'icon-only',
   iconName: string,
-  iconType: 'regular' | 'outlined',
+  iconType?: 'filled' | 'outlined' | 'round' | 'sharp' | 'two-tone',
 }
 
 export type ButtonPropsWithoutChildren =  {
@@ -296,29 +295,31 @@ export const PureButton = (props: ButtonProps) => {
     :
     (props.iconMode === 'icon-only') 
     ?
-      (props.iconType === 'outlined') ? 
+      (!props.iconType || props.iconType === 'filled')
+      ? 
       <>
-      <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-      <span className={'material-icons-outlined'}>{props.iconName}</span>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet"/>
+      <span className={'material-icons'}>{props.iconName}</span>
       </>
       :
       <>
-      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet"/>
-      <span className={'material-icons'}>{props.iconName}</span>
+      <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
+      <span className={`material-icons-${props.iconType}`}>{props.iconName}</span>
       </>
     :
     (props.iconMode === 'with-icon') 
     ?
-      (props.iconType === 'outlined') ? 
+      (!props.iconType || props.iconType === 'filled')
+      ? 
       <div className={'with-icon'}>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-        <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet"/>
+        <span className={'material-icons'}>{props.iconName}</span>
       <div className={'content'}>{props.children}</div> 
       </div>
       :
       <div className={'with-icon'}>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet"/>
-        <span className={'material-icons `with-icon-${props.kind}`'}>{props.iconName}</span>
+      <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
+      <span className={`material-icons-${props.iconType}`}>{props.iconName}</span>
       <div className={'content'}>{props.children}</div> 
       </div>
     :
