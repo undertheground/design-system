@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import {WishworkThemeContextProvider, useThemeContext, ThemeShape} from '../Horizontal/Theme';
 import { windowSize } from '../Horizontal/Grid';
 
-
 const KIND = {
   PRIMARY: 'primary',
   SECONDARY: 'secondary',
@@ -26,6 +25,7 @@ declare type IconMode = {
 } | {
   iconMode: 'with-icon' | 'icon-only',
   iconName: string,
+  iconType: 'regular' | 'outlined',
 }
 
 export type ButtonPropsWithoutChildren =  {
@@ -278,46 +278,55 @@ export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
 
 export const PureButton = (props: ButtonProps) => {
   const theme = props.theme ?? useThemeContext()
-  const width = window.innerWidth
-  const windowWidth = windowSize(width)
-  console.log(windowWidth)
 
-    return (
-      <StyledButton
-      windowWidth={windowWidth}
-      theme={theme}
-      id={props.id}
-      style={props.style}
-      className={props.className}
-      onClick={props.onClick}
-      disabled={props.disabled}
-        {...props}
-      >
-        <>
-        {props.isLoading 
-        ? 
-        <div className={'loading'}></div> 
-        :
-        (props.iconMode === 'icon-only') 
-        ?
-        <>
+  return (  
+  <StyledButton
+  theme={theme}
+  id={props.id}
+  style={props.style}
+  className={props.className}
+  onClick={props.onClick}
+  disabled={props.disabled}
+    {...props}
+  >
+    <>
+    {props.isLoading 
+    ? 
+    <div className={'loading'}></div> 
+    :
+    (props.iconMode === 'icon-only') 
+    ?
+      (props.iconType === 'outlined') ? 
+      <>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
+      <span className={'material-icons-outlined'}>{props.iconName}</span>
+      </>
+      :
+      <>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet"/>
+      <span className={'material-icons'}>{props.iconName}</span>
+      </>
+    :
+    (props.iconMode === 'with-icon') 
+    ?
+      (props.iconType === 'outlined') ? 
+      <div className={'with-icon'}>
         <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-        <span className={'material-icons-outlined'}>{props.iconName}</span>
-        </>
-        :
-        (props.iconMode === 'with-icon') 
-        ?
-        <div className={'with-icon'}>
-          <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-          <span className={'material-icons-outlined'}>{props.iconName}</span>
-        <div className={'content'}>{props.children}</div> 
-        </div>
-        :
-        props.children
-        } 
-        </>
-      </StyledButton>
-  );
+        <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
+      <div className={'content'}>{props.children}</div> 
+      </div>
+      :
+      <div className={'with-icon'}>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet"/>
+        <span className={'material-icons `with-icon-${props.kind}`'}>{props.iconName}</span>
+      <div className={'content'}>{props.children}</div> 
+      </div>
+    :
+    props.children
+    } 
+    </>
+  </StyledButton>
+);
 }
 
 export const Button = (props: ButtonProps) => {

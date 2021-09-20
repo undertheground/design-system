@@ -1,27 +1,82 @@
 {
   "name": "@undertheground/vue",
-  "version": "0.1.5",
-  "description": "> TODO: description",
-  "author": "Wish Work",
-  "homepage": "https://github.com/undertheground/design-system/vue#readme",
-  "license": "ISC",
-  "main": "lib/vue.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/undertheground/design-system.git"
+  "version": "0.3.0",
+  "private": false,
+  "main": "dist/Button.umd.js",
+  "module": "dist/Button.esm.js",
+  "unpkg": "dist/Button.min.js",
+  "browser": {
+    "./sfc": "src/Button.vue"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "serve": "vue-cli-service serve",
+    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build:umd": "rollup --config rollup.config.js --format umd --file dist/Button.umd.js",
+    "build:es": "rollup --config rollup.config.js --format es --file dist/Button.esm.js",
+    "build:unpkg": "rollup --config rollup.config.js --format iife --file dist/Button.min.js",
+    "lint": "vue-cli-service lint",
+    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 6006"
   },
-  "bugs": {
-    "url": "https://github.com/wish-team/underground/issues"
+  "dependencies": {
+    "@undertheground/color": "^0.3.0",
+    "rollup-plugin-exclude-dependencies-from-bundle": "^1.1.20",
+    "vue": "^3.0.0",
+    "vue-class-component": "^8.0.0-0",
+    "vue-styled-components": "^1.6.0",
+    "vue3-styled-components": "^1.2.1"
   },
-  "gitHead": "133d8a2c8d7eb5152f7fa97b26ad744f679b7651"
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@rollup/plugin-buble": "^0.21.3",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-typescript": "^8.2.5",
+    "@storybook/addon-actions": "^6.3.7",
+    "@storybook/addon-docs": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.7",
+    "@storybook/addon-links": "^6.3.7",
+    "@storybook/vue3": "^6.3.7",
+    "@typescript-eslint/eslint-plugin": "^4.18.0",
+    "@typescript-eslint/parser": "^4.18.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-plugin-eslint": "~4.5.0",
+    "@vue/cli-plugin-typescript": "^4.5.13",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.2",
+    "eslint": "^6.7.2",
+    "eslint-plugin-vue": "^7.0.0",
+    "rollup": "^2.56.3",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-pug": "^1.1.1",
+    "rollup-plugin-typescript2": "^0.30.0",
+    "rollup-plugin-vue": "^6.0.0",
+    "tslib": "^1.14.1",
+    "typescript": "^4.4.2",
+    "vue-loader": "^16.5.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/vue3-essential",
+      "eslint:recommended",
+      "@vue/typescript"
+    ],
+    "parserOptions": {
+      "parser": "@typescript-eslint/parser"
+    },
+    "rules": {}
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "types": "cutom.d.ts"
 }

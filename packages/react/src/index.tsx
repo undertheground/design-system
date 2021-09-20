@@ -3,7 +3,7 @@
 // @ts-ignore
 import colors from '@undertheground/color';
 export { Button } from './Components/Button';
-
+export { TextInput } from './Components/Form/Input';
 // const Button = styled.button`
 //   /* Adapt the colors based on primary prop */
 //   background: ${colors.pink[2]};
