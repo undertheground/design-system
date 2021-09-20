@@ -7,7 +7,11 @@ export const parameters = {
   options: {
     storySort: {
       method: '',
-      order: ['Under the Ground', 'Components'],
+      order: [
+        'Under the Ground',
+        ['Philosophy', 'Team', 'Contribute'],
+        'Components',
+      ],
       locales: '',
     },
   },

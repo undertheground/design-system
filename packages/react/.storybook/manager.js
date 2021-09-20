@@ -5,7 +5,7 @@ import wishworkTheme from './wishworkTheme';
 addons.setConfig({
   theme: wishworkTheme,
   isToolshown: true,
-  showPanel: false,
+  showPanel: true,
   sidebar: {
     showRoots: false,
   },

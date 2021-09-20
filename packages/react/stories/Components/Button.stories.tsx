@@ -3,7 +3,6 @@ import { Button, ButtonProps } from '../../src/Components/Button';
 import { Story } from '@storybook/react';
 
 
-
 export default {
   title: 'Components/Button',
   component: Button,
@@ -92,7 +91,7 @@ Primary_With_Icon.args = {
     sizeType: 'small',
     children: 'Button',
     iconMode: 'with-icon',
-    iconName: 'add'
+    iconName: 'where_to_vote'
 } as ButtonProps;
 
 export const Secondary_With_Icon = Template.bind({});
@@ -101,7 +100,7 @@ Secondary_With_Icon.args = {
     sizeType: 'small',
     children: 'Button',
     iconMode: 'with-icon',
-    iconName: 'add'
+    iconName: 'where_to_vote'
 } as ButtonProps;
 
 export const Ghost_With_Icon = Template.bind({});
@@ -110,7 +109,7 @@ Ghost_With_Icon.args = {
     sizeType: 'small',
     children: 'Button',
     iconMode: 'with-icon',
-    iconName: 'add'
+    iconName: 'where_to_vote'
 } as ButtonProps;
 
 export const Primary_Icon_Only = Template.bind({});

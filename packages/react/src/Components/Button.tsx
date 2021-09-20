@@ -2,8 +2,6 @@ import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
 import {WishworkThemeContextProvider, useThemeContext, ThemeShape} from '../Horizontal/Theme';
-import { windowSize } from '../Horizontal/Grid';
-
 
 const KIND = {
   PRIMARY: 'primary',
@@ -26,6 +24,7 @@ declare type IconMode = {
 } | {
   iconMode: 'with-icon' | 'icon-only',
   iconName: string,
+  iconType?: 'filled' | 'outlined' | 'round' | 'sharp' | 'two-tone',
 }
 
 export type ButtonPropsWithoutChildren =  {
@@ -281,46 +280,57 @@ export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
 
 export const PureButton = (props: ButtonProps) => {
   const theme = props.theme ?? useThemeContext()
-  const width = window.innerWidth
-  const windowWidth = windowSize(width)
-  console.log(windowWidth)
 
-    return (
-      <StyledButton
-      windowWidth={windowWidth}
-      theme={theme}
-      id={props.id}
-      style={props.style}
-      className={props.className}
-      onClick={props.onClick}
-      disabled={props.disabled}
-        {...props}
-      >
-        <>
-        {props.isLoading 
-        ? 
-        <div className={'loading'}></div> 
-        :
-        (props.iconMode === 'icon-only') 
-        ?
-        <>
-        <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-        <span className={'material-icons-outlined'}>{props.iconName}</span>
-        </>
-        :
-        (props.iconMode === 'with-icon') 
-        ?
-        <div className={'with-icon'}>
-          <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-          <span className={'material-icons-outlined'}>{props.iconName}</span>
-        <div className={'content'}>{props.children}</div> 
-        </div>
-        :
-        props.children
-        } 
-        </>
-      </StyledButton>
-  );
+  return (  
+  <StyledButton
+  theme={theme}
+  id={props.id}
+  style={props.style}
+  className={props.className}
+  onClick={props.onClick}
+  disabled={props.disabled}
+    {...props}
+  >
+    <>
+    {props.isLoading 
+    ? 
+    <div className={'loading'}></div> 
+    :
+    (props.iconMode === 'icon-only') 
+    ?
+      (!props.iconType || props.iconType === 'filled')
+      ? 
+      <>
+      <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet"/>
+      <span className={'material-icons'}>{props.iconName}</span>
+      </>
+      :
+      <>
+      <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
+      <span className={`material-icons-${props.iconType}`}>{props.iconName}</span>
+      </>
+    :
+    (props.iconMode === 'with-icon') 
+    ?
+      (!props.iconType || props.iconType === 'filled')
+      ? 
+      <div className={'with-icon'}>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet"/>
+        <span className={'material-icons'}>{props.iconName}</span>
+      <div className={'content'}>{props.children}</div> 
+      </div>
+      :
+      <div className={'with-icon'}>
+      <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
+      <span className={`material-icons-${props.iconType}`}>{props.iconName}</span>
+      <div className={'content'}>{props.children}</div> 
+      </div>
+    :
+    props.children
+    } 
+    </>
+  </StyledButton>
+);
 }
 
 export const Button = (props: ButtonProps) => {
