@@ -1,6 +1,7 @@
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
+import breakpoint from 'styled-components-breakpoint';
 import {WishworkThemeContextProvider, useThemeContext, ThemeShape} from '../Horizontal/Theme';
 
 const KIND = {
@@ -53,10 +54,6 @@ transition: all 150ms ease-out;
 transform: translate3d(0, 0, 0);
 
 
-
-
-
-
 ${(props) =>{
   switch(props.sizeType){
     case SIZE_TYPES.SMALL:
@@ -96,6 +93,10 @@ ${(props) =>{
         font-size: 1.6rem;
 
       }
+      ${breakpoint('mobile')`
+        font-size: 1rem ;
+        padding:0 3rem;
+      `}
       `)
 
 
@@ -248,26 +249,26 @@ ${(props) => {
       vertical-align: middle;
       margin-right:0.5rem;
     }
-    .with-icon-${SIZE_TYPES.SMALL} {
-      padding: 0.2rem 0.4rem 0rem 0.4rem !important;
-    }
-  
-    .with-icon-${SIZE_TYPES.MEDIUM}{
-      padding-right:0.4rem;
-    }
-
-    .with-icon-${SIZE_TYPES.LARGE}{
-      padding:0.2rem 0.6rem 0rem 0.6rem !important;
-      
-    }
 
     `
     )
   }
   if (props.iconMode === 'icon-only') {
     return(`
-    padding:0.36rem 0.4rem 0.4rem 0.4rem !important;
-    
+    padding: 0;
+
+    .icon-only-${SIZE_TYPES.SMALL} {
+      padding: 0.3rem 0.4rem 0.1rem 0.4rem ;
+    }
+  
+    .icon-only-${SIZE_TYPES.MEDIUM}{
+      padding:0.36rem 0.4rem 0.4rem 0.4rem ;
+    }
+
+    .icon-only-${SIZE_TYPES.LARGE}{
+      padding:0.2rem 0.6rem 0rem 0.6rem ;
+      
+    }
     `
     )}
   return ``
@@ -279,6 +280,7 @@ export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
 
 export const PureButton = (props: ButtonProps) => {
   const theme = props.theme ?? useThemeContext()
+  const sizeType = props.sizeType ?? 'medium'
 
   return (  
   <StyledButton
@@ -299,15 +301,15 @@ export const PureButton = (props: ButtonProps) => {
     ?
       (!props.iconType || props.iconType === 'filled')
       ? 
-      <>
-      <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet"/>
-      <span className={'material-icons'}>{props.iconName}</span>
-      </>
+      <div className={`icon-only-${sizeType}`}>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet"/>
+        <span className={'material-icons'}>{props.iconName}</span>
+      </div>
       :
-      <>
-      <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
-      <span className={`material-icons-${props.iconType}`}>{props.iconName}</span>
-      </>
+      <div className={`icon-only-${sizeType}`}>
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
+        <span className={`material-icons-${props.iconType}`}>{props.iconName}</span>
+      </div>
     :
     (props.iconMode === 'with-icon') 
     ?
