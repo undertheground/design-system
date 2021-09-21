@@ -1,7 +1,8 @@
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
-import colors from '@undertheground/color';
+import breakpoint from 'styled-components-breakpoint';
+import {WishworkThemeContextProvider, useThemeContext, ThemeShape} from '../Horizontal/Theme';
 
 const KIND = {
   PRIMARY: 'primary',
@@ -9,7 +10,7 @@ const KIND = {
   GHOST: 'ghost',
 } as const;
 
-const SIZES = {
+const SIZE_TYPES = {
   SMALL: 'small',
   MEDIUM: 'medium',
   LARGE: 'large',
@@ -24,25 +25,26 @@ declare type IconMode = {
 } | {
   iconMode: 'with-icon' | 'icon-only',
   iconName: string,
-  iconType: 'regular' | 'outlined',
+  iconType?: 'filled' | 'outlined' | 'round' | 'sharp' | 'two-tone',
 }
 
 export type ButtonPropsWithoutChildren =  {
   id?: string;
   kind?: typeof KIND[keyof typeof KIND];
-  size?: typeof SIZES[keyof typeof SIZES];
+  sizeType?: typeof SIZE_TYPES[keyof typeof SIZE_TYPES];
   disabled?: boolean; 
   isLoading?: boolean; 
   className?: string; 
-  style?: object; 
+  style?: object;
+  theme?: ThemeShape; 
   onClick?: OnClickAdapter<HTMLButtonElement>;
+  windowWidth?: string;
 } & IconMode;
 
 
 
 //Button Styles//
-export const StyledButton = styled.button<ButtonPropsWithoutChildren>`
-font-size:1rem;
+export const StyledButton = styled.button<ButtonPropsWithoutChildren >`
 font-family:'Arial';
 font-weight:500;
 cursor:pointer;
@@ -51,27 +53,69 @@ outline:none !important;
 transition: all 150ms ease-out;
 transform: translate3d(0, 0, 0);
 
-margin: 1rem;
-height: 2.625rem;
-padding: ${(props) => 
-  (props.size === SIZES.LARGE
-    ?
-    '0 4.063rem'
-    :
-    props.size === SIZES.SMALL
-    ?
-    '0 2.438rem'
-    :
-    '0 3.25rem' // SIZES.MEDIUM (Default value for undefind size)
-)};
 
+${(props) =>{
+  switch(props.sizeType){
+    case SIZE_TYPES.SMALL:
+      return(`
+      font-size:0.875rem;
+      height: 2rem;
+      padding:0 1rem;
+      span {
+        font-size: 1.2rem;
+      }
+      ${() => {
+        switch (props.windowWidth) {
+        case 'sm':
+          return(`
+            font-size:4.875rem;
+            height: 2rem;
+            padding:0 0.5rem;
+            font-color:blue;
+            span {
+              font-size: 1.2rem;
+            }`
+          )
+      
+        default:
+        return``
+      }
+      }}
+
+
+      `)
+    case SIZE_TYPES.LARGE:
+      return(`
+      height: 3rem;
+      font-size: 1.25rem;
+      padding:0 4rem;
+      span {
+        font-size: 1.6rem;
+
+      }
+
+      `)
+
+
+      default: 
+      return(`
+      height: 2.5rem;
+      font-size:1rem;
+      padding:0 3rem;
+      span {
+        font-size: 1.5rem;
+  
+      }
+      `)
+  }
+}}
 
 ${(props) => {
   if (!props.isLoading) return ``
   
   return(
     `
-    background-color: ${colors.grey[0]} !important;
+    background-color: ${props.theme.colors.neutralColor[0]} !important;
     border:0 !important;
     cursor: progress !important;
     @keyframes spin {
@@ -104,52 +148,60 @@ ${(props) => {
     case KIND.SECONDARY:
     
       return(`
-        color: ${colors.blue[4]};
-        border:0.14rem solid ${colors.blue[4]};
+        color: ${props.theme.colors.secondaryColor[4]};
+        border:0.14rem solid ${props.theme.colors.secondaryColor[4]};
         background-color:transparent;
+
         
         &:hover{
-          background:${colors.blue[5]};
-          color: ${colors.grey[1]};
+          background:${props.theme.colors.secondaryColor[5]};
+          color: ${props.theme.colors.neutralColor[1]};
           border:0.14rem solid transparent;
         }
         &:active{
-          background:${colors.blue[6]};
-          color: ${colors.grey[1]};
+          background:${props.theme.colors.secondaryColor[6]};
+          color: ${props.theme.colors.neutralColor[1]};
           border:0.14rem solid transparent;
         }`) 
 
     case KIND.GHOST:
     
       return (`
-        color: ${colors.pink[3]};
+        color: ${props.theme.colors.primaryColor[3]};
         background-color:transparent;
         border:0.14rem solid transparent ;
         
         &:hover{
-          background:${colors.grey[0]};
+          background:${props.theme.colors.neutralColor[0]};
           border:0.14rem solid transparent;
         }
         &:active{
           
-          border:0.14rem solid ${colors.pink[5]};
+          border:0.14rem solid ${props.theme.colors.primaryColor[5]};
         }`)
 
     default: // props.kind === KIND.PRIMARY (default kind)
 
       return (`
         border:0.14rem solid transparent;
-        background-color: ${colors.pink[1]};
-        color:${colors.white};
+        background-color: ${props.theme.colors.primaryColor[1]};
+        color:${props.theme.colors.white};
         
         &:hover{
-          background: ${colors.pink[5]};
+          background: ${props.theme.colors.primaryColor[5]};
           border:0.14rem solid transparent;
         }
         &:active:{
-          background: ${colors.pink[6]};
+          background: ${props.theme.colors.primaryColor[6]};
           border:0.14rem solid transparent;
-        }`)
+        }
+        
+        ${breakpoint('desktop')`
+        background-color:yellow;
+       `}
+        
+        `)
+
     
       }        
 }}
@@ -158,7 +210,7 @@ ${(props) => {
 ${(props) =>{ 
   if (!props.disabled ) return ``
   const commonStyleForDisabled = (`
-        color:${colors.grey[3]};
+        color:${props.theme.colors.neutralColor[3]};
         cursor: not-allowed;
         &:hover{
           transform: none;
@@ -169,18 +221,18 @@ ${(props) =>{
     case KIND.SECONDARY:
       return(commonStyleForDisabled + 
         `
-        border:0.14rem solid ${colors.grey[0]};
+        border:0.14rem solid ${props.theme.colors.neutralColor[0]};
         `)
     case KIND.GHOST:
       return ( commonStyleForDisabled + `
       border:0.14rem solid transparent;
-        background:${colors.white}
+        background:${props.theme.colors.white}
       `
       )
     default:
       return(commonStyleForDisabled + `
-        background:${colors.grey[0]};
-        border:0.14rem solid ${colors.grey[0]};  
+        background:${props.theme.colors.neutralColor[0]};
+        border:0.14rem solid ${props.theme.colors.neutralColor[0]};  
       `)
   }
 }
@@ -194,23 +246,13 @@ ${(props) => {
     .content{
       display: flex;
       align-items:center;
+      padding-left:0.3rem;
     }
     .with-icon{
       display:inline-flex;
       padding:0 auto;
       vertical-align: middle;
-    }
-    .with-icon-${KIND.PRIMARY} {
-      padding-right:0.4rem;
-    }
-  
-    .with-icon-${KIND.SECONDARY}{
-      padding-right:0.4rem;
-    }
-
-    .with-icon-${KIND.GHOST}{
-      padding-right:0.4rem;
-      
+      margin-right:0.5rem;
     }
 
     `
@@ -218,8 +260,20 @@ ${(props) => {
   }
   if (props.iconMode === 'icon-only') {
     return(`
-    padding:0.4rem !important;
-    
+    padding: 0;
+
+    .icon-only-${SIZE_TYPES.SMALL} {
+      padding: 0.3rem 0.4rem 0.1rem 0.4rem ;
+    }
+  
+    .icon-only-${SIZE_TYPES.MEDIUM}{
+      padding:0.36rem 0.4rem 0.4rem 0.4rem ;
+    }
+
+    .icon-only-${SIZE_TYPES.LARGE}{
+      padding:0.2rem 0.6rem 0rem 0.6rem ;
+      
+    }
     `
     )}
   return ``
@@ -229,60 +283,71 @@ ${(props) => {
 
 export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
 
-export const Button = (props: ButtonProps) => {
+export const PureButton = (props: ButtonProps) => {
+  const theme = props.theme ?? useThemeContext()
+  const sizeType = props.sizeType ?? 'medium'
 
-        return (  
-        <StyledButton
-        id={props.id}
-        style={props.style}
-        className={props.className}
-        onClick={props.onClick}
-        disabled={props.disabled}
-          {...props}
-        >
-          <>
-          {props.isLoading 
-          ? 
-          <div className={'loading'}></div> 
-          :
-          (props.iconMode === 'icon-only') 
-          ?
-            (props.iconType === 'outlined') ? 
-            <>
-            <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-            <span className={'material-icons-outlined'}>{props.iconName}</span>
-            </>
-            :
-            <>
-            <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet"/>
-            <span className={'material-icons'}>{props.iconName}</span>
-            </>
-          :
-          (props.iconMode === 'with-icon') 
-          ?
-            (props.iconType === 'outlined') ? 
-            <div className={'with-icon'}>
-              <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-              <span className={'material-icons-outlined `with-icon-${props.kind}`'}>{props.iconName}</span>
-            <div className={'content'}>{props.children}</div> 
-            </div>
-            :
-            <div className={'with-icon'}>
-              <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet"/>
-              <span className={'material-icons `with-icon-${props.kind}`'}>{props.iconName}</span>
-            <div className={'content'}>{props.children}</div> 
-            </div>
-          :
-          props.children
-          } 
-          </>
-        </StyledButton>
-      );
+  return (  
+  <StyledButton
+  theme={theme}
+  id={props.id}
+  style={props.style}
+  className={props.className}
+  onClick={props.onClick}
+  disabled={props.disabled}
+    {...props}
+  >
+    <>
+    {props.isLoading 
+    ? 
+    <div className={'loading'}></div> 
+    :
+    (props.iconMode === 'icon-only') 
+    ?
+      (!props.iconType || props.iconType === 'filled')
+      ? 
+      <div className={`icon-only-${sizeType}`}>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet"/>
+        <span className={'material-icons'}>{props.iconName}</span>
+      </div>
+      :
+      <div className={`icon-only-${sizeType}`}>
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
+        <span className={`material-icons-${props.iconType}`}>{props.iconName}</span>
+      </div>
+    :
+    (props.iconMode === 'with-icon') 
+    ?
+      (!props.iconType || props.iconType === 'filled')
+      ? 
+      <div className={'with-icon'}>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet"/>
+        <span className={'material-icons'}>{props.iconName}</span>
+      <div className={'content'}>{props.children}</div> 
+      </div>
+      :
+      <div className={'with-icon'}>
+      <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"></link>
+      <span className={`material-icons-${props.iconType}`}>{props.iconName}</span>
+      <div className={'content'}>{props.children}</div> 
+      </div>
+    :
+    props.children
+    } 
+    </>
+  </StyledButton>
+);
 }
 
-// export const ButtonTest = (props: ButtonProps) => {
-//   <ThemeContextProvider value={}/>
-// }
+export const Button = (props: ButtonProps) => {
+  const theme = props.theme ?? useThemeContext()
+  return(
+    WishworkThemeContextProvider({
+      theme: theme,
+      children: PureButton(props)
+    })
+  )
+}
 
 // Button.defaultProps = {
 //   loadingText: null,

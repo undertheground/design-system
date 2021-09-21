@@ -16,14 +16,14 @@ const Template: Story <ButtonProps> = args => <Button {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
     kind: 'primary',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button'
 } as ButtonProps;
 
 export const Secondary = Template.bind({});
 Secondary.args = {
     kind: 'secondary',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button'
 } as ButtonProps;
 
@@ -31,7 +31,7 @@ Secondary.args = {
 export const Ghost = Template.bind({});
 Ghost.args = {
     kind: 'ghost',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button'
 } as ButtonProps;
 
@@ -39,7 +39,7 @@ export const Primary_Disabled = Template.bind({});
 Primary_Disabled.args = {
     disabled: true,
     kind: 'primary',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button',
 } as ButtonProps;
 
@@ -47,7 +47,7 @@ export const Secondary_Disabled = Template.bind({});
 Secondary_Disabled.args = {
     disabled: true,
     kind: 'secondary',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button',
 } as ButtonProps;
 
@@ -55,14 +55,14 @@ export const Ghost_Disabled = Template.bind({});
 Ghost_Disabled.args = {
     disabled: true,
     kind: 'ghost',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button',
 } as ButtonProps;
 
 export const Primary_Loading = Template.bind({});
 Primary_Loading.args = {
     kind: 'primary',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button',
     isLoading: true,
 } as ButtonProps;
@@ -71,7 +71,7 @@ export const Secondary_Loading = Template.bind({});
 Secondary_Loading.args = {
     isLoading: true,
     kind: 'secondary',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button',
     
 } as ButtonProps;
@@ -80,7 +80,7 @@ Secondary_Loading.args = {
 export const Ghost_Loading = Template.bind({});
 Ghost_Loading.args = {
     kind: 'ghost',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button',
     isLoading: true,
 } as ButtonProps;
@@ -88,34 +88,34 @@ Ghost_Loading.args = {
 export const Primary_With_Icon = Template.bind({});
 Primary_With_Icon.args = {
     kind: 'primary',
-    size: 'medium',
+    sizeType: 'small',
     children: 'Button',
     iconMode: 'with-icon',
-    iconName: 'add'
+    iconName: 'where_to_vote'
 } as ButtonProps;
 
 export const Secondary_With_Icon = Template.bind({});
 Secondary_With_Icon.args = {
     kind: 'secondary',
-    size: 'medium',
+    sizeType: 'small',
     children: 'Button',
     iconMode: 'with-icon',
-    iconName: 'add'
+    iconName: 'where_to_vote'
 } as ButtonProps;
 
 export const Ghost_With_Icon = Template.bind({});
 Ghost_With_Icon.args = {
     kind: 'ghost',
-    size: 'medium',
+    sizeType: 'small',
     children: 'Button',
     iconMode: 'with-icon',
-    iconName: 'add'
+    iconName: 'where_to_vote'
 } as ButtonProps;
 
 export const Primary_Icon_Only = Template.bind({});
 Primary_Icon_Only.args = {
     kind: 'primary',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button',
     iconMode: 'icon-only',
     iconName: 'home'
@@ -124,7 +124,7 @@ Primary_Icon_Only.args = {
 export const Secondary_Icon_Only = Template.bind({});
 Secondary_Icon_Only.args = {
     kind: 'secondary',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button',
     iconMode: 'icon-only',
     iconName: 'home'
@@ -133,7 +133,7 @@ Secondary_Icon_Only.args = {
 export const Ghost_Icon_Only = Template.bind({});
 Ghost_Icon_Only .args = {
     kind: 'ghost',
-    size: 'medium',
+    sizeType: 'medium',
     children: 'Button',
     iconMode: 'icon-only',
     iconName: 'home'
