@@ -40,14 +40,12 @@ export const Unchecked = Template.bind({});
 Unchecked.args = {
      id: 'Unchecked', 
      label: 'Option1', 
-     hideLabel: true 
     }as  CheckBoxProps;
 
 export const Checked = Template.bind({});
 Checked .args ={
     id: 'Checked', 
     label: 'Option2', 
-    hideLabel: true, 
     checked: true
  }as  CheckBoxProps;
 

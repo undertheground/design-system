@@ -1,9 +1,11 @@
 import React , { ComponentProps, FunctionComponent, ReactNode } from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from '@undertheground/color';
+import { rgba } from 'polished';
 
 
-export type CheckBoxProps ={
+
+export type CheckBoxProps = {
     id?: string;
     required?: boolean;
     disable?: boolean;
@@ -13,142 +15,131 @@ export type CheckBoxProps ={
     error?: ReactNode;
 }
 
+
 export const Checkbox: FunctionComponent<CheckBoxProps & ComponentProps<typeof Input>> = ({
-    id,
-    label,
-    error,
-    hideLabel,
-    ...props
-  }) => {
-    const errorId = `${id}-error`;
-    return (
-      <StyledCheckbox>
-        <Label className="label-cbx">
-          <Input
-            className="invisible"
-            id={id}
-            aria-describedby={errorId}
-            aria-invalid={!!error}
-            type="checkbox"
-            {...props}
-            />
-          <>
-            <div className="checkbox">
-              <svg width="20px" height="20px" viewBox="0 0 20 20">
-                <path d="M3,1 L17,1 L17,1 C18.1045695,1 19,1.8954305 19,3 L19,17 L19,17 C19,18.1045695 18.1045695,19 17,19 L3,19 L3,19 C1.8954305,19 1,18.1045695 1,17 L1,3 L1,3 C1,1.8954305 1.8954305,1 3,1 Z"></path>
-                <polyline points="4 11 8 15 16 6"></polyline>
-              </svg>
-            </div>
-          </>
-          <LabelText>
-            <OptionalText hideLabel={props.hideLabel}>{props.label}</OptionalText>
-          </LabelText>
-        </Label>
-        <Error id={errorId}>{error}</Error>
-      </StyledCheckbox>
-    );
-  };
+  id,
+  label,
+  error,
+  hideLabel,
+  ...props
+}) => {
+  const errorId = `${id}-error`;
+  const checkboxColor = colors.pink[3];
+  return (
+    <CheckboxWrapper>
+      <Label>
+        <Input
+          {...props}
+          id={id}
+          checkboxColor={checkboxColor}
+          type="checkbox"
+        />
+         
+        <LabelText>
+          <OptionalText hideLabel={hideLabel}>{label}</OptionalText>
+        </LabelText>
+      </Label>
+      <Error id={errorId}>{error}</Error>
+    </CheckboxWrapper>
+  );
+};
 
 
-export const StyledCheckbox = styled.div`
 
-`
-
-export const Label = styled.div`
-.label-cbx {
-  user-select: none;
+const Label = styled.label`
   cursor: pointer;
-  margin-bottom: 0;
-}
-.label-cbx input:checked + .checkbox {
-  border-color: #20C2E0;
-}
-.label-cbx input:checked + .checkbox svg path {
-  fill: #20C2E0;
-}
-.label-cbx input:checked + .checkbox svg polyline {
-  stroke-dashoffset: 0;
-}
-.label-cbx:hover .checkbox svg path {
-  stroke-dashoffset: 0;
-}
-
-.invisible {
-  position: absolute;
-  z-index: -1;
-  width: 0;
-  height: 0;
-  opacity: 0;
-}
-
-
-`
-export const LabelText = styled.span`
-
-`
-
-export const Input = styled.input.attrs({ type: 'checkbox' })<{ checkboxColor: string }>`
-
-.label-cbx .checkbox {
+  font-size: 16px;
   position: relative;
-  top: 2px;
-  float: left;
-  margin-right: 8px;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #C8CCD4;
-  border-radius: 3px;
-}
-.label-cbx .checkbox svg {
-  position: absolute;
-  top: -2px;
-  left: -2px;
-}
-.label-cbx .checkbox svg path {
-  fill: none;
-  stroke: #20C2E0;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 71px;
-  stroke-dashoffset: 71px;
-  transition: all 0.6s ease;
-}
-.label-cbx .checkbox svg polyline {
-  fill: none;
-  stroke: #FFF;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke-dasharray: 18px;
-  stroke-dashoffset: 18px;
-  transition: all 0.3s ease;
-}
-.label-cbx > span {
-  pointer-events: none;
-  vertical-align: middle;
-}
+  height: 1rem;
+  display: flex;
+  align-items: center;
+`;
 
-.cntr {
-  position: absolute;
-  top: 45%;
-  left: 0;
-  width: 100%;
-  text-align: center;
-}
+const OptionalText = styled.span<Pick<CheckBoxProps, "hideLabel">>`
+  ${(props) =>
+    props.hideLabel &&
+    css`
+      border: 0px !important;
+      clip: rect(0 0 0 0) !important;
+      -webkit-clip-path: inset(100%) !important;
+      clip-path: inset(100%) !important;
+      height: 1px !important;
+      overflow: hidden !important;
+      padding: 0px !important;
+      position: absolute !important;
+      white-space: nowrap !important;
+      width: 1px !important;
+    `}
+`;
 
-.invisible {
-  position: absolute;
-  z-index: -1;
-  width: 0;
-  height: 0;
+const Error = styled.span`
+
+  color: ${colors.pink[3]};
+  margin-left: 6px;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+`;
+
+const LabelText = styled.span``;
+
+const Input = styled.input.attrs({ type: 'checkbox' })<{ checkboxColor: string }>`
+  margin: 0 0.4rem 0 0;
+  font-size: initial;
   opacity: 0;
-}
-`
+  vertical-align: text-top;
+  & + ${LabelText} {
+    &:before,
+    &:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 1rem;
+      width: 1rem;
+      content: '';
+      display: block;
+    }
+    &:before {
+      border-radius: 4px;
+    }
+    &:after {
+      border-radius: 3px;
+    }
+  }
+  & + ${LabelText}:before {
+    box-shadow: ${colors.pink[3]} 0 0 0 1px inset;
+  }
+  &:focus + ${LabelText}:before {
+    box-shadow: ${(props) => props.checkboxColor} 0 0 0 1px inset;
 
-export const OptionalText = styled.span<{ hideLabel: boolean }>`
+  }
+  &:checked + ${LabelText}:before {
+    box-shadow: ${(props) => props.checkboxColor} 0 0 0 1px inset;
+  }
+  
+  &:checked:focus + ${LabelText}:before {
+    box-shadow: ${(props) => props.checkboxColor} 0 0 0 1px inset,
+      ${(props) => rgba(props.checkboxColor, 0.3)} 0 0 5px 2px;
+  }
 
-`
-export const Error = styled.div`
+  & + ${LabelText}:after {
+    transition: all 150ms ease-out;
+    transform: scale3d(0, 0, 1);
+    height: 10px;
+    margin-left: 2px;
+    margin-top: 2px;
+    width: 10px;
+    opacity: 0;
+  }
+  &:checked + ${LabelText}:after {
+    transform: scale3d(1, 1, 1);
+    background: ${colors.pink[3]};
+    opacity: 1;
+  }
+`;
 
-`
+const CheckboxWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+`;
