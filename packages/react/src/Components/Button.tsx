@@ -1,7 +1,7 @@
 import React from 'react'
 import { MouseEvent, PropsWithChildren } from 'react'
 import styled from 'styled-components'
-import breakpoint from 'styled-components-breakpoint';
+import breakpoint from 'styled-components-breakpoint'
 import {WishworkThemeContextProvider, useThemeContext, ThemeShape} from '../Horizontal/Theme';
 
 const KIND = {

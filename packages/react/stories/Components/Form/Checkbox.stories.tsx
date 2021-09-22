@@ -1,21 +1,54 @@
 import React from 'react';
+import { action } from '@storybook/addon-actions';
 import { Checkbox, CheckBoxProps } from '../../../src/Components/Form/Checkbox'; 
-import { Story } from '@storybook/react';
+
+
+const onChange = action('change');
 
 export default {
-    title: 'Components/Form/Checkbox',
-    component: Checkbox,
-    argTypes: {
-  
-    }
+  title: 'forms/Checkbox',
+  component: Checkbox,
 };
 
-const Template: Story <CheckBoxProps> = args => <Checkbox {...args} />;
+export const Template = (args) => <Checkbox {...args} />;
+Template.args = { label: 'Wish Checkbox', hideLabel: false };
+Template.story = { name: 'Playground' };
 
-export const Checkbox_Active = Template.bind({});
-Checkbox_Active.args = {
-label:'salam'
+export const All = () => (
+  <form>
+    <Checkbox id="Unchecked" label="Option" hideLabel onChange={onChange} />
+    <Checkbox id="Checked" label="Option" hideLabel checked onChange={onChange} />
+    <Checkbox
+      id="With-label-and-error"
+      label="Option1"
+      onChange={onChange}
+      error="Ooooops!!"
+    />
+    <Checkbox id="With-label" label="Option" onChange={onChange} />
+    <Checkbox
+      appearance="secondary"
+      id="With-label"
+      label="Secondary"
+      checked
+      onChange={onChange}
+    />
+    <Checkbox appearance="secondary" id="With-label" label="Secondary" onChange={onChange} />
+  </form>
+);
 
-} as CheckBoxProps;
+export const Unchecked = Template.bind({});
+Unchecked.args = {
+     id: 'Unchecked', 
+     label: 'Option1', 
+     hideLabel: true 
+    }as  CheckBoxProps;
+
+export const Checked = Template.bind({});
+Checked .args ={
+    id: 'Checked', 
+    label: 'Option2', 
+    hideLabel: true, 
+    checked: true
+ }as  CheckBoxProps;
 
 
