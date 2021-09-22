@@ -16,23 +16,19 @@ Template.story = { name: 'Playground' };
 
 export const All = () => (
   <form>
-    <Checkbox id="Unchecked" label="Option" hideLabel onChange={onChange} />
-    <Checkbox id="Checked" label="Option" hideLabel checked onChange={onChange} />
+    <Checkbox id="Unchecked" label="Option" hideLabel  />
+    <Checkbox id="Checked" label="Option" hideLabel />
     <Checkbox
       id="With-label-and-error"
       label="Option1"
-      onChange={onChange}
       error="Ooooops!!"
     />
-    <Checkbox id="With-label" label="Option" onChange={onChange} />
+    <Checkbox id="With-label" label="Option"  />
     <Checkbox
-      appearance="secondary"
       id="With-label"
       label="Secondary"
-      checked
-      onChange={onChange}
     />
-    <Checkbox appearance="secondary" id="With-label" label="Secondary" onChange={onChange} />
+    <Checkbox  id="With-label" label="Secondary"  />
   </form>
 );
 
