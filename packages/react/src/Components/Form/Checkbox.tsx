@@ -61,10 +61,10 @@ margin-bottom: 0;
   
 
 input:checked + .checkbox {
-  border-color:${colors.pink[3]};
+  border-color:${colors.blue[3]};
 }
 input:checked + .checkbox svg path {
-  fill:${colors.pink[3]};
+  fill:${colors.blue[3]};
 }
 input:checked + .checkbox svg polyline {
   stroke-dashoffset: 0;
