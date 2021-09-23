@@ -46,6 +46,7 @@ export type ButtonPropsWithoutChildren =  {
 //Button Styles//
 export const StyledButton = styled.button<ButtonPropsWithoutChildren >`
 font-family:'Arial';
+font-size: 16px;
 font-weight:500;
 cursor:pointer;
 border-radius:0.3rem;

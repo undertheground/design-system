@@ -55,6 +55,7 @@ export const Checkbox: FunctionComponent<CheckBoxProps> = ({
 const Label = styled.label`
 font-family:"Mukta Vaani";
 font-weight: 400;
+font-size: 16px;
 user-select: none;
 cursor: pointer;
 margin-bottom: 0;
@@ -89,7 +90,7 @@ input:checked + .checkbox svg polyline {
 }
 .checkbox svg path {
   fill: none;
-  stroke: ${colors.pink[3]};
+  stroke: ${colors.blue[3]};
   stroke-width: 2;
   stroke-linecap: round;
   stroke-linejoin: round;
