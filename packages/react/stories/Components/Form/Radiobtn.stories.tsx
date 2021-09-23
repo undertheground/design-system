@@ -18,8 +18,8 @@ export const All = () => (
   <form>
     <Radio id="Option one" label="1" value="1"  />
     <Radio id="Option two" label="2" value="2"  />
-    <Radio id="3" label="3" error="Oooops!" />
-    <Radio id="4" label="4" description="15 canines" value="4"  />
+    <Radio id="3" label="3" value="3"/>
+    <Radio id="4" label="4" value="4"  />
     <Radio id="5" label="5" value="5" />
     <Radio id="6" label="6" value="6" />
   </form>
