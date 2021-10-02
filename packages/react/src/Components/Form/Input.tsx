@@ -161,10 +161,11 @@ export const TextInput = (props: TextInputProps) => {
 
 export const StyledDiv = styled.div<Pick<TextInputProps, "sizeType" | "leftIconName" | "isError" | "isSuccess" | "showHelp">>`
 font-family:"Mukta Vaani";
+font-size: 16px;
 font-weight: 400;
 display:flex;
 position:relative;
-width:24rem;
+width: 100%;
 
 input:not(:placeholder-shown) + span{
     color: ${colors.grey[3]};

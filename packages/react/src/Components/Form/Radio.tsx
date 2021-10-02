@@ -57,6 +57,7 @@ export const Radio: FunctionComponent<RadioProps> = ({
 };
 
 const StyledLabel = styled.label`
+font-size: 16px;
 cursor: pointer;
 display: inline-block;
 -webkit-user-select: none;
