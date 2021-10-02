@@ -55,7 +55,6 @@ export const TextInput = (props: TextInputProps) => {
         if (typeof(props.value) === 'string' ) {
             setCount(props.value.length) 
         }
-        console.log(props.value)
     }, [props.value])
 
     return (
@@ -103,7 +102,7 @@ export const TextInput = (props: TextInputProps) => {
             showHelp={props.showHelp}
             >
                 <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-                <span className={'material-icons-outlined'}>{props.leftIconName}</span>
+                <span className={'material-icons-outlined'}>{props.leftIconName?.toLowerCase()}</span>
             </LeftImageSpan>
             }
 
@@ -114,7 +113,7 @@ export const TextInput = (props: TextInputProps) => {
             showHelp={props.showHelp}
             >
                 <link href="https://fonts.googleapis.com/css2?family=Material+Icons+Outlined"rel="stylesheet"/>
-                <span className={'material-icons-outlined'}>{props.rightIconName}</span>
+                <span className={'material-icons-outlined'}>{props.rightIconName?.toLowerCase()}</span>
             </RightImageSpan>
             }
             
@@ -353,7 +352,7 @@ ${(props) =>{
 
 ${(props) => {
 
-    switch (props.sizeType) {
+    switch (props.sizeType?.toLowerCase()) {
         case SIZE_TYPES.SMALL:
             return(`
                 width: 16rem; 

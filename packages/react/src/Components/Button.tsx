@@ -38,248 +38,9 @@ export type ButtonPropsWithoutChildren =  {
   style?: object;
   theme?: ThemeShape; 
   onClick?: OnClickAdapter<HTMLButtonElement>;
-  windowWidth?: string;
 } & IconMode;
 
 
-
-//Button Styles//
-export const StyledButton = styled.button<ButtonPropsWithoutChildren >`
-font-family:'Arial';
-font-weight:500;
-cursor:pointer;
-border-radius:0.3rem;
-outline:none !important;
-transition: all 150ms ease-out;
-transform: translate3d(0, 0, 0);
-
-
-${(props) =>{
-  switch(props.sizeType){
-    case SIZE_TYPES.SMALL:
-      return(`
-      font-size:0.875rem;
-      height: 2rem;
-      padding:0 1rem;
-      span {
-        font-size: 1.2rem;
-      }
-      ${() => {
-        switch (props.windowWidth) {
-        case 'sm':
-          return(`
-            font-size:4.875rem;
-            height: 2rem;
-            padding:0 0.5rem;
-            font-color:blue;
-            span {
-              font-size: 1.2rem;
-            }`
-          )
-      
-        default:
-        return``
-      }
-      }}
-
-
-      `)
-    case SIZE_TYPES.LARGE:
-      return(`
-      height: 3rem;
-      font-size: 1.25rem;
-      padding:0 4rem;
-      span {
-        font-size: 1.6rem;
-
-      }
-
-      `)
-
-
-      default: 
-      return(`
-      height: 2.5rem;
-      font-size:1rem;
-      padding:0 3rem;
-      span {
-        font-size: 1.5rem;
-  
-      }
-      `)
-  }
-}}
-
-${(props) => {
-  if (!props.isLoading) return ``
-  
-  return(
-    `
-    background-color: ${props.theme.colors.neutralColor[0]} !important;
-    border:0 !important;
-    cursor: progress !important;
-    @keyframes spin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
-      }
-    }
-  
-    .loading{
-      border-radius: 50%;
-      width: 1rem;
-      height: 1rem;
-      border: .18rem solid #303030;
-      border-top-color: #FAFAFA;
-      animation: spin 1s infinite linear;
-    }
-    
-    `
-    )
-  }
-}
-
-${(props) => {
-  if (props.disabled) return ``
-
-  switch (props.kind) {
-    case KIND.SECONDARY:
-    
-      return(`
-        color: ${props.theme.colors.secondaryColor[4]};
-        border:0.14rem solid ${props.theme.colors.secondaryColor[4]};
-        background-color:transparent;
-
-        
-        &:hover{
-          background:${props.theme.colors.secondaryColor[5]};
-          color: ${props.theme.colors.neutralColor[1]};
-          border:0.14rem solid transparent;
-        }
-        &:active{
-          background:${props.theme.colors.secondaryColor[6]};
-          color: ${props.theme.colors.neutralColor[1]};
-          border:0.14rem solid transparent;
-        }`) 
-
-    case KIND.GHOST:
-    
-      return (`
-        color: ${props.theme.colors.primaryColor[3]};
-        background-color:transparent;
-        border:0.14rem solid transparent ;
-        
-        &:hover{
-          background:${props.theme.colors.neutralColor[0]};
-          border:0.14rem solid transparent;
-        }
-        &:active{
-          
-          border:0.14rem solid ${props.theme.colors.primaryColor[5]};
-        }`)
-
-    default: // props.kind === KIND.PRIMARY (default kind)
-
-      return (`
-        border:0.14rem solid transparent;
-        background-color: ${props.theme.colors.primaryColor[1]};
-        color:${props.theme.colors.white};
-        
-        &:hover{
-          background: ${props.theme.colors.primaryColor[5]};
-          border:0.14rem solid transparent;
-        }
-        &:active:{
-          background: ${props.theme.colors.primaryColor[6]};
-          border:0.14rem solid transparent;
-        }
-        
-        ${breakpoint('desktop')`
-        background-color:yellow;
-       `}
-        
-        `)
-
-    
-      }        
-}}
-
-
-${(props) =>{ 
-  if (!props.disabled ) return ``
-  const commonStyleForDisabled = (`
-        color:${props.theme.colors.neutralColor[3]};
-        cursor: not-allowed;
-        &:hover{
-          transform: none;
-        };
-        `)
-  switch (props.kind) {
-    
-    case KIND.SECONDARY:
-      return(commonStyleForDisabled + 
-        `
-        border:0.14rem solid ${props.theme.colors.neutralColor[0]};
-        `)
-    case KIND.GHOST:
-      return ( commonStyleForDisabled + `
-      border:0.14rem solid transparent;
-        background:${props.theme.colors.white}
-      `
-      )
-    default:
-      return(commonStyleForDisabled + `
-        background:${props.theme.colors.neutralColor[0]};
-        border:0.14rem solid ${props.theme.colors.neutralColor[0]};  
-      `)
-  }
-}
-}
-
-${(props) => { 
-  if ( (props.iconMode === 'without-icon') || (!props.iconMode) ) return ''
-  if (props.iconMode === 'with-icon') {
-    return(
-    `
-    .content{
-      display: flex;
-      align-items:center;
-      padding-left:0.3rem;
-    }
-    .with-icon{
-      display:inline-flex;
-      padding:0 auto;
-      vertical-align: middle;
-      margin-right:0.5rem;
-    }
-
-    `
-    )
-  }
-  if (props.iconMode === 'icon-only') {
-    return(`
-    padding: 0;
-
-    .icon-only-${SIZE_TYPES.SMALL} {
-      padding: 0.3rem 0.4rem 0.1rem 0.4rem ;
-    }
-  
-    .icon-only-${SIZE_TYPES.MEDIUM}{
-      padding:0.36rem 0.4rem 0.4rem 0.4rem ;
-    }
-
-    .icon-only-${SIZE_TYPES.LARGE}{
-      padding:0.2rem 0.6rem 0rem 0.6rem ;
-      
-    }
-    `
-    )}
-  return ``
-  
-}}
-`;
 
 export type ButtonProps = PropsWithChildren<ButtonPropsWithoutChildren>;
 
@@ -354,3 +115,223 @@ export const Button = (props: ButtonProps) => {
 //   isDisabled: false,
 //   ...buttonStyleDefaultProps,
 // };
+
+
+//Button Styles//
+export const StyledButton = styled.button<ButtonPropsWithoutChildren >`
+font-family:'Arial';
+font-weight:500;
+cursor:pointer;
+border-radius:0.3rem;
+outline:none !important;
+transition: all 150ms ease-out;
+transform: translate3d(0, 0, 0);
+
+
+${(props) =>{
+  switch(props.sizeType?.toLowerCase()){
+    case SIZE_TYPES.SMALL:
+      return(`
+      font-size:0.875rem;
+      height: 2rem;
+      padding:0 1rem;
+      span {
+        font-size: 1.2rem;
+      }
+      `)
+    case SIZE_TYPES.LARGE:
+      return(`
+      height: 3rem;
+      font-size: 1.25rem;
+      padding:0 4rem;
+      span {
+        font-size: 1.6rem;
+
+      }
+
+      `)
+
+
+      default: 
+      return(`
+      height: 2.5rem;
+      font-size:1rem;
+      padding:0 3rem;
+      span {
+        font-size: 1.5rem;
+  
+      }
+      `)
+  }
+}}
+
+${(props) => {
+  if (!props.isLoading) return ``
+  
+  return(
+    `
+    background-color: ${props.theme.colors.neutralColor[0]} !important;
+    border:0 !important;
+    cursor: progress !important;
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  
+    .loading{
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      border: .18rem solid #303030;
+      border-top-color: #FAFAFA;
+      animation: spin 1s infinite linear;
+    }
+    
+    `
+    )
+  }
+}
+
+${(props) => {
+  if (props.disabled) return ``
+
+  switch (props.kind?.toLowerCase()) {
+    case KIND.SECONDARY:
+    
+      return(`
+        color: ${props.theme.colors.secondaryColor[4]};
+        border:0.14rem solid ${props.theme.colors.secondaryColor[4]};
+        background-color:transparent;
+
+        
+        &:hover{
+          background:${props.theme.colors.secondaryColor[5]};
+          color: ${props.theme.colors.neutralColor[1]};
+          border:0.14rem solid transparent;
+        }
+        &:active{
+          background:${props.theme.colors.secondaryColor[6]};
+          color: ${props.theme.colors.neutralColor[1]};
+          border:0.14rem solid transparent;
+        }`) 
+
+    case KIND.GHOST:
+    
+      return (`
+        color: ${props.theme.colors.primaryColor[3]};
+        background-color:transparent;
+        border:0.14rem solid transparent ;
+        
+        &:hover{
+          background:${props.theme.colors.neutralColor[0]};
+          border:0.14rem solid transparent;
+        }
+        &:active{
+          
+          border:0.14rem solid ${props.theme.colors.primaryColor[5]};
+        }`)
+
+    default: // props.kind === KIND.PRIMARY (default kind)
+
+      return (`
+        border:0.14rem solid transparent;
+        background-color: ${props.theme.colors.primaryColor[1]};
+        color:${props.theme.colors.white};
+        
+        &:hover{
+          background: ${props.theme.colors.primaryColor[5]};
+          border:0.14rem solid transparent;
+        }
+        &:active:{
+          background: ${props.theme.colors.primaryColor[6]};
+          border:0.14rem solid transparent;
+        }
+        
+        ${breakpoint('desktop')`
+        background-color:yellow;
+       `}
+        
+        `)
+
+    
+      }        
+}}
+
+
+${(props) =>{ 
+  if (!props.disabled ) return ``
+  const commonStyleForDisabled = (`
+        color:${props.theme.colors.neutralColor[3]};
+        cursor: not-allowed;
+        &:hover{
+          transform: none;
+        };
+        `)
+  switch (props.kind?.toLowerCase()) {
+    
+    case KIND.SECONDARY:
+      return(commonStyleForDisabled + 
+        `
+        border:0.14rem solid ${props.theme.colors.neutralColor[0]};
+        `)
+    case KIND.GHOST:
+      return ( commonStyleForDisabled + `
+      border:0.14rem solid transparent;
+        background:${props.theme.colors.white}
+      `
+      )
+    default:
+      return(commonStyleForDisabled + `
+        background:${props.theme.colors.neutralColor[0]};
+        border:0.14rem solid ${props.theme.colors.neutralColor[0]};  
+      `)
+  }
+}
+}
+
+${(props) => { 
+  if ( (props.iconMode?.toLowerCase() === 'without-icon') || (!props.iconMode) ) return ''
+  if (props.iconMode?.toLowerCase() === 'with-icon') {
+    return(
+    `
+    .content{
+      display: flex;
+      align-items:center;
+      padding-left:0.3rem;
+    }
+    .with-icon{
+      display:inline-flex;
+      padding:0 auto;
+      vertical-align: middle;
+      margin-right:0.5rem;
+    }
+
+    `
+    )
+  }
+  if (props.iconMode?.toLowerCase() === 'icon-only') {
+    return(`
+    padding: 0;
+
+    .icon-only-${SIZE_TYPES.SMALL} {
+      padding: 0.3rem 0.4rem 0.1rem 0.4rem ;
+    }
+  
+    .icon-only-${SIZE_TYPES.MEDIUM}{
+      padding:0.36rem 0.4rem 0.4rem 0.4rem ;
+    }
+
+    .icon-only-${SIZE_TYPES.LARGE}{
+      padding:0.2rem 0.6rem 0rem 0.6rem ;
+      
+    }
+    `
+    )}
+  return ``
+  
+}}
+`;
