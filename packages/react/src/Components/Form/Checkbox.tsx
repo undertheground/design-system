@@ -28,7 +28,7 @@ export const Checkbox: FunctionComponent<CheckBoxProps> = ({
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link href="https://fonts.googleapis.com/css2?family=Mukta+Vaani:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"></link> 
  
-      <Label className={'label-cbx'} htmlFor={id}>
+      <Label className={'label-cbx'}>
         <input
           className={'invisible'}
           {...props}
@@ -43,7 +43,7 @@ export const Checkbox: FunctionComponent<CheckBoxProps> = ({
             <polyline points="4 11 8 15 16 6"></polyline>
           </svg>
         </div>
-        <span>Checkbox</span>
+        {label}
       </Label>
 
      </> 
@@ -107,11 +107,6 @@ input:checked + .checkbox svg polyline {
   stroke-dasharray: 18px;
   stroke-dashoffset: 18px;
   transition: all 0.3s ease;
-}
-
-span {
-  pointer-events: none;
-  vertical-align: inherit;
 }
 
 .invisible {
