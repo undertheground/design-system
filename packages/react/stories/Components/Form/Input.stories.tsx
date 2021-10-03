@@ -5,7 +5,7 @@ import { Story } from '@storybook/react';
 
 
 export default {
-  title: 'Components/Form/Input',
+  title: 'Form/Input',
   component: TextInput,
   argTypes: {
 

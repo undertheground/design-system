@@ -6,7 +6,7 @@ import { Radio } from '../../../src/Components/Form/Radio';
 const onChange = action('change');
 
 export default {
-  title: 'forms/Radio',
+  title: 'Form/Radio',
   component: Radio,
 };
 
@@ -15,12 +15,12 @@ Template.args = { label: 'label', hideLabel: false };
 Template.story = { name: 'Playground' };
 
 export const All = () => (
-  <div>
-    <Radio id="Option one" label="1" value="1"  />
-    <Radio id="Option two" label="2" value="2"  />
-    <Radio id="Option three" label="3" value="3"/>
+  <form>
+    <Radio id="Option-one" label="1111" groupName={'radio-grp'} />
+    <Radio id="Option-two" label="2222" groupName={'radio-grp'} />
+    <Radio id="Option-three" label="3333" groupName={'radio-grp'} />
     
-  </div>
+  </form>
 );
 
 export const Unchecked = Template.bind({});
