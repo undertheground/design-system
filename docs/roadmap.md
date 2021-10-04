@@ -4,7 +4,7 @@
 
 Consists of design elements that helps intergrity and consistency among the products. 
 
-- [ ] `Colors (priority: 1)`
+- [x] `Colors (priority: 1)`
 - [ ] `Grid System (priority: 2)`
 - [ ] `Typography (priority: 3)`
 - [ ] `Spacing (priority: 4)`
@@ -16,9 +16,9 @@ Consists of Component-Driven-Development of the design system. There are plenty 
 that could be used by software engineers.
 
 - [x] `Button (priority: 1)`
-- [ ] `Checkbox (priority: 2)`
-- [ ] `Redio Button (priority: 2)`
-- [ ] `Text Input (priority: 2)`
+- [x] `Checkbox (priority: 2)`
+- [x] `Redio Button (priority: 2)`
+- [x] `Text Input (priority: 2)`
 - [ ] `Drop Down (priority: 3)`
 - [ ] `File Uplouder (priority: 3)`
 - [ ] `Link (priority: 3)`
