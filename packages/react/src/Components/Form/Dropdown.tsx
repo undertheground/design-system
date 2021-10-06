@@ -3,11 +3,22 @@ import styled from 'styled-components';
 // import colors from '@undertheground/color';
 
 
+interface dropDownItem{
+    text:string,
+    value:string
+}
 
 export type DropdownProps = {
     id?: string;
-
-
+    items:Array<dropDownItem>;
+    onChange?:React.ChangeEvent<HTMLSelectElement>;
+    autoFocus?:boolean;
+    disabled?:boolean;
+    form_id?:string;
+    multiple?:boolean;
+    name?:string;
+    required?:boolean;
+    size?:number;
 }
 
 
