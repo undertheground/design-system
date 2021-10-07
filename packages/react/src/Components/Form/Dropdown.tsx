@@ -19,12 +19,13 @@ export type DropdownProps = {
     name?:string;
     required?:boolean;
     size?:number;
+    label?:string;
+    placeholder?:string;
+    optionsAttributes?:object;
 }
 
 
-export const Dropdown: FunctionComponent<DropdownProps> = ({
-  ...props
-}) => {
+export const Dropdown: FunctionComponent<DropdownProps> = (props:DropdownProps) => {
     console.log(props);
     return (
     <StyledDiv>
