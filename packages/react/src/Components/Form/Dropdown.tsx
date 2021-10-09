@@ -4,12 +4,12 @@ import styled from 'styled-components';
 
 interface dropDownItem {
   text: string;
-  value: Exclude<string, ''>;//this part must be tested
+  value: Exclude<string, ''>; //this part must be tested
 }
 
 export type DropdownProps = {
   id?: string;
-  items: Array<dropDownItem>;
+  items?: Array<dropDownItem>;
   onChange?: React.ChangeEvent<HTMLSelectElement>;
   autoFocus?: boolean;
   disabled?: boolean;
@@ -27,13 +27,17 @@ export const Dropdown: FunctionComponent<DropdownProps> = (
   props: DropdownProps
 ) => {
   console.log(props);
-  const options = props.items.map((item, index) => {
-    return (
-      <StyledOption key={index} {...props.optionsAttributes} value={item.value}>
-        {item.text}
-      </StyledOption>
-    );
-  });
+  const options = props.items
+    ? props.items.map((item, index) => {
+        <StyledOption
+          key={index}
+          {...props.optionsAttributes}
+          value={item.value}
+        >
+          {item.text}
+        </StyledOption>;
+      })
+    : null;
   return (
     <StyledDiv id={props.id}>
       {props.label ? props.label : null}
