@@ -29,19 +29,21 @@ export const Dropdown: FunctionComponent<DropdownProps> = (
   console.log(props);
   const options = props.items
     ? props.items.map((item, index) => {
-        <StyledOption
-          key={index}
-          {...props.optionsAttributes}
-          value={item.value}
-        >
-          {item.text}
-        </StyledOption>;
+        return (
+          <StyledOption
+            key={index}
+            {...props.optionsAttributes}
+            value={item.value}
+          >
+            {item.text}
+          </StyledOption>
+        );
       })
     : null;
   return (
     <StyledDiv id={props.id}>
-      {props.label ? props.label : null}
-      <StyledSelect>
+      {props.label && <Label color={props.disabled?"#BABABA":"#303030"}>{props.label}</Label>}
+      <StyledSelect disabled={props.disabled}>
         {props.placeholder && (
           <StyledOption value={''}>{props.placeholder}</StyledOption>
         )}
@@ -50,11 +52,35 @@ export const Dropdown: FunctionComponent<DropdownProps> = (
     </StyledDiv>
   );
 };
-
+const Label = styled.h3`
+font-family: 'Mukta Vaani';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.16px;
+  color: ${props=>props.color};
+`;
 const StyledDiv = styled.div`
-  font-family: 'Mukta Vaani';
+  
   font-weight: 400;
   font-size: 16px;
 `;
-const StyledSelect = styled.select``;
+const StyledSelect = styled.select`
+  padding: 23px 18px;
+  background: #ffffff;
+  border: 1px solid #bababa;
+  box-sizing: border-box;
+  border-radius: 2px;
+  font-style: normal;
+  font-family: 'Mukta Vaani';
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.16px;
+  color: #303030;
+  &:focus {
+    border: 1px solid #1D62D1;
+  }
+`;
 const StyledOption = styled.option``;
