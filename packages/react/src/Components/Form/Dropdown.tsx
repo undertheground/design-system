@@ -62,7 +62,6 @@ font-family: 'Mukta Vaani';
   color: ${props=>props.color};
 `;
 const StyledDiv = styled.div`
-  
   font-weight: 400;
   font-size: 16px;
 `;
@@ -83,4 +82,6 @@ const StyledSelect = styled.select`
     border: 1px solid #1D62D1;
   }
 `;
-const StyledOption = styled.option``;
+const StyledOption = styled.option`
+
+`;
