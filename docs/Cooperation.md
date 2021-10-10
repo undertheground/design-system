@@ -6,7 +6,7 @@
 
 ## Onboarding
 - We use Basecamp as a medium to share information, communication, and definition of tasks.
-- We use `Typescript` for developing components. 
+- We use [Typescript](https://www.typescriptlang.org/) for developing components. 
 - Each component will be developed on a different branch.
 - The majority of the development is in two files, (`example.tsx` & `example.stories.tsx`). [read more](https://storybook.js.org/docs/react/writing-stories/introduction)
 - Each component is designed in `Figma`, and we use the `styled-components` library for the component's style.
