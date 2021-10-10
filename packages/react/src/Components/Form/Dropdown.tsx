@@ -1,87 +1,77 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent,useState } from 'react';
 import styled from 'styled-components';
 // import colors from '@undertheground/color';
 
 interface dropDownItem {
   text: string;
-  value: Exclude<string, ''>; //this part must be tested
+  value: string;
 }
 
 export type DropdownProps = {
   id?: string;
   items?: Array<dropDownItem>;
   onChange?: React.ChangeEvent<HTMLSelectElement>;
-  autoFocus?: boolean;
   disabled?: boolean;
-  form_id?: string;
-  multiple?: boolean;
-  name?: string;
-  required?: boolean;
-  size?: number;
   label?: string;
   placeholder?: string;
-  optionsAttributes?: object;
 };
 
-export const Dropdown: FunctionComponent<DropdownProps> = (
-  props: DropdownProps
-) => {
-  console.log(props);
-  const options = props.items
-    ? props.items.map((item, index) => {
-        return (
-          <StyledOption
-            key={index}
-            {...props.optionsAttributes}
-            value={item.value}
-          >
-            {item.text}
-          </StyledOption>
-        );
-      })
-    : null;
+const Main = styled("div")`
+
+`;
+
+const DropDownContainer = styled("div")`
+
+`;
+
+const DropDownHeader = styled("div")`
+
+`;
+
+const DropDownListContainer = styled("div")``;
+
+const DropDownList = styled("ul")`
+
+`;
+
+const ListItem = styled("li")`
+  list-style: none;
+`;
+
+
+export function Dropdown(props:DropdownProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOptionValue, setSelectedOptionValue] = useState("");
+  const [selectedOptionText, setSelectedOptionText] = useState("");
+
+  const toggling = () => {if(!props.disabled) setIsOpen(!isOpen)};
+
+  const onOptionClicked =(value:string,text:string) => {
+    setSelectedOptionValue(value);
+    setSelectedOptionText(text);
+    setIsOpen(false);
+    console.log(selectedOptionValue);
+  };
+
   return (
-    <StyledDiv id={props.id}>
-      {props.label && <Label color={props.disabled?"#BABABA":"#303030"}>{props.label}</Label>}
-      <StyledSelect disabled={props.disabled}>
-        {props.placeholder && (
-          <StyledOption value={''}>{props.placeholder}</StyledOption>
+    <Main>
+      <h1>{props.label}</h1>
+      <DropDownContainer>
+        <DropDownHeader onClick={toggling}>
+          {selectedOptionText || props.placeholder}
+        </DropDownHeader>
+        {isOpen && (
+          <DropDownListContainer>
+            <DropDownList>
+              {props.items && props.items.map(option => (
+                <ListItem onClick={()=>{onOptionClicked(option.value,option.text)}}  key={Math.random()}>
+                  {option.text}
+                </ListItem>
+              ))}
+            </DropDownList>
+          </DropDownListContainer>
         )}
-        {options}
-      </StyledSelect>
-    </StyledDiv>
+      </DropDownContainer>
+    </Main>
   );
-};
-const Label = styled.h3`
-font-family: 'Mukta Vaani';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0.16px;
-  color: ${props=>props.color};
-`;
-const StyledDiv = styled.div`
-  font-weight: 400;
-  font-size: 16px;
-`;
-const StyledSelect = styled.select`
-  padding: 23px 18px;
-  background: #ffffff;
-  border: 1px solid #bababa;
-  box-sizing: border-box;
-  border-radius: 2px;
-  font-style: normal;
-  font-family: 'Mukta Vaani';
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: 0.16px;
-  color: #303030;
-  &:focus {
-    border: 1px solid #1D62D1;
-  }
-`;
-const StyledOption = styled.option`
-
-`;
+}
