@@ -22,13 +22,16 @@ that could be used by software engineers.
 - [ ] `Drop Down (priority: 3)`
 - [ ] `File Uplouder (priority: 3)`
 - [ ] `Link (priority: 3)`
+- [ ] `Tooltip (priority: 4)`
 - [ ] `Cards (priority: 4)`
 - [ ] `Date Picker (priority: 5)`
 - [ ] `Select (priority: 5)`
-- [ ] `Toggle (priority: 5)`
-- [ ] `Search (priority: 6)`
+- [ ] `Switch (priority: 5)`
 - [ ] `Slider (priority: 6)`
 - [ ] `Tags (priority: 6)`
+- [ ] `Divider (priority: 7)`
+- [ ] `Progress Indicator (priority: 7)`
+- [ ] `Pagination (priority: 7)`
 
 ## ↗️↙️ Diagonal Development
 
@@ -36,12 +39,14 @@ These are Mixed-Components that wouls be emerged by the combination of horizonta
 
 - [ ] `Form (priority: 1)`
 - [ ] `Navigation Bar (priority: 2)`
-- [ ] `Footer (priority: 2)`
-- [ ] `Modal Pages (priority: 3)`
-- [ ] `Navigation slider (priority: 4)`
-- [ ] `Data Table (priority: 5)`
-- [ ] `Collapsible Content (priority: 6)`
-- [ ] `Content Switcher (priority: 6)`
+- [ ] `Left Navigation Sidebar (priority: 2)`
+- [ ] `Footer (priority: 3)`
+- [ ] `Modal Pages (priority: 4)`
+- [ ] `Accordion (priority: 5)`
+- [ ] `Tab (priority: 6)`
+- [ ] `Right Navigation Sidebar (priority: 7)`
+- [ ] `Table (priority: 8)`
+
 
 ## 🔄 Procedure
 
