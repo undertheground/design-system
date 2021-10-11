@@ -24,6 +24,58 @@ export type DropdownProps = {
   placeholder?: string;
 };
 
+export function Dropdown(props: DropdownProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedOptionValue, setSelectedOptionValue] = useState('');
+  const [selectedOptionText, setSelectedOptionText] = useState('');
+
+  const toggling = () => {
+    if (!props.disabled) setIsOpen(!isOpen);
+  };
+
+  const onOptionClicked = (value: string, text: string) => {
+    setSelectedOptionValue(value);
+    setSelectedOptionText(text);
+    setIsOpen(false);
+    console.log(selectedOptionValue);
+  };
+
+  return (
+    <Main>
+      <Label color={props.disabled ? '#BABABA' : '#303030'}>
+        {props.label}
+      </Label>
+      <DropDownContainer>
+        <DropDownHeader
+          isOpen={isOpen}
+          disabled={props.disabled}
+          onClick={toggling}
+        >
+          {selectedOptionText || props.placeholder}
+        </DropDownHeader>
+        {isOpen && (
+          <DropDownListContainer>
+            <DropDownList>
+              {props.items &&
+                props.items.map((option) => (
+                  <ListItem
+                    selected={option.value === selectedOptionValue}
+                    onClick={() => {
+                      onOptionClicked(option.value, option.text);
+                    }}
+                    key={Math.random()}
+                  >
+                    {option.text}
+                  </ListItem>
+                ))}
+            </DropDownList>
+          </DropDownListContainer>
+        )}
+      </DropDownContainer>
+    </Main>
+  );
+}
+
 const Main = styled('div')``;
 
 const DropDownContainer = styled('div')``;
@@ -85,55 +137,3 @@ const Label = styled('h3')`
   letter-spacing: 0.16px;
   color: ${(props) => props.color};
 `;
-
-export function Dropdown(props: DropdownProps) {
-  const [isOpen, setIsOpen] = useState(false);
-  const [selectedOptionValue, setSelectedOptionValue] = useState('');
-  const [selectedOptionText, setSelectedOptionText] = useState('');
-
-  const toggling = () => {
-    if (!props.disabled) setIsOpen(!isOpen);
-  };
-
-  const onOptionClicked = (value: string, text: string) => {
-    setSelectedOptionValue(value);
-    setSelectedOptionText(text);
-    setIsOpen(false);
-    console.log(selectedOptionValue);
-  };
-
-  return (
-    <Main>
-      <Label color={props.disabled ? '#BABABA' : '#303030'}>
-        {props.label}
-      </Label>
-      <DropDownContainer>
-        <DropDownHeader
-          isOpen={isOpen}
-          disabled={props.disabled}
-          onClick={toggling}
-        >
-          {selectedOptionText || props.placeholder}
-        </DropDownHeader>
-        {isOpen && (
-          <DropDownListContainer>
-            <DropDownList>
-              {props.items &&
-                props.items.map((option) => (
-                  <ListItem
-                    selected={option.value === selectedOptionValue}
-                    onClick={() => {
-                      onOptionClicked(option.value, option.text);
-                    }}
-                    key={Math.random()}
-                  >
-                    {option.text}
-                  </ListItem>
-                ))}
-            </DropDownList>
-          </DropDownListContainer>
-        )}
-      </DropDownContainer>
-    </Main>
-  );
-}
