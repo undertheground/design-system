@@ -8,9 +8,6 @@ describe('testing typography', () => {
     render(<Typography>{'text'}</Typography>);
     expect(screen.queryByText('text')).toBeInTheDocument();
   });
-  it.todo('accepts strings as children');
-  it.todo('accepts numbers as children');
-  it.todo('limits types of children');
   it('can be for Title/Header 1', () => {
     render(
       <Typography variant={'Title/Header1'}>{'Title/Header 1'}</Typography>
@@ -26,7 +23,7 @@ describe('testing typography', () => {
     expect(screen.getByText('Header 2'))
       .toHaveStyle(`font-family: "Mukta Vaani";
     font-weight: bold;
-    font-size: 2.5px;
+    font-size: 2.5rem;
     letter-spacing: -2%;`);
   });
   it('can be for Header 3', () => {
@@ -53,7 +50,7 @@ describe('testing typography', () => {
     expect(screen.getByText('body')).toHaveStyle(`font-family: "Mukta Vaani";
     font-weight: 500;
     font-size: 1rem;
-    line-height: 1.5%;`);
+    line-height: 140%;`);
   });
   it('can be for bold body', () => {
     render(<Typography variant={'bold-body'}>{'bold body'}</Typography>);
@@ -61,7 +58,7 @@ describe('testing typography', () => {
       .toHaveStyle(`font-family: "Mukta Vaani";
     font-weight: bold;
     font-size: 1rem;
-    line-height: 1.5%;`);
+    line-height: 140%;`);
   });
   it('can be for small medium', () => {
     render(<Typography variant={'small-medium'}>{'small medium'}</Typography>);
@@ -79,6 +76,13 @@ describe('testing typography', () => {
     font-weight: normal;
     font-size: 0.875rem;`);
   });
+  it('can be for small light', () => {
+    render(<Typography variant={'small-light'}>{'small light'}</Typography>);
+    expect(screen.getByText('small light'))
+      .toHaveStyle(`font-family: "Mukta Vaani";
+      font-weight: 300;
+    font-size: 0.875rem;`);
+  });
   it('can be for pre title', () => {
     render(<Typography variant={'pre-title'}>{'pre title'}</Typography>);
     expect(screen.getByText('pre title'))
@@ -88,7 +92,7 @@ describe('testing typography', () => {
     letter-spacing: 3%;`);
   });
   it('can be for button text', () => {
-    render(<Typography variant={'button text'}>{'button text'}</Typography>);
+    render(<Typography variant={'button-text'}>{'button text'}</Typography>);
     expect(screen.getByText('button text')).toHaveStyle(`font-family: "Arial";
     font-weight: bold;
     font-size: 1rem;
@@ -113,8 +117,7 @@ describe('testing typography', () => {
   });
   it('can be for Notes', () => {
     render(<Typography variant={'note'}>{'Notes'}</Typography>);
-    expect(screen.getByText('Notes'))
-      .toHaveStyle(`font-family: "Mukta Vaani";
+    expect(screen.getByText('Notes')).toHaveStyle(`font-family: "Mukta Vaani";
     font-weight: 500;
     font-size: 0.625rem;
     `);
@@ -179,7 +182,7 @@ describe('testing typography', () => {
   it('can be styled for inline code', () => {
     render(<Typography TextStyle={'inline-code'}>{'inline code'}</Typography>);
     expect(screen.getByText('inline code'))
-      .toHaveStyle(`font-family: Space Mono;
+      .toHaveStyle(`font-family: "Space Mono";
     font-weight: normal;
     font-size: 1rem;
     letter-spacing: 0;
