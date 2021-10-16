@@ -103,6 +103,22 @@ describe('testing typography', () => {
     text-decoration-line: underline;
     `);
   });
+  it('can be for website link', () => {
+    render(<Typography variant={'website-link'}>{'website link'}</Typography>);
+    expect(screen.getByText('website link'))
+      .toHaveStyle(`font-family: "Mukta Vaani";
+    font-weight: 500;
+    font-size: 0.75rem;
+    `);
+  });
+  it('can be for Notes', () => {
+    render(<Typography variant={'note'}>{'Notes'}</Typography>);
+    expect(screen.getByText('Notes'))
+      .toHaveStyle(`font-family: "Mukta Vaani";
+    font-weight: 500;
+    font-size: 0.625rem;
+    `);
+  });
   it('can be for estimated number', () => {
     render(
       <Typography variant={'estimated-number'}>{'estimated number'}</Typography>
@@ -162,7 +178,8 @@ describe('testing typography', () => {
   });
   it('can be styled for inline code', () => {
     render(<Typography TextStyle={'inline-code'}>{'inline code'}</Typography>);
-    expect(screen.getByText('inline code')).toHaveStyle(`font-family: Space Mono;
+    expect(screen.getByText('inline code'))
+      .toHaveStyle(`font-family: Space Mono;
     font-weight: normal;
     font-size: 1rem;
     letter-spacing: 0;
