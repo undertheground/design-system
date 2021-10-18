@@ -12,5 +12,7 @@ const Template: Story<AvatarProps> = (args) => <Avatar {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   id: 'test',
-  size:'S'
+  size:'S',
+  children:'AS',
+  shape:'round'
 } as AvatarProps;
