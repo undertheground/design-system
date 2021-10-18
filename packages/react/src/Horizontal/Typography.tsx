@@ -30,7 +30,6 @@ export type TypographyProps = TypographyAestheticProps &
 export function Typography(
   props: TypographyProps
 ): React.FunctionComponentElement<TypographyProps> {
-  console.log(props);
   return (
     <StyledTypography
       variant={props.variant}
