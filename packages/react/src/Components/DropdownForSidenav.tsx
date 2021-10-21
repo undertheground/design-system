@@ -1,4 +1,4 @@
-import React, { ReactChild } from 'react';
+import React, { ReactChild, useState } from 'react';
 import styled from 'styled-components';
 
 export interface DropdownProps {
@@ -6,29 +6,38 @@ export interface DropdownProps {
   children?: ReactChild | ReactChild[];
 }
 
+interface IconProps{color?:string}
+
 export function DropdownForSidenav(props: DropdownProps) {
+  const [ShowContent, setShowContent] = useState(false);
+  const toggleContent = () => setShowContent((content) => !content);
   return (
     <DropDownContainer>
-      <DropDownHeader>{props.placeholder}<ExpandIcon/></DropDownHeader>
-      <DropDownItemsContainer>{props.children}</DropDownItemsContainer>
+      <DropDownHeader onClick={toggleContent}>
+        {props.placeholder}
+        <ExpandIcon />
+      </DropDownHeader>
+      <DropDownItemsContainer>
+        {ShowContent && props.children}
+      </DropDownItemsContainer>
     </DropDownContainer>
   );
 }
 
 function ExpandIcon() {
   return (
-    <div style={{color:'red'}}>
+    <ChevronIcon color={'#ED037C'}>
       <link
         href="https://fonts.googleapis.com/css2?family=Material+Icons"
         rel="stylesheet"
       />
       <span className={'material-icons'}>expand_more</span>
-    </div>
+    </ChevronIcon>
   );
 }
 
 const DropDownContainer = styled.div`
-  width: 254px;
+  /* width: 254px; */
 `;
 const DropDownItemsContainer = styled.div`
   padding-left: 1rem;
@@ -46,3 +55,6 @@ const DropDownHeader = styled.header`
   line-height: 140%;
   cursor: pointer;
 `;
+const ChevronIcon = styled.div<IconProps>`
+  color : ${props=>props.color}
+`
