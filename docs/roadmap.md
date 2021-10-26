@@ -16,14 +16,14 @@ Consists of Component-Driven-Development of the design system. There are plenty 
 that could be used by software engineers.
 
 - [x] `Button (priority: 1)`
+- [ ] `Link (priority: 1)` 
+- [ ] `Cards (priority: 2)`
 - [x] `Checkbox (priority: 2)`
 - [x] `Redio Button (priority: 2)`
 - [x] `Text Input (priority: 2)`
 - [ ] `Drop Down (priority: 3)`
-- [ ] `File Uplouder (priority: 3)`
-- [ ] `Link (priority: 3)`
+
 - [ ] `Tooltip (priority: 4)`
-- [ ] `Cards (priority: 4)`
 - [ ] `Date Picker (priority: 5)`
 - [ ] `Select (priority: 5)`
 - [ ] `Switch (priority: 5)`
@@ -39,13 +39,13 @@ These are Mixed-Components that wouls be emerged by the combination of horizonta
 
 - [ ] `Form (priority: 1)`
 - [ ] `Navigation Bar (priority: 2)`
-- [ ] `Left Navigation Sidebar (priority: 2)`
-- [ ] `Footer (priority: 3)`
-- [ ] `Modal Pages (priority: 4)`
+- [ ] `Modal Pages (priority: 2)`
+- [ ] `Left Navigation Sidebar (priority: 3)`
+- [ ] `Tab (priority: 3)`
+- [ ] `Footer (priority: 4)`
 - [ ] `Accordion (priority: 5)`
-- [ ] `Tab (priority: 6)`
-- [ ] `Right Navigation Sidebar (priority: 7)`
-- [ ] `Table (priority: 8)`
+- [ ] `Right Navigation Sidebar (priority: 6)`
+- [ ] `Table (priority: 7)`
 
 
 ## 🔄 Procedure
