@@ -12,4 +12,6 @@ const Template: Story<AccordionProps> = (args) => <Accordion {...args} />;
 export const Primary = Template.bind({});
 Primary.args = {
   id: 'test',
+  placeholder:'Accordion Number 1',
+  children:"Text after opening"
 } as AccordionProps;
