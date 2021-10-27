@@ -1,4 +1,4 @@
-import React, { ReactChild } from 'react';
+import React, { ReactChild , useState } from 'react';
 import styled from 'styled-components';
 
 interface AccordionFunctionalProps {
@@ -10,21 +10,23 @@ interface AccordionaestheticProps {}
 export type AccordionProps = AccordionFunctionalProps & AccordionaestheticProps;
 
 export function Accordion(props: AccordionProps) {
+  const [ShowContent, setShowContent] = useState<boolean>(false)
   console.log(props);
+  const toggleShowContent = ()=> setShowContent(show => !show)
   return (
     <AccordionWrapper id={props.id}>
-      <AccordionHeader>
-        <Icon IconName={'expand_more'} />
+      <AccordionHeader onClick={toggleShowContent}>
+        <Icon IconName={ShowContent?'close':'expand_more'} />
         {props.placeholder}
       </AccordionHeader>
-      <AccordionContent>{props.children}</AccordionContent>
+      {ShowContent && <AccordionContent>{props.children}</AccordionContent>}
     </AccordionWrapper>
   );
 }
 
 function Icon(props: { IconName?: 'expand_more' | 'close' }) {
   return (
-    <AccordionIcon color={'#ED037C'}>
+    <AccordionIcon color={'#D1036F'}>
       <link
         href="https://fonts.googleapis.com/css2?family=Material+Icons"
         rel="stylesheet"
