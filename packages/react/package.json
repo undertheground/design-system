@@ -1,8 +1,6 @@
 {
-  "version": "0.3.2",
+  "version": "1.0.2",
   "license": "MIT",
-  "private": false,
-  "homepage": "https://undertheground.wishwork.org",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -11,10 +9,6 @@
   ],
   "engines": {
     "node": ">=10"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:undertheground/design-system.git"
   },
   "scripts": {
     "start": "tsdx watch",
@@ -55,46 +49,29 @@
     }
   ],
   "devDependencies": {
-    "@babel/core": "^7.15.0",
-    "@babel/preset-env": "^7.15.0",
-    "@size-limit/preset-small-lib": "^5.0.2",
-    "@storybook/addon-docs": "^6.3.7",
-    "@storybook/addon-essentials": "^6.3.7",
+    "@babel/core": "^7.16.0",
+    "@size-limit/preset-small-lib": "^7.0.3",
+    "@storybook/addon-essentials": "^6.4.9",
     "@storybook/addon-info": "^5.3.21",
-    "@storybook/addon-links": "^6.3.7",
-    "@storybook/addons": "^6.3.7",
-    "@storybook/react": "^6.3.7",
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^12.0.0",
-    "@types/jest": "^25.2.3",
-    "@types/react": "^17.0.16",
-    "@types/react-dom": "^17.0.9",
-    "@types/styled-components": "^5.1.12",
-    "babel-jest": "^27.1.0",
-    "babel-loader": "^8.2.2",
-    "core-js": "^3.16.4",
-    "husky": "^7.0.1",
-    "i": "^0.3.6",
-    "jest": "^26.6.3",
+    "@storybook/addon-links": "^6.4.9",
+    "@storybook/addons": "^6.4.9",
+    "@storybook/react": "^6.4.9",
+    "@types/react": "^17.0.37",
+    "@types/react-dom": "^17.0.11",
+    "babel-loader": "^8.2.3",
+    "husky": "^7.0.4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
-    "react-svg-loader": "^3.0.3",
-    "size-limit": "^5.0.2",
-    "ts-jest": "^27.0.5",
+    "size-limit": "^7.0.4",
     "tsdx": "^0.14.1",
-    "typescript": "^4.3.5",
-    "webpack": "^4.46.0"
+    "tslib": "^2.3.1",
+    "typescript": "^4.5.3"
   },
-  "gitHead": "b7963b4fd10fea0d06db90fc1ce72bc552ccfbcd",
   "dependencies": {
-    "@undertheground/color": "^0.3.0",
-    "material-design-icons": "^3.0.1",
-    "styled-components": "^5.3.0",
-    "styled-components-breakpoint": "^3.0.0-preview.20",
-    "styled-components-grid": "^2.2.2",
-    "styled-components-spacing": "^3.1.1",
-    "styled-theming": "^2.2.0"
-  },
-  "types": "cutom.d.ts"
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/material": "^5.2.3",
+    "@undertheground/color": "^0.3.0"
+  }
 }
