@@ -36,5 +36,5 @@ Development of the design system is in the progress.
   <td align="center">
     <a href="https://github.com/M0HANNA"><img src="https://avatars.githubusercontent.com/u/83944153?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Mohanna Fazli</b></sub></a><br /><a href="#design-aagonzales" title="Design">🎨</a>
       <td align="center">
-    <a href="https://github.com/barghi"><img src="https://avatars.githubusercontent.com/u/5005845?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pooria Barghi</b></sub></a><br /><a href="" title="Code">💻</a>
+    <a href="https://github.com/barghi"><img src="https://avatars.githubusercontent.com/u/5005845?s=70&v=4?s=100" width="100px;" alt=""/><br /><sub><b>Pooria Barghi</b></sub></a><br /><a href="" title="Code">💻</a> <a href="#debug-aagonzales" title="debug">⚙️</a>
   </td>
