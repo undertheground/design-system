@@ -1,6 +1,6 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
-import { TextField, TextFieldType } from '../src/TextField';
+import { Story } from '@storybook/react';
+import TextField, { TextFieldType } from '../src/TextField';
 
 export default {
     title: 'Components/Input',
@@ -8,7 +8,7 @@ export default {
     argTypes: {
       
     },
-  };
+};
 
 const Template: Story <TextFieldType> = args => <TextField {...args} />;
 

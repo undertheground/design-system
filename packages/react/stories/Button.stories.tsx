@@ -1,6 +1,6 @@
 import React from 'react';
-import { Meta, Story } from '@storybook/react';
-import { Button, ButtonType } from '../src/Button';
+import { Story } from '@storybook/react';
+import Button, { ButtonType } from '../src/Button';
 
 export default {
     title: 'Components/Button',
@@ -8,7 +8,7 @@ export default {
     argTypes: {
       
     },
-  };
+};
 
 const Template: Story <ButtonType> = args => <Button {...args} />;
 
